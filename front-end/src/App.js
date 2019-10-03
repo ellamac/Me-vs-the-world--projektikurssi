@@ -5,10 +5,11 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-function App() {
+const App = () => {
   return (
     <Container>
       <h1 className='text-center mt-5 mb-5'>Me versus the WORLD!</h1>
+      <h2>asdasd</h2>
       <Row>
         <Col>
           <PalkkaLomake />
@@ -19,7 +20,7 @@ function App() {
       </Row>
     </Container>
   );
-}
+};
 
 const Tulokset = () => {
   const now = 60;
