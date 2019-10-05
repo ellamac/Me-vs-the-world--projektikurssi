@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import Results from './componets/Results';
 
 const App = () => {
   return (
@@ -12,29 +12,17 @@ const App = () => {
       <h2>asdasd</h2>
       <Row>
         <Col>
-          <PalkkaLomake />
+          <SalaryForm />
         </Col>
         <Col>
-          <Tulokset />
+          <Results />
         </Col>
       </Row>
     </Container>
   );
 };
 
-const Tulokset = () => {
-  const now = 60;
-  const soon = 80;
-  return (
-    <>
-      <h2 className='text-center mb-5'>Tulokset</h2>
-      <ProgressBar className='mb-5' now={now} label={`${now}%`} />
-      <ProgressBar now={soon} label={`${soon}%`} />
-    </>
-  );
-};
-
-const PalkkaLomake = () => (
+const SalaryForm = () => (
   <>
     <h2 className='text-center'>Lomake</h2>
     <Form>
