@@ -4,8 +4,6 @@ Web-sovellus, jolla voi verrata omia tietojaan muun maailman vastaaviin.
 
 Vielä vaiheessa, please stand by.
 
-## Component structure
-
 ## Available Scripts
 
 In the project directory, you can run:

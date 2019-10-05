@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Salary from './componets/SalaryPage';
+import SalaryPage from './componets/SalaryPage';
 
 const App = () => {
   return (
     <Container>
-      <Salary />
+      <SalaryPage />
     </Container>
   );
 };

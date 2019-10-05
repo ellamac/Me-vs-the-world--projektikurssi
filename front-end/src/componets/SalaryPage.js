@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import SalaryForm from './SalaryForm';
 import Results from './Results';
 
-const Salary = () => {
+const SalaryPage = () => {
   return (
     <>
       <h1 className='text-center mt-5 mb-5'>Me versus the WORLD!</h1>
@@ -21,4 +21,4 @@ const Salary = () => {
   );
 };
 
-export default Salary;
+export default SalaryPage;
