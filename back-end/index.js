@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const Request = require('request');
 
+
+// test data
 const salaryData = [
   {
     avgSalary: 42000,
@@ -45,10 +47,12 @@ app.get('/salary', (req, res) => {
   );
 });
 
+// data in root
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>');
 });
 
+// data in root/salarytest
 app.get('/salarytest', (req, res) => {
   res.json(salaryData);
 });
