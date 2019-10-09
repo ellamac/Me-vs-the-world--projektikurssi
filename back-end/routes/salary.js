@@ -15,8 +15,9 @@ router.get('/salaryinfo', (req, res) => {
         let data = JSON.parse(body);
         // prints all the data into console
         // console.log(data)
-        data = data[0];        
-        res.json(data);
+        data = data[1];
+        let resp = data
+        res.json(resp[0].indicator);
       }
     );
   });
