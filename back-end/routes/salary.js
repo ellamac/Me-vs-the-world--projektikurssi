@@ -4,6 +4,7 @@ const Request = require('request');
 const router = express.Router();
 const address = 'https://api.worldbank.org/v2/countries/fin/indicators/NY.ADJ.NNTY.PC.CD?format=json';
 
+// fetching of data info
 router.get('/salaryinfo', (req, res) => {
     Request.get(
       address,
