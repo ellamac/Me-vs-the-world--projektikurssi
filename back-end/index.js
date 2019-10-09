@@ -1,7 +1,8 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
-const Request = require('request');
 
+app.use(cors());
 
 // test data
 const salaryData = [
@@ -23,7 +24,7 @@ const salaryData = [
   }
 ];
 
-app.use('/salary', require('./routes/salary'))
+app.use('/salary', require('./routes/salary'));
 
 // data in root
 app.get('/', (req, res) => {
