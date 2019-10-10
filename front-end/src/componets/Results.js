@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   VictoryChart,
   VictoryArea,
   VictoryAxis,
   VictoryLine,
   createContainer
-} from "victory";
+} from 'victory';
 
 class Results extends React.Component {
   //zoomausta
@@ -24,9 +24,9 @@ class Results extends React.Component {
     //suomalaisten vuosipalkkojen ka 1970-2017
     const data = this.props.salaries; //country (id, value); value; year
     //zoomin ja voronoin yhdistelmä
-    const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
-    //mockup data käyttäjän syötämälle palkalle
-    const salaryFromInput = 20000;
+    const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi');
+    //data käyttäjän syötämälle palkalle
+    const salaryFromInput = this.props.userSalary;
     return (
       <div>
         <VictoryChart
@@ -43,7 +43,7 @@ class Results extends React.Component {
                     : `${datum.year}: ${Math.round(datum.value)}€/year` //datan label
               }
               //zoomataan x-akselia
-              zoomDimension="x"
+              zoomDimension='x'
               zoomDomain={this.state.zoomDomain}
               onZoomDomainChange={this.handleZoom.bind(this)}
             />
@@ -53,11 +53,11 @@ class Results extends React.Component {
             //taulukossa käytetty data
             data={data}
             //x-akseliin year sarakkeen tiedot
-            x="year"
+            x='year'
             //y-akseliin value sarakkeen tiedot
-            y="value"
+            y='value'
             //pienimmästä suurimpaan
-            sortOrder="descending"
+            sortOrder='descending'
           />
           <VictoryAxis tickCount={10} /*x-akselissa tikkiä*/ />
           <VictoryAxis dependentAxis tickCount={30} /*y-akselissa 30 tikkiä*/ />
@@ -65,7 +65,7 @@ class Results extends React.Component {
             //käyttäjän palkka viivana
             //muotoilu
             style={{
-              data: { stroke: "tomato", strokeWidth: 3 }
+              data: { stroke: 'tomato', strokeWidth: 3 }
             }}
             //viivan yhtälö (y=palkka)
             y={() => salaryFromInput}

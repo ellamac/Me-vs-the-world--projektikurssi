@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-const SalaryForm = () => {
+const SalaryForm = ({ userSalary, setUserSalary }) => {
   // This is a react hook for example form
-  const [example, setExample] = useState("");
-  const [salary, setSalary] = useState(0);
+  const [example, setExample] = useState('');
 
   const handleSalaryChange = e => {
-    setSalary(e.target.value);
+    setUserSalary(e.target.value);
   };
 
   // Here example change is handeled
@@ -21,48 +20,48 @@ const SalaryForm = () => {
 
   //Function for counting results
   const countResults = () => {
-    console.log("Täällä lasketaan tulokset");
+    console.log('Täällä lasketaan tulokset');
   };
 
   // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("Esimerkki: ", example);
-    console.log("Salary input: ", salary);
+    console.log('Esimerkki: ', example);
+    console.log('Salary input: ', userSalary);
 
     countResults();
   };
 
   return (
     <>
-      <h2 className="text-center">Lomake</h2>
+      <h2 className='text-center'>Lomake</h2>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="Esimerkki">
+        <Form.Group controlId='Esimerkki'>
           <Form.Label>Esimerkki syöte</Form.Label>
           <Form.Control
             onChange={handeExampleChange}
-            type="text"
-            placeholder="Esimerkki"
+            type='text'
+            placeholder='Esimerkki'
           />
         </Form.Group>
-        <Form.Group controlId="Salaryinput">
+        <Form.Group controlId='Salaryinput'>
           <Form.Label>Your salary</Form.Label>
           <Form.Control
             onChange={handleSalaryChange}
-            type="text"
-            placeholder="Your salary"
+            type='text'
+            placeholder='Your salary'
           />
         </Form.Group>
-        <Form.Group controlId="MaaSelect">
+        <Form.Group controlId='MaaSelect'>
           <Form.Label>Select your country</Form.Label>
-          <Form.Control as="select">
+          <Form.Control as='select'>
             <option>Finland</option>
             <option>Canada</option>
             <option>America</option>
             <option>Sudan</option>
           </Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

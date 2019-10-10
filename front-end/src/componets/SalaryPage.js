@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import SalaryForm from "./SalaryForm";
-import Results from "./Results";
-import salaryService from "../services/salary";
+import React, { useState, useEffect } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SalaryForm from './SalaryForm';
+import Results from './Results';
+import salaryService from '../services/salary';
 
 const SalaryPage = () => {
   const [salaryData, setSalaryData] = useState([]);
+  const [userSalary, setUserSalary] = useState(0);
   // This will fetch data from our backend
   useEffect(() => {
     salaryService.getSalary().then(salaryData => {
@@ -20,14 +21,17 @@ const SalaryPage = () => {
 
   return (
     <>
-      <h1 className="text-center mt-5 mb-5">Me versus the WORLD!</h1>
-      <h2>asdasd</h2>
+      <h1 className='text-center mt-5 mb-5'>Me versus the WORLD!</h1>
       <Row>
         <Col>
-          <SalaryForm salary={salaryData} />
+          <SalaryForm
+            salary={salaryData}
+            userSalary={userSalary}
+            setUserSalary={setUserSalary}
+          />
         </Col>
         <Col>
-          <Results salaries={salaryData} />
+          <Results salaries={salaryData} userSalary={userSalary} />
         </Col>
       </Row>
     </>
