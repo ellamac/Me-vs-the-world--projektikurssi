@@ -1,74 +1,93 @@
 import React, { useState } from 'react';
 import {
   VictoryChart,
-  VictoryArea,
+  VictoryBar,
   VictoryAxis,
-  VictoryLine,
-  createContainer
+  VictoryLabel,
+  VictoryTooltip
 } from 'victory';
 
-class Results extends React.Component {
-  //zoomausta
-  constructor() {
-    super();
-    this.state = {
-      zoomDomain: { x: [1970, 2017] }
-    };
-  }
-  //zoomausta
-  handleZoom(domain) {
-    this.setState({ zoomDomain: domain });
-  }
-
+//Custom label
+class CustomLabel extends React.Component {
   render() {
-    //suomalaisten vuosipalkkojen ka 1970-2017
+    return (
+      <VictoryTooltip
+        {...this.props}
+        style={{ fill: 'black' }} //text color black
+        x={225} //placement in the page
+        y={350} //placement in the page
+        orientation='top' //where on the x,y -coordinate it will be rendered to
+        pointerLength={0} //no pointer
+        cornerRadius={0} //sharp corners
+        flyoutWidth={400} //rectangle width
+        flyoutHeight={50} //rectangle height
+        flyoutStyle={{ fill: 'white' }} //rectangle style
+      />
+    );
+  }
+}
+//Custom label works like a tooltip
+CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
+
+class Results extends React.Component {
+  render() {
+    //the real data, now using testData
     const data = this.props.salaries; //country (id, value); value; year
-    //zoomin ja voronoin yhdistelmä
-    const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi');
-    //data käyttäjän syötämälle palkalle
+    //Users salary
     const salaryFromInput = this.props.userSalary;
+
+    //mockup data for the time being
+    const testData = [
+      { x: 'World', y: 1000 },
+      { x: 'You', y: 0 },
+      { x: 'Finland', y: 3500 }
+    ];
+
+    //if user has inputet salary it will be used
+    if (salaryFromInput) {
+      testData[1].y = parseInt(salaryFromInput);
+    }
+
+    //CHART
     return (
       <div>
         <VictoryChart
-          width={750} //taulukon levey
-          height={470} //korkeus
-          //zoomaus ja voronoi (tooltip tyyppinen toiminto)
-          containerComponent={
-            <VictoryZoomVoronoiContainer
-              //mitä labelissä lukee
-              labels={
-                ({ datum }) =>
-                  datum.year == null // käyttäjän syötteessä vuosi on tyhjä
-                    ? `Your yearly salary is ${Math.round(salaryFromInput)}€` //käyttäjän label
-                    : `${datum.year}: ${Math.round(datum.value)}€/year` //datan label
-              }
-              //zoomataan x-akselia
-              zoomDimension='x'
-              zoomDomain={this.state.zoomDomain}
-              onZoomDomainChange={this.handleZoom.bind(this)}
-            />
-          }
+          /* bars wont overlap with axes */
+          domainPadding={50}
+          /* bars' animation */
+          animate={{ duration: 1000 }}
         >
-          <VictoryArea
-            //taulukossa käytetty data
-            data={data}
-            //x-akseliin year sarakkeen tiedot
-            x='year'
-            //y-akseliin value sarakkeen tiedot
-            y='value'
-            //pienimmästä suurimpaan
-            sortOrder='descending'
+          <VictoryBar
+            /* bar color black */
+            style={{ data: { fill: 'black' } }}
+            /* data used for bars */
+            data={testData}
+            /* bars labeled with y */
+            labels={({ datum }) => datum.y}
+            /* what the labels look like */
+            labelComponent={
+              /* see CustomLabel */
+              <CustomLabel
+                /* text customized for each bar */
+                text={({ datum }) =>
+                  datum.x === 'World'
+                    ? `In the whole world the average yearly salary is ${Math.round(
+                        datum.y
+                      )}$`
+                    : datum.x === 'You'
+                    ? `Your yearly salary is ${Math.round(datum.y)}$`
+                    : `In Finland the average yearly salary is ${Math.round(
+                        datum.y
+                      )}$`
+                }
+              />
+            }
           />
-          <VictoryAxis tickCount={10} /*x-akselissa tikkiä*/ />
-          <VictoryAxis dependentAxis tickCount={30} /*y-akselissa 30 tikkiä*/ />
-          <VictoryLine
-            //käyttäjän palkka viivana
-            //muotoilu
-            style={{
-              data: { stroke: 'tomato', strokeWidth: 3 }
-            }}
-            //viivan yhtälö (y=palkka)
-            y={() => salaryFromInput}
+
+          <VictoryAxis dependentAxis /* y-axis' line is shown */ />
+          <VictoryAxis
+            /* x-axis' line not shown */
+            style={{ axis: { stroke: 'none' } }}
           />
         </VictoryChart>
       </div>
