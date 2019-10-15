@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Select from 'react-select';
 
 const SalaryForm = ({ userSalary, setUserSalary }) => {
   // This is a react hook for example form
   const [example, setExample] = useState('');
+
+  const [countrycode, setCoutrycode] = useState('');
 
   const handleSalaryChange = e => {
     setUserSalary(e.target.value);
@@ -32,10 +35,29 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
     countResults();
   };
 
+  // Examplelist for select-search
+  const options = [
+    { value: 'FIN', label: 'Finland' },
+    { value: 'SWE', label: 'Sweden' },
+    { value: 'DE', label: 'Denmark'},
+    { value: 'NO', label: 'Norway'},
+  ];
+
+    //Handles countrycode for select-search
+    const handleChange = selectedOption => {
+    console.log(selectedOption.value);
+    setCoutrycode(selectedOption.value)
+    };
+  
+
   return (
     <>
       <h2 className='text-center'>Lomake</h2>
       <Form onSubmit={handleSubmit}>
+      <Select
+          onChange={handleChange}
+          options={options}
+          />  
         <Form.Group controlId='Esimerkki'>
           <Form.Label>Esimerkki syöte</Form.Label>
           <Form.Control
