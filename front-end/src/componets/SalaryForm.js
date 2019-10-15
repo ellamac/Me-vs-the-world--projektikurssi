@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
+import axios from 'axios';
 
 const SalaryForm = ({ userSalary, setUserSalary }) => {
   // This is a react hook for example form
   const [example, setExample] = useState('');
+
+  const [countrycodes, setCoutrycodes] = useState([]);
 
   const [countrycode, setCoutrycode] = useState('');
 
   const handleSalaryChange = e => {
     setUserSalary(e.target.value);
   };
+
+  const getCountrycodes = async () => {
+    const response = await axios.get('http://localhost:3001/countrycodes');
+    console.log(response.data);
+    return response.data;
+  };
+
+  
+
+  useEffect(() => {
+    setCoutrycodes(getCountrycodes())
+  }, []);
+  console.log(countrycodes);
 
   // Here example change is handeled
   const handeExampleChange = event => {

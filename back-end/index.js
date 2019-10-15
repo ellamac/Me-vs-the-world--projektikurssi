@@ -6,6 +6,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/salary', require('./routes/salary'));
+app.use('/countrycodes', require('./routes/countrycodes'));
 
 // data in root
 app.get('/', (req, res) => {
