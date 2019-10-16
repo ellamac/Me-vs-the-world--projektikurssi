@@ -54,9 +54,6 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
     countResults();
   };
 
-  // Examplelist for select-search
-  const options = countrycodes;
-
   //Handles countrycode for select-search
   const handleChange = selectedOption => {
     console.log(selectedOption.value);
@@ -67,14 +64,9 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
     <>
       <h2 className='text-center'>Lomake</h2>
       <Form onSubmit={handleSubmit}>
-        <Select onChange={handleChange} options={options} />
-        <Form.Group controlId='Esimerkki'>
-          <Form.Label>Esimerkki syöte</Form.Label>
-          <Form.Control
-            onChange={handeExampleChange}
-            type='text'
-            placeholder='Esimerkki'
-          />
+        <Form.Group controlId='Countryinput'>
+          <Form.Label>Your country</Form.Label>
+          <Select onChange={handleChange} options={countrycodes} />
         </Form.Group>
         <Form.Group controlId='Salaryinput'>
           <Form.Label>Your salary</Form.Label>
@@ -83,15 +75,6 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
             type='text'
             placeholder='Your salary'
           />
-        </Form.Group>
-        <Form.Group controlId='MaaSelect'>
-          <Form.Label>Select your country</Form.Label>
-          <Form.Control as='select'>
-            <option>Finland</option>
-            <option>Canada</option>
-            <option>America</option>
-            <option>Sudan</option>
-          </Form.Control>
         </Form.Group>
         <Button variant='primary' type='submit'>
           Submit
