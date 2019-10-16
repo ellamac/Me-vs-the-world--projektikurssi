@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 import axios from 'axios';
+import { async } from 'q';
 
 const SalaryForm = ({ userSalary, setUserSalary }) => {
   // This is a react hook for example form
@@ -16,18 +17,20 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
     setUserSalary(e.target.value);
   };
 
-  const getCountrycodes = async () => {
-    const response = await axios.get('http://localhost:3001/countrycodes');
-    console.log(response.data);
-    return response.data;
+  // Mapped countrycodedata for select-search
+  const getCountrycodes = () => {
+    let data;
+    axios.get('http://localhost:3001/countrycodes').then(result => {
+      data = result.data.map(s => ({ value: s.id, label: s.value }));
+      setCoutrycodes(data);
+    });
+    return data;
   };
 
-  
-
   useEffect(() => {
-    setCoutrycodes(getCountrycodes())
+    setCoutrycodes(getCountrycodes());
   }, []);
-  console.log(countrycodes);
+  //console.log(countrycodes);
 
   // Here example change is handeled
   const handeExampleChange = event => {
@@ -52,28 +55,19 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
   };
 
   // Examplelist for select-search
-  const options = [
-    { value: 'FIN', label: 'Finland' },
-    { value: 'SWE', label: 'Sweden' },
-    { value: 'DE', label: 'Denmark'},
-    { value: 'NO', label: 'Norway'},
-  ];
+  const options = countrycodes;
 
-    //Handles countrycode for select-search
-    const handleChange = selectedOption => {
+  //Handles countrycode for select-search
+  const handleChange = selectedOption => {
     console.log(selectedOption.value);
-    setCoutrycode(selectedOption.value)
-    };
-  
+    setCoutrycode(selectedOption.value);
+  };
 
   return (
     <>
       <h2 className='text-center'>Lomake</h2>
       <Form onSubmit={handleSubmit}>
-      <Select
-          onChange={handleChange}
-          options={options}
-          />  
+        <Select onChange={handleChange} options={options} />
         <Form.Group controlId='Esimerkki'>
           <Form.Label>Esimerkki syöte</Form.Label>
           <Form.Control
