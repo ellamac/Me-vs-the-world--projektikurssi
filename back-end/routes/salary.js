@@ -7,8 +7,8 @@ const address =
   'https://api.worldbank.org/v2/countries/fin/indicators/NY.ADJ.NNTY.PC.CD?format=json';
 
 // Info that must be given about World Bank's salary data:
-const salaryInfo = "World Bank: Adjusted net national income per capita (current US$): api.worldbank.org/v2/countries/COUNTRYCODE/indicators/NY.ADJ.NNTY.PC.CD";
-
+const salaryInfo =
+  'World Bank: Adjusted net national income per capita (current US$): api.worldbank.org/v2/countries/COUNTRYCODE/indicators/NY.ADJ.NNTY.PC.CD';
 
 // fetching of data info
 router.get('/salaryinfo', (req, res) => {
@@ -60,13 +60,18 @@ const getCountryData = code => {
     let data = JSON.parse(body);
     // prints all the data into console
     data = data[1];
-    let resp = data.map(year => {
+    let salaryData = data.map(year => {
       return {
         country: year.country,
         year: year.date,
         value: year.value
       };
     });
+    let resp = {
+      salaryData,
+      info: `World Bank: ${data[0].indicator.value}: ${address}`
+    };
+    console.log(resp);
     return resp;
   });
 };
