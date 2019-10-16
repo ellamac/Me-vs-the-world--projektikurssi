@@ -6,6 +6,10 @@ const router = express.Router();
 const address =
   'https://api.worldbank.org/v2/countries/fin/indicators/NY.ADJ.NNTY.PC.CD?format=json';
 
+// Info joka pitää antaa:
+const salaryInfo = "World Bank: Adjusted net national income per capita (current US$): api.worldbank.org/v2/countries/COUNTRYCODE/indicators/NY.ADJ.NNTY.PC.CD";
+
+
 // fetching of data info
 router.get('/salaryinfo', (req, res) => {
   request.get(address, (error, response, body) => {
