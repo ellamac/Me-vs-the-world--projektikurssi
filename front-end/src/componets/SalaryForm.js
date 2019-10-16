@@ -3,14 +3,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 import axios from 'axios';
-import { async } from 'q';
+import salaryService from '../services/salary';
 
-const SalaryForm = ({ userSalary, setUserSalary }) => {
-  // This is a react hook for example form
-  const [example, setExample] = useState('');
-
+const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
   const [countrycodes, setCoutrycodes] = useState([]);
-
   const [countrycode, setCoutrycode] = useState('');
 
   const handleSalaryChange = e => {
@@ -30,28 +26,15 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
   useEffect(() => {
     setCoutrycodes(getCountrycodes());
   }, []);
-  //console.log(countrycodes);
-
-  // Here example change is handeled
-  const handeExampleChange = event => {
-    // Loging eventchanges to console
-    //console.log(event.target.value);
-    // Setting change value to hook aka react state
-    setExample(event.target.value);
-  };
-
-  //Function for counting results
-  const countResults = () => {
-    console.log('Täällä lasketaan tulokset');
-  };
 
   // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Esimerkki: ', example);
     console.log('Salary input: ', userSalary);
-
-    countResults();
+    salaryService.getCountrysSalary(countrycode).then(data => {
+      console.log(data);
+      setSalaryData(data);
+    });
   };
 
   //Handles countrycode for select-search

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import salaryService from '../services/salary';
 import {
   VictoryChart,
   VictoryBar,
@@ -29,70 +30,80 @@ class CustomLabel extends React.Component {
 //Custom label works like a tooltip
 CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
 
-class Results extends React.Component {
-  render() {
-    //the real data, now using testData
-    const data = this.props.salaries; //country (id, value); value; year
-    //Users salary
-    const salaryFromInput = this.props.userSalary;
+const Results = props => {
+  //the real data, now using testData
+  const salaries = props.salaries;
 
-    //mockup data for the time being
-    const testData = [
-      { x: 'World', y: 1000 },
+  //Users salary
+  const salaryFromInput = props.userSalary;
+  //mockup data for the time being
+  let testData = [
+    { x: 'World', y: 1000 },
+    { x: 'You', y: 0 },
+    { x: 'Yourcountry', y: 2222 }
+  ];
+
+  if (salaries) {
+    console.log(salaries.salaryData[2].value);
+    testData = [
+      { x: 'World', y: 1250 },
       { x: 'You', y: 0 },
-      { x: 'Finland', y: 3500 }
+      { x: 'Your country', y: salaries.salaryData[2].value }
     ];
-
-    //if user has inputet salary it will be used
-    if (salaryFromInput) {
-      testData[1].y = parseInt(salaryFromInput);
-    }
-
-    //CHART
-    return (
-      <div>
-        <VictoryChart
-          /* bars wont overlap with axes */
-          domainPadding={50}
-          /* bars' animation */
-          animate={{ duration: 1000 }}
-        >
-          <VictoryBar
-            /* bar color black */
-            style={{ data: { fill: 'black' } }}
-            /* data used for bars */
-            data={testData}
-            /* bars labeled with y */
-            labels={({ datum }) => datum.y}
-            /* what the labels look like */
-            labelComponent={
-              /* see CustomLabel */
-              <CustomLabel
-                /* text customized for each bar */
-                text={({ datum }) =>
-                  datum.x === 'World'
-                    ? `In the whole world the average yearly salary is ${Math.round(
-                        datum.y
-                      )}$`
-                    : datum.x === 'You'
-                    ? `Your yearly salary is ${Math.round(datum.y)}$`
-                    : `In Finland the average yearly salary is ${Math.round(
-                        datum.y
-                      )}$`
-                }
-              />
-            }
-          />
-
-          <VictoryAxis dependentAxis /* y-axis' line is shown */ />
-          <VictoryAxis
-            /* x-axis' line not shown */
-            style={{ axis: { stroke: 'none' } }}
-          />
-        </VictoryChart>
-      </div>
-    );
   }
-}
+
+  //if user has inputet salary it will be used
+  if (salaryFromInput) {
+    testData[1].y = parseInt(salaryFromInput);
+  }
+
+  return (
+    <div>
+      <VictoryChart
+        padding={75}
+        /* bars wont overlap with axes */
+        domainPadding={50}
+        /* bars' animation */
+        animate={{ duration: 1000 }}
+      >
+        <VictoryBar
+          /* bar color black */
+          style={{ data: { fill: 'black' } }}
+          /* data used for bars */
+          data={testData}
+          /* bars labeled with y */
+          labels={({ datum }) => datum.y}
+          /* what the labels look like */
+          labelComponent={
+            /* see CustomLabel */
+            <CustomLabel
+              /* text customized for each bar */
+              text={({ datum }) =>
+                datum.x === 'World'
+                  ? `In the whole world the average yearly salary is ${Math.round(
+                      datum.y
+                    )}$`
+                  : datum.x === 'You'
+                  ? `Your yearly salary is ${Math.round(datum.y)}$`
+                  : `In Finland the average yearly salary is ${Math.round(
+                      datum.y
+                    )}$`
+              }
+            />
+          }
+        />
+
+        <VictoryAxis
+          dependentAxis
+          /* y-axis' line is shown */
+        />
+        <VictoryAxis
+          /* x-axis' line not shown */
+          style={{ axis: { stroke: 'none' } }}
+        />
+      </VictoryChart>
+    </div>
+  );
+};
 
 export default Results;
