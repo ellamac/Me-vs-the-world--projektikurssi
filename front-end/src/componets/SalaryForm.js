@@ -14,7 +14,9 @@ const SalaryForm = ({ userSalary, setUserSalary }) => {
   const [countrycode, setCoutrycode] = useState('');
 
   const handleSalaryChange = e => {
-    setUserSalary(e.target.value);
+    const parsedInput = Number.parseInt(e.target.value, 10);
+    setUserSalary(parsedInput);
+    console.log('parsed salary input: ' + parsedInput);
   };
 
   // Mapped countrycodedata for select-search
