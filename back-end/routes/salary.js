@@ -6,7 +6,7 @@ const router = express.Router();
 const address =
   'https://api.worldbank.org/v2/countries/fin/indicators/NY.ADJ.NNTY.PC.CD?format=json';
 
-// Info joka pitää antaa:
+// Info that must be given about World Bank's salary data:
 const salaryInfo = "World Bank: Adjusted net national income per capita (current US$): api.worldbank.org/v2/countries/COUNTRYCODE/indicators/NY.ADJ.NNTY.PC.CD";
 
 
