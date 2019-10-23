@@ -27,6 +27,7 @@ CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
 const Results = props => {
   //the real data, now using testData
   const salaries = props.salaries;
+  console.log(salaries);
 
   //Users salary
   const salaryFromInput = props.userSalary;

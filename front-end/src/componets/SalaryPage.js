@@ -20,7 +20,6 @@ const SalaryPage = () => {
       <Row>
         <Col>
           <SalaryForm
-            salary={salaryData}
             userSalary={userSalary}
             setUserSalary={setUserSalary}
             setSalaryData={setSalaryData}
