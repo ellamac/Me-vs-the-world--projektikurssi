@@ -1,20 +1,21 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Pages from './componets/Pages';
-import Header from './componets/Header';
+
+import Home from './componets/Home';
 import Footer from './componets/Footer';
 import TopNavBar from './componets/TopNavBar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import SalaryPage from './componets/SalaryPage';
 
 const App = () => {
   return (
-    <>
+    <Router>
       <TopNavBar />
-      <Header />
-      <Container>
-        <Pages />
-      </Container>
+
+      <Route exact path='/' render={() => <Home />} />
+      <Route path='/salary' render={() => <SalaryPage />} />
+
       <Footer />
-    </>
+    </Router>
   );
 };
 

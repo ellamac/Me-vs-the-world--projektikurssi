@@ -39,7 +39,10 @@ const Results = props => {
   ];
 
   if (salaries) {
-    console.log('salaries: ' + salaries.salaryValue.value);
+    console.log(
+      'Average salary of selected coutry (first not-null-year): ' +
+        salaries.salaryValue.value
+    );
     testData = [
       { x: 'World', y: 1250 },
       { x: 'You', y: 0 },
