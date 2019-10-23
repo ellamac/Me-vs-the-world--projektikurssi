@@ -29,7 +29,7 @@ const getCountryData = async code => {
         break;
       }
     }
-    console.log(educationvalue);
+    //console.log('educationvalue: ' + educationvalue.year);
     let resp = {
       educationvalue,
       info: `World Bank: ${axiosdata[0].indicator.value}: ${address}`

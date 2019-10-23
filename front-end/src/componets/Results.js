@@ -38,11 +38,11 @@ const Results = props => {
   ];
 
   if (salaries) {
-    console.log(salaries.salaryData[2].value);
+    console.log('salaries: ' + salaries.salaryValue.value);
     testData = [
       { x: 'World', y: 1250 },
       { x: 'You', y: 0 },
-      { x: 'Your country', y: salaries.salaryData[2].value }
+      { x: 'Your country', y: salaries.salaryValue.value }
     ];
   }
 

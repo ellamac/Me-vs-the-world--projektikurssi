@@ -63,9 +63,16 @@ const getCountryData = async code => {
         value: year.value
       };
     });
+    let salaryValue = {};
+    for (let arrayItem of salaryData) {
+      if (arrayItem.value) {
+        salaryValue = arrayItem;
+        break;
+      }
+    }
 
     let resp = {
-      salaryData,
+      salaryValue,
       info: `World Bank: ${axiosdata[0].indicator.value}: ${address}`
     };
     return resp;
