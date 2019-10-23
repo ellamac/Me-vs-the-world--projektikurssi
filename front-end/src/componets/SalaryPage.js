@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import SalaryForm from './SalaryForm';
 import Results from './Results';
 import salaryService from '../services/salary';
+import Container from 'react-bootstrap/Container';
 
 const SalaryPage = () => {
   const [salaryData, setSalaryData] = useState('');
@@ -16,9 +17,12 @@ const SalaryPage = () => {
   }, []);
 
   return (
-    <>
+    <Container>
+      <h1 className='text-center p-5'>
+        Compare your salary to your country and the world!
+      </h1>
       <Row>
-        <Col>
+        <Col xs lg='3'>
           <SalaryForm
             salary={salaryData}
             userSalary={userSalary}
@@ -34,7 +38,7 @@ const SalaryPage = () => {
           />
         </Col>
       </Row>
-    </>
+    </Container>
   );
 };
 
