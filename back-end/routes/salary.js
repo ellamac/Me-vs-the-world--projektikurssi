@@ -75,6 +75,7 @@ const getCountryData = async code => {
 };
 
 router.post('/', async (request, response) => {
+  console.log(request.body);
   const code = request.body;
   const data = await getCountryData(code.code);
   console.log('Palautettava:', data);
