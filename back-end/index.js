@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 
 app.use('/salary', require('./routes/salary'));
 app.use('/countrycodes', require('./routes/countrycodes'));
+app.use('/educationlength', require('./routes/educationlength'));
 
 // data in root
 app.get('/', (req, res) => {
