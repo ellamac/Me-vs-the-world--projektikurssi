@@ -22,19 +22,30 @@ const Home = () => {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100vh',
+    maxWidth: '100vw'
+    //backgroundAttachment: 'fixed'
+  };
+
+  const videoStyle = {
+    height: '100vh',
     maxWidth: '100vw',
-    backgroundAttachment: 'fixed'
+    marginTop: '55px' // TODO, kova koodattu arvo
   };
   return (
     <div style={backGround}>
-      <Video src={earthvideo} />
+      <Video
+        style={videoStyle}
+        src={earthvideo}
+        containerWidth={100}
+        containerHeight={100}
+      />
       <Row>
         <Col>
           <img style={imgStyle} src={logo} alt='Me-VS-World' />
-          <h4 className='p-5 m-5'>
+          <h3 style={{ fontWeight: '700', color: 'white' }} className='p-5 m-5'>
             Compare your self to the worlds data on finance, education and other
             subjects!
-          </h4>
+          </h3>
           <div className='pl-5'>
             <Link to='/salary'>
               <Button className='m-4'>Salary</Button>
