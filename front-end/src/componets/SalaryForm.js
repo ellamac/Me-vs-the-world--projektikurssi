@@ -13,7 +13,8 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
   // Parses int out of the user input
   const handleSalaryChange = e => {
     const parsedInput = Number.parseInt(e.target.value, 10);
-    setUserSalary(parsedInput);
+    if (isNaN(parsedInput)) setUserSalary(0);
+    else setUserSalary(parsedInput);
     // console.log('parsed salary input: ' + parsedInput);
   };
 
