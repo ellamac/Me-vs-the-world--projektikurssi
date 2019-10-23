@@ -14,7 +14,6 @@ const getCountryData = async code => {
   try {
     let axiosdata = await axios.get(address);
     axiosdata = axiosdata.data[1];
-    console.log(axiosdata);
     let salaryData = axiosdata.map(year => {
       return {
         country: year.country,
@@ -29,12 +28,11 @@ const getCountryData = async code => {
         break;
       }
     }
-    //console.log('educationvalue: ' + educationvalue.year);
+
     let resp = {
       educationvalue,
       info: `World Bank: ${axiosdata[0].indicator.value}: ${address}`
     };
-    console.log(resp);
     return resp;
   } catch (error) {
     console.log(error);
@@ -44,7 +42,6 @@ const getCountryData = async code => {
 router.post('/', async (request, response) => {
   const code = request.body;
   const data = await getCountryData(code.code);
-  //console.log('Palautettava:', data);
   response.json(data);
 });
 
