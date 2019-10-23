@@ -17,7 +17,6 @@ const SalaryPage = () => {
 
   return (
     <>
-      <h1 className='text-center mt-5 mb-5'>Me versus the WORLD!</h1>
       <Row>
         <Col>
           <SalaryForm

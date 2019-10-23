@@ -50,7 +50,6 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
 
   return (
     <>
-      <h2 className='text-center'>Lomake</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId='Countryinput'>
           <Form.Label>Your country</Form.Label>

@@ -1,12 +1,6 @@
-import React, { useEffect } from 'react';
-import salaryService from '../services/salary';
-import {
-  VictoryChart,
-  VictoryBar,
-  VictoryAxis,
-  VictoryLabel,
-  VictoryTooltip
-} from 'victory';
+import React from 'react';
+
+import { VictoryChart, VictoryBar, VictoryAxis, VictoryTooltip } from 'victory';
 
 //Custom label
 class CustomLabel extends React.Component {
