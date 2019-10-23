@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Home from './componets/Home';
 import Footer from './componets/Footer';
 import TopNavBar from './componets/TopNavBar';

@@ -11,18 +11,16 @@ import Video from 'react-background-video-player';
 const Home = () => {
   const imgStyle = {
     width: '100%',
-    maxWidth: '1000px',
+    maxWidth: '1005px',
     height: 'auto'
   };
 
   const backGround = {
     backgroundImage: `url(${earth})`,
     color: 'white',
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+
     height: '100vh',
-    maxWidth: '100vw'
+    maxWidth: '100%'
     //backgroundAttachment: 'fixed'
   };
 
@@ -32,29 +30,28 @@ const Home = () => {
     marginTop: '55px' // TODO, kova koodattu arvo
   };
   return (
-    <div style={backGround}>
+    <div className='text-center' style={backGround}>
       <Video
         style={videoStyle}
         src={earthvideo}
         containerWidth={100}
         containerHeight={100}
       />
-      <Row>
-        <Col>
-          <img style={imgStyle} src={logo} alt='Me-VS-World' />
-          <h3 style={{ fontWeight: '700', color: 'white' }} className='p-5 m-5'>
-            Compare your self to the worlds data on finance, education and other
-            subjects!
-          </h3>
-          <div className='pl-5'>
-            <Link to='/salary'>
-              <Button className='m-4'>Salary</Button>
-            </Link>
-            <Button className='m-4 '>Education</Button>
-            <Button className='m-4'>Other</Button>
-          </div>
-        </Col>
-      </Row>
+
+      <Col>
+        <img style={imgStyle} src={logo} alt='Me-VS-World' />
+        <h3 style={{ fontWeight: '700', color: 'white' }}>
+          Click to compare your self to the worlds data on finance, education
+          and other subjects!
+        </h3>
+        <div className='pl-5'>
+          <Link to='/salary'>
+            <Button className='m-4 btn-danger'>Salary</Button>
+          </Link>
+          <Button className='m-4 btn-light'>Education</Button>
+          <Button className='m-4 btn-warning'>Other</Button>
+        </div>
+      </Col>
     </div>
   );
 };
