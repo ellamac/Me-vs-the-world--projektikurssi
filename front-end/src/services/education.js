@@ -8,7 +8,6 @@ const getEducationLength = async code => {
     'http://localhost:3001/educationlength',
     postData
   );
-  console.log(response);
   return response.data;
 };
 

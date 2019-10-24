@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
-import axios from 'axios';
 import salaryService from '../services/salary';
 import countrycodeService from '../services/countrycodes';
 
@@ -19,7 +18,9 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
   };
 
   useEffect(() => {
-    setCoutrycodes(countrycodeService.getCountrycodes());
+    countrycodeService.getCountrycodes().then(data => {
+      setCoutrycodes(data);
+    });
   }, []);
 
   // Handles form submit
