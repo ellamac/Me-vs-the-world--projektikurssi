@@ -10,12 +10,8 @@ const SalaryPage = () => {
   const [worldSalaryData, setWorldSalaryData] = useState('');
   const [salaryData, setSalaryData] = useState('');
   const [userSalary, setUserSalary] = useState(0);
-  console.log(worldSalaryData);
 
   useEffect(() => {
-    salaryService.getCountrysSalary('fin').then(data => {
-      setSalaryData(data);
-    });
     salaryService.getWorldSalary().then(data => {
       setWorldSalaryData(data);
     });

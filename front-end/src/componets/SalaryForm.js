@@ -15,7 +15,6 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
     const parsedInput = Number.parseInt(e.target.value, 10);
     if (isNaN(parsedInput)) setUserSalary(0);
     else setUserSalary(parsedInput);
-    // console.log('parsed salary input: ' + parsedInput);
   };
 
   // Mapped countrycodedata for select-search
@@ -35,16 +34,14 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
   // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Salary input: ', userSalary);
+
     salaryService.getCountrysSalary(countrycode).then(data => {
-      console.log(data);
       setSalaryData(data);
     });
   };
 
   //Handles countrycode for select-search
   const handleChange = selectedOption => {
-    console.log(selectedOption.value);
     setCoutrycode(selectedOption.value);
   };
 
