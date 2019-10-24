@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EducationForm from './EducationForm';
 import EducationRasults from './EducationResults';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import educationService from '../../services/education';
 
 const EducationPage = () => {
   const [eduYears, setEduYears] = useState(0);
   const [countryEduYears, setCountryEduYears] = useState({});
+  const [worldEduYears, setWorldEduYears] = useState({});
+
+  useEffect(() => {
+    educationService
+      .getWorldEducationYears()
+      .then(data => setWorldEduYears(data));
+  }, []);
 
   return (
     <Container>
@@ -24,6 +32,7 @@ const EducationPage = () => {
           <EducationRasults
             eduYears={eduYears}
             countryEduYears={countryEduYears}
+            worldEduYears={worldEduYears}
           />
         </Col>
       </Row>
