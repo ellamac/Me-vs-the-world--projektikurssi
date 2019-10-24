@@ -24,7 +24,7 @@ class CustomLabel extends React.Component {
 //Custom label works like a tooltip
 CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
 
-const Results = props => {
+const SalaryResults = props => {
   //the real data, now using testData
   const salaries = props.salaries;
   const worldSalaryData = props.worldSalaryData;
@@ -104,4 +104,4 @@ const Results = props => {
   );
 };
 
-export default Results;
+export default SalaryResults;

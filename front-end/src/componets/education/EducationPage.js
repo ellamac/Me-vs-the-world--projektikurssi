@@ -1,20 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 import axios from 'axios';
-import salaryService from '../services/salary';
 
-const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
+import Container from 'react-bootstrap/Container';
+
+const EducationPage = () => {
+  const [eduYears, setEduYears] = useState(0);
+
+  return (
+    <Container>
+      <h1 className='text-center p-5'>How long did you go to school?</h1>
+      <Row>
+        <Col xs lg='3'>
+          <EducationForm eduYears={eduYears} setEduYears={setEduYears} />
+        </Col>
+        <Col>
+          <Results eduYears={eduYears} />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+const Results = props => {
+  return <h2>{props.eduYears}</h2>;
+};
+
+const EducationForm = ({ eduYears, setEduYears }) => {
   const [countrycodes, setCoutrycodes] = useState([]);
   const [countrycode, setCoutrycode] = useState('');
 
-  // Handles changes in salary input
-  // Parses int out of the user input
-  const handleSalaryChange = e => {
-    const parsedInput = Number.parseInt(e.target.value, 10);
-    if (isNaN(parsedInput)) setUserSalary(0);
-    else setUserSalary(parsedInput);
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('JEJEJEJE');
+    console.log(countrycode, '  ', eduYears);
   };
 
   // Mapped countrycodedata for select-search
@@ -31,17 +54,8 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
     setCoutrycodes(getCountrycodes());
   }, []);
 
-  // Handles form submit
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    salaryService.getCountrysSalary(countrycode).then(data => {
-      setSalaryData(data);
-    });
-  };
-
-  //Handles countrycode for select-search
-  const handleChange = selectedOption => setCoutrycode(selectedOption.value);
+  const handleChange = e => setCoutrycode(e.value);
+  const handleEduChange = e => setEduYears(e.target.value);
 
   return (
     <>
@@ -51,12 +65,8 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
           <Select onChange={handleChange} options={countrycodes} />
         </Form.Group>
         <Form.Group controlId='Salaryinput'>
-          <Form.Label>Your salary</Form.Label>
-          <Form.Control
-            onChange={handleSalaryChange}
-            type='text'
-            placeholder='Your salary'
-          />
+          <Form.Label>Your education years</Form.Label>
+          <Form.Control onChange={handleEduChange} type='text' />
         </Form.Group>
         <Button variant='primary' type='submit'>
           Submit
@@ -66,4 +76,4 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
   );
 };
 
-export default SalaryForm;
+export default EducationPage;

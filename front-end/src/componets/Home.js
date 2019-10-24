@@ -2,10 +2,9 @@ import React from 'react';
 import logo from '../images/logo.png';
 import earth from '../images/earth.jpg';
 import earthvideo from '../images/earth-video.mp4';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom/';
 import Video from 'react-background-video-player';
 
 const Home = () => {
@@ -21,7 +20,6 @@ const Home = () => {
 
     height: '100vh',
     maxWidth: '100%'
-    //backgroundAttachment: 'fixed'
   };
 
   const videoStyle = {
@@ -48,7 +46,9 @@ const Home = () => {
           <Link to='/salary'>
             <Button className='m-4 btn-danger'>Salary</Button>
           </Link>
-          <Button className='m-4 btn-light'>Education</Button>
+          <Link to='/education'>
+            <Button className='m-4 btn-light'>Education</Button>
+          </Link>
           <Button className='m-4 btn-warning'>Other</Button>
         </div>
       </Col>

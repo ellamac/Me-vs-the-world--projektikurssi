@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SalaryForm from './SalaryForm';
-import Results from './Results';
+import SalaryResults from './SalaryResults';
 import salaryService from '../services/salary';
 import Container from 'react-bootstrap/Container';
 
@@ -31,7 +31,7 @@ const SalaryPage = () => {
           />
         </Col>
         <Col>
-          <Results
+          <SalaryResults
             salaries={salaryData}
             worldSalaryData={worldSalaryData}
             setSalaryData={setSalaryData}
