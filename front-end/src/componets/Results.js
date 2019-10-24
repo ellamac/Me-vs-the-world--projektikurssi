@@ -8,7 +8,7 @@ class CustomLabel extends React.Component {
     return (
       <VictoryTooltip
         {...this.props}
-        style={{ fill: 'black' }} //text color black
+        style={{ fill: 'grey' }} //text color black
         x={225} //placement in the page
         y={350} //placement in the page
         orientation='top' //where on the x,y -coordinate it will be rendered to

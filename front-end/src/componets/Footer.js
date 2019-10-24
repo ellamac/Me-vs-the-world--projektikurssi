@@ -10,15 +10,15 @@ const Footer = () => {
   };
 
   const footerSyle = {
-    backgroundColor: '#F8F8F8',
-    borderTop: '1px solid #E7E7E7',
+    backgroundColor: '#46445a',
+    borderTop: '1px solid black',
     textAlign: 'center',
-    padding: '20px',
-    position: 'relative',
+    padding: '0px',
+    position: 'absolute',
     height: '150px',
-
+    color: '#ffff',
     left: '0',
-    bottom: '0',
+    bottom: '-1',
     width: '100%'
   };
 
@@ -26,10 +26,10 @@ const Footer = () => {
     <div className='page-footer' style={footerSyle}>
       <Container>
         <Row>
-          <Col>
+          <Col className='p-2'>
             <img style={imgStyle} src={logo} alt='Me-VS-World' />
           </Col>
-          <Col>
+          <Col className='p-2'>
             <h4>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </h4>
             <p>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </p>
           </Col>
