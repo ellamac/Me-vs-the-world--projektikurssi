@@ -2,5 +2,5 @@ POST http://localhost:3001/educationlength HTTP/1.1
 content-type: application/json
 
 {
-    "code": "FIN"   
+    "code": "swe"   
 }

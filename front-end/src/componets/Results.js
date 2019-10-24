@@ -28,7 +28,7 @@ const Results = props => {
   //the real data, now using testData
   const salaries = props.salaries;
   const worldSalaryData = props.worldSalaryData;
-  console.log(salaries);
+  console.log(salaries.salaryValue);
 
   //Users salary
   const salaryFromInput = props.userSalary;
