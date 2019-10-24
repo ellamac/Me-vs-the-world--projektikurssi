@@ -14,7 +14,7 @@ const getCountryData = async code => {
   try {
     let axiosdata = await axios.get(address);
     axiosdata = axiosdata.data[1];
-    let salaryData = axiosdata.map(year => {
+    let educationData = axiosdata.map(year => {
       return {
         country: year.country,
         year: year.date,
@@ -22,13 +22,12 @@ const getCountryData = async code => {
       };
     });
     let educationvalue = {};
-    for (let arrayItem of salaryData) {
+    for (let arrayItem of educationData) {
       if (arrayItem.value) {
         educationvalue = arrayItem;
         break;
       }
     }
-
     let resp = {
       educationvalue,
       info: `World Bank: ${axiosdata[0].indicator.value}: ${address}`
@@ -38,6 +37,29 @@ const getCountryData = async code => {
     console.log(error);
   }
 };
+
+// api end point for fetching salary
+// So far it know only finlands stats
+router.get('/', (req, res) => {
+  request.get(address, (error, response, body) => {
+    if (error) {
+      return console.log(error);
+    }
+    // here data is parsed from extra information
+    let data = JSON.parse(body);
+    // prints all the data into console
+
+    data = data[1];
+    let resp = data.map(year => {
+      return {
+        country: year.country,
+        year: year.date,
+        value: year.value
+      };
+    });
+    res.json(resp);
+  });
+});
 
 router.post('/', async (request, response) => {
   const code = request.body;
