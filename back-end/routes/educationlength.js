@@ -4,9 +4,6 @@ const request = require('request');
 const router = express.Router();
 const axios = require('axios');
 
-const address =
-  'https://api.worldbank.org/v2/countries/all/indicators/SE.SCH.LIFE?format=json&per_page=10000';
-
 // Fetches data from WB api and parses it from extra information
 const getCountryData = async code => {
   let address = `https://api.worldbank.org/v2/countries/${code}/indicators/SE.SCH.LIFE?format=json`;
@@ -39,16 +36,15 @@ const getCountryData = async code => {
 };
 
 // api end point for fetching salary
-// So far it know only finlands stats
 router.get('/', (req, res) => {
+  const address =
+    'https://api.worldbank.org/v2/countries/wld/indicators/SE.SCH.LIFE?format=json&per_page=10000';
   request.get(address, (error, response, body) => {
     if (error) {
       return console.log(error);
     }
     // here data is parsed from extra information
     let data = JSON.parse(body);
-    // prints all the data into console
-
     data = data[1];
     let resp = data.map(year => {
       return {
@@ -57,6 +53,17 @@ router.get('/', (req, res) => {
         value: year.value
       };
     });
+    for (let arrayItem of resp) {
+      if (arrayItem.value) {
+        worldEduAvg = arrayItem;
+        break;
+      }
+    }
+    resp = {
+      worldEduAvg,
+      info: `World Bank: ${data[0].indicator.value}: ${address}`
+    };
+    console.log(resp);
     res.json(resp);
   });
 });
