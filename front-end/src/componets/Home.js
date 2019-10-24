@@ -15,25 +15,26 @@ const Home = () => {
   };
 
   const backGround = {
-    backgroundImage: `url(${earth})`,
-    color: 'white',
+    //backgroundImage: `url(${earth})`,
+    color: 'white'
 
-    height: '100vh',
-    maxWidth: '100%'
+    //height: '100vh',
+    //maxWidth: '100%'
   };
 
   const videoStyle = {
     height: '100vh',
     maxWidth: '100vw',
-    marginTop: '55px' // TODO, kova koodattu arvo
+    zIndex: '-100'
+    //marginTop: '55px' // TODO, kova koodattu arvo
   };
   return (
     <div className='text-center' style={backGround}>
       <Video
         style={videoStyle}
         src={earthvideo}
-        containerWidth={100}
-        containerHeight={100}
+        containerWidth={0}
+        containerHeight={0}
       />
 
       <Col>

@@ -10,10 +10,14 @@ const App = () => {
   return (
     <Router>
       <TopNavBar />
-      <Route exact path='/' render={() => <Home />} />
-      <Route path='/salary' render={() => <SalaryPage />} />
-      <Route path='/education' render={() => <EducationPage />} />
-      <Footer />
+      <div className='d-flex flex-column justify-content-between'>
+        <div id='pages'>
+          <Route exact path='/' render={() => <Home />} />
+          <Route path='/salary' render={() => <SalaryPage />} />
+          <Route path='/education' render={() => <EducationPage />} />
+        </div>
+        <Footer id='footer' />
+      </div>
     </Router>
   );
 };

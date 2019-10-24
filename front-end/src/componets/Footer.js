@@ -18,8 +18,11 @@ const Footer = () => {
     height: '150px',
     color: '#ffff',
     left: '0',
-    bottom: '-1',
+    //alignSelf: 'flexEnd',
+    bottom: '0',
     width: '100%'
+    //zIndex: '-1'
+    //marginBottom: '-55px'
   };
 
   return (
