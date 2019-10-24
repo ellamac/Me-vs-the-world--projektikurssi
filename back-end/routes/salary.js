@@ -5,7 +5,7 @@ const router = express.Router();
 const axios = require('axios');
 
 const address =
-  'https://api.worldbank.org/v2/countries/fin/indicators/NY.ADJ.NNTY.PC.CD?format=json';
+  'https://api.worldbank.org/v2/countries/wld/indicators/NY.ADJ.NNTY.PC.CD?format=json';
 
 // Info that must be given about World Bank's salary data:
 const salaryInfo =
@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
     // prints all the data into console
 
     data = data[1];
+    console.log(data);
     let resp = data.map(year => {
       return {
         country: year.country,
@@ -45,6 +46,17 @@ router.get('/', (req, res) => {
         value: year.value
       };
     });
+    let worldSalaryAvg = {};
+    for (let arrayItem of resp) {
+      if (arrayItem.value) {
+        worldSalaryAvg = arrayItem;
+        break;
+      }
+    }
+    resp = {
+      worldSalaryAvg,
+      info: `World Bank: ${data[0].indicator.value}: ${address}`
+    };
     res.json(resp);
   });
 });

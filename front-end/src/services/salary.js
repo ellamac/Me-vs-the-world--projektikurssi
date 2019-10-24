@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const getSalary = async () => {
+const getWorldSalary = async () => {
   const response = await axios.get('http://localhost:3001/salary');
   return response.data;
 };
@@ -14,4 +14,4 @@ const getCountrysSalary = async code => {
   return response.data;
 };
 
-export default { getSalary, getCountrysSalary };
+export default { getWorldSalary, getCountrysSalary };

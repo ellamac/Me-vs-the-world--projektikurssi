@@ -7,12 +7,17 @@ import salaryService from '../services/salary';
 import Container from 'react-bootstrap/Container';
 
 const SalaryPage = () => {
+  const [worldSalaryData, setWorldSalaryData] = useState('');
   const [salaryData, setSalaryData] = useState('');
   const [userSalary, setUserSalary] = useState(0);
+  console.log(worldSalaryData);
 
   useEffect(() => {
     salaryService.getCountrysSalary('fin').then(data => {
       setSalaryData(data);
+    });
+    salaryService.getWorldSalary().then(data => {
+      setWorldSalaryData(data);
     });
   }, []);
 
@@ -32,6 +37,7 @@ const SalaryPage = () => {
         <Col>
           <Results
             salaries={salaryData}
+            worldSalaryData={worldSalaryData}
             setSalaryData={setSalaryData}
             userSalary={userSalary}
           />

@@ -27,24 +27,27 @@ CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
 const Results = props => {
   //the real data, now using testData
   const salaries = props.salaries;
+  const worldSalaryData = props.worldSalaryData;
   console.log(salaries);
 
   //Users salary
   const salaryFromInput = props.userSalary;
   //mockup data for the time being
   let testData = [
-    { x: 'World', y: 1000 },
+    { x: 'World', y: 0 },
     { x: 'You', y: 0 },
-    { x: 'Yourcountry', y: 2222 }
+    { x: 'Yourcountry', y: 0 }
   ];
 
-  if (salaries) {
+  if (salaries && worldSalaryData) {
     console.log(
       'Average salary of selected coutry (first not-null-year): ' +
         salaries.salaryValue.value
     );
+    if (!worldSalaryData.worldSalaryAvg.value)
+      worldSalaryData.worldSalaryAvg.value = 0;
     testData = [
-      { x: 'World', y: 1250 },
+      { x: 'World', y: worldSalaryData.worldSalaryAvg.value },
       { x: 'You', y: 0 },
       { x: 'Your country', y: salaries.salaryValue.value }
     ];
