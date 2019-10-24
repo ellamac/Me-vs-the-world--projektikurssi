@@ -28,7 +28,8 @@ const Results = props => {
   //the real data, now using testData
   const salaries = props.salaries;
   const worldSalaryData = props.worldSalaryData;
-  console.log(salaries.salaryValue);
+  let countryName = '';
+  if (salaries.salaryValue) countryName = salaries.salaryValue.country.value;
 
   //Users salary
   const salaryFromInput = props.userSalary;
@@ -40,10 +41,6 @@ const Results = props => {
   ];
 
   if (salaries && worldSalaryData) {
-    console.log(
-      'Average salary of selected coutry (first not-null-year): ' +
-        salaries.salaryValue.value
-    );
     if (!worldSalaryData.worldSalaryAvg.value)
       worldSalaryData.worldSalaryAvg.value = 0;
     testData = [
@@ -86,7 +83,7 @@ const Results = props => {
                     )}$`
                   : datum.x === 'You'
                   ? `Your yearly salary is ${Math.round(datum.y)}$`
-                  : `In Finland the average yearly salary is ${Math.round(
+                  : `In ${countryName} the average yearly salary is ${Math.round(
                       datum.y
                     )}$`
               }
