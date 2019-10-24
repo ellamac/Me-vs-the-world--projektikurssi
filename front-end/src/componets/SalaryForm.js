@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Select from 'react-select';
+import SelectCountry from './SelectCountry';
 import salaryService from '../services/salary';
-import countrycodeService from '../services/countrycodes';
 
-const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
-  const [countrycodes, setCoutrycodes] = useState([]);
+const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');
 
   // Handles changes in salary input
@@ -17,40 +15,29 @@ const SalaryForm = ({ userSalary, setUserSalary, setSalaryData }) => {
     else setUserSalary(parsedInput);
   };
 
-  useEffect(() => {
-    countrycodeService.getCountrycodes().then(data => {
-      setCoutrycodes(data);
-    });
-  }, []);
-
   // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-
     salaryService.getCountrysSalary(countrycode).then(data => {
       setSalaryData(data);
     });
   };
 
-  //Handles countrycode for select-search
-  const handleChange = selectedOption => setCoutrycode(selectedOption.value);
+  const str = 'asdasdasd';
+  console.log(str);
+
+  // Handles countrycode for select-search
+  const handleChange = e => setCoutrycode(e.value);
 
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId='Countryinput'>
-          <Form.Label>Your country</Form.Label>
-          <Select onChange={handleChange} options={countrycodes} />
-        </Form.Group>
-        <Form.Group controlId='Salaryinput'>
+        <SelectCountry handleChange={handleChange} />
+        <Form.Group controlId="Salaryinput">
           <Form.Label>Your salary</Form.Label>
-          <Form.Control
-            onChange={handleSalaryChange}
-            type='text'
-            placeholder='Your salary'
-          />
+          <Form.Control onChange={handleSalaryChange} type="text" placeholder="Your salary" />
         </Form.Group>
-        <Button variant='primary' type='submit'>
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>

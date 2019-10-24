@@ -1,0 +1,23 @@
+import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
+import Form from 'react-bootstrap/Form';
+import countrycodeService from '../services/countrycodes';
+
+const SelectCountry = ({ handleChange }) => {
+  const [countrycodes, setCoutrycodes] = useState([]);
+
+  useEffect(() => {
+    countrycodeService.getCountrycodes().then(data => {
+      setCoutrycodes(data);
+    });
+  }, []);
+
+  return (
+    <Form.Group controlId="Countryinput">
+      <Form.Label>Your country</Form.Label>
+      <Select onChange={handleChange} options={countrycodes} />
+    </Form.Group>
+  );
+};
+
+export default SelectCountry;
