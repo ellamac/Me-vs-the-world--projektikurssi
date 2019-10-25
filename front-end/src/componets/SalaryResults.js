@@ -11,7 +11,7 @@ class CustomLabel extends React.Component {
         style={{ fill: 'grey' }} //text color black
         x={225} //placement in the page
         y={350} //placement in the page
-        orientation='top' //where on the x,y -coordinate it will be rendered to
+        orientation="top" //where on the x,y -coordinate it will be rendered to
         pointerLength={0} //no pointer
         cornerRadius={0} //sharp corners
         flyoutWidth={400} //rectangle width
@@ -29,20 +29,19 @@ const SalaryResults = props => {
   const salaries = props.salaries;
   const worldSalaryData = props.worldSalaryData;
   let countryName = '';
-  if (salaries.salaryValue) countryName = salaries.salaryValue.country.value;
+  try {
+    if (salaries.salaryValue) countryName = salaries.salaryValue.country.value;
+  } catch (error) {
+    console.log(error);
+  }
 
   //Users salary
   const salaryFromInput = props.userSalary;
   //mockup data for the time being
-  let testData = [
-    { x: 'World', y: 0 },
-    { x: 'You', y: 0 },
-    { x: 'Yourcountry', y: 0 }
-  ];
+  let testData = [{ x: 'World', y: 0 }, { x: 'You', y: 0 }, { x: 'Yourcountry', y: 0 }];
 
   if (salaries && worldSalaryData) {
-    if (!worldSalaryData.worldSalaryAvg.value)
-      worldSalaryData.worldSalaryAvg.value = 0;
+    if (!worldSalaryData.worldSalaryAvg.value) worldSalaryData.worldSalaryAvg.value = 0;
     testData = [
       { x: 'World', y: worldSalaryData.worldSalaryAvg.value },
       { x: 'You', y: 0 },
@@ -78,14 +77,10 @@ const SalaryResults = props => {
               /* text customized for each bar */
               text={({ datum }) =>
                 datum.x === 'World'
-                  ? `In the whole world the average yearly salary is ${Math.round(
-                      datum.y
-                    )}$`
+                  ? `In the whole world the average yearly salary is ${Math.round(datum.y)}$`
                   : datum.x === 'You'
                   ? `Your yearly salary is ${Math.round(datum.y)}$`
-                  : `In ${countryName} the average yearly salary is ${Math.round(
-                      datum.y
-                    )}$`
+                  : `In ${countryName} the average yearly salary is ${Math.round(datum.y)}$`
               }
             />
           }
