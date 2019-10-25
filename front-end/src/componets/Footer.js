@@ -10,29 +10,33 @@ const Footer = () => {
   };
 
   const footerSyle = {
+    // Formatting the looks
     backgroundColor: '#46445a',
-    borderTop: '1px solid black',
-    textAlign: 'center',
-    padding: '0px',
-    position: 'absolute',
-    height: '150px',
     color: '#ffff',
-    left: '0',
-    //alignSelf: 'flexEnd',
+    textAlign: 'center',
+    borderTop: '1px solid black',
+    padding: '0px',
+    height: '150px',
+    width: '100%',
+    // Formatting the location
+    position: 'absolute',
+    //left: '0',
+    //right: '0',
     bottom: '0',
-    width: '100%'
+
     //zIndex: '-1'
+    alignSelf: 'flexEnd'
     //marginBottom: '-55px'
   };
 
   return (
-    <div className='page-footer' style={footerSyle}>
+    <div className="page-footer" style={footerSyle}>
       <Container>
         <Row>
-          <Col className='p-2'>
-            <img style={imgStyle} src={logo} alt='Me-VS-World' />
+          <Col className="p-2">
+            <img style={imgStyle} src={logo} alt="Me-VS-World" />
           </Col>
-          <Col className='p-2'>
+          <Col className="p-2">
             <h4>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </h4>
             <p>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </p>
           </Col>
