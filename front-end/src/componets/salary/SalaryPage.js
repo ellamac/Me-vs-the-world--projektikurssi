@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SalaryForm from './SalaryForm';
 import SalaryResults from './SalaryResults';
-import salaryService from '../services/salary';
+import salaryService from '../../services/salary';
 import Container from 'react-bootstrap/Container';
 
 const SalaryPage = () => {
@@ -19,11 +19,9 @@ const SalaryPage = () => {
 
   return (
     <Container>
-      <h1 className='text-center p-5'>
-        Compare your salary to your country and the world!
-      </h1>
+      <h1 className="text-center p-5">Compare your salary to your country and the world!</h1>
       <Row>
-        <Col xs lg='3'>
+        <Col xs lg="3">
           <SalaryForm
             userSalary={userSalary}
             setUserSalary={setUserSalary}
