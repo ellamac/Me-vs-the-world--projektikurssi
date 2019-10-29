@@ -33,6 +33,7 @@ const SalaryResults = props => {
     if (salaries.salaryValue) countryName = salaries.salaryValue.country.value;
   } catch (error) {
     console.log(error);
+    console.log('No data available from selected coutry');
   }
 
   //Users salary
