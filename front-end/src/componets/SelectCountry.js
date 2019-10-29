@@ -13,10 +13,12 @@ const SelectCountry = ({ handleChange }) => {
   }, []);
 
   return (
-    <Form.Group controlId="Countryinput">
-      <Form.Label>Your country</Form.Label>
-      <Select onChange={handleChange} options={countrycodes} />
-    </Form.Group>
+    <>
+      <Form.Group controlId="Countryinput">
+        <Form.Label>Your country</Form.Label>
+        <Select onChange={handleChange} options={countrycodes} />
+      </Form.Group>
+    </>
   );
 };
 
