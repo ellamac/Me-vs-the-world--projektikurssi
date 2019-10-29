@@ -8,9 +8,9 @@ class CustomLabel extends React.Component {
     return (
       <VictoryTooltip
         {...this.props}
-        style={{ fill: 'grey' }} //text color black
-        x={225} //placement in the page
-        y={350} //placement in the page
+        style={{ fill: 'black' }} //text color black
+        x={200} //placement in the page
+        y={300} //placement in the page
         orientation="top" //where on the x,y -coordinate it will be rendered to
         pointerLength={0} //no pointer
         cornerRadius={0} //sharp corners
@@ -65,7 +65,7 @@ const SalaryResults = props => {
       >
         <VictoryBar
           /* bar color black */
-          style={{ data: { fill: 'black' } }}
+          style={{ data: { fill: 'white' } }}
           /* data used for bars */
           data={testData}
           /* bars labeled with y */
