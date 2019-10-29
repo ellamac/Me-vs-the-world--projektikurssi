@@ -27,15 +27,17 @@ const footerStyle = {
 const Footer = () => {
   return (
     <div style={footerStyle}>
-      <Row>
-        <Col>
-          <img style={imgStyle} src={logo} alt="Me-VS-World" />
-        </Col>
-        <Col>
-          <h4>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </h4>
-          <p>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </p>
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col>
+            <img style={imgStyle} src={logo} alt="Me-VS-World" />
+          </Col>
+          <Col>
+            <h4>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </h4>
+            <p>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </p>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
