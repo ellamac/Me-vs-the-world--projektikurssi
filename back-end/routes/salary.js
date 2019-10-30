@@ -63,7 +63,7 @@ router.get('/', (req, res) => {
 
 // Fetches data from WB api and parses it from extra information
 const getCountryData = async code => {
-  let address = `https://api.worldbank.org/v2/countries/${code}/indicators/NY.ADJ.NNTY.PC.CD?format=json`;
+  let address = `https://api.worldbank.org/v2/countries/${code}/indicators/NY.ADJ.NNTY.PC.CD?format=json&mrnev=1`;
   console.log('Adress: ', address);
   try {
     let axiosdata = await axios.get(address);
