@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types';
 import educationService from '../../services/education';
 import SelectCountry from '../SelectCountry';
 
@@ -52,6 +53,11 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
       </Form>
     </>
   );
+};
+
+EducationForm.propTypes = {
+  setEduYears: PropTypes.func.isRequired,
+  setCountryEduYears: PropTypes.func.isRequired
 };
 
 export default EducationForm;
