@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import EducationForm from './EducationForm';
-import EducationResults from './EducationResults';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import EducationResults from './EducationResults';
+import EducationForm from './EducationForm';
 import educationService from '../../services/education';
 import bgImg from '../../images/education.png';
 

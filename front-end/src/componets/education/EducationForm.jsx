@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import countrycodeService from '../../services/countrycodes';
-import educationService from '../../services/education';
-import Form from 'react-bootstrap/Form';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import educationService from '../../services/education';
 import SelectCountry from '../SelectCountry';
 
 const EducationForm = ({ setEduYears, setCountryEduYears }) => {

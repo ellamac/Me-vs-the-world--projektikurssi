@@ -5,10 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../images/logosvg.svg';
 
 const TopNavBar = () => {
-  const navStyle = {
-    backgroundColor: 'black'
-  };
-
   return (
     <>
       <style type="text/css">
@@ -33,7 +29,7 @@ const TopNavBar = () => {
       </style>
       <Navbar variant="black">
         <Navbar.Brand href="#">
-          <img src={logo} className="navbar-img" width="30" height="30" alt=""></img>
+          <img src={logo} className="navbar-img" width="30" height="30" alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
