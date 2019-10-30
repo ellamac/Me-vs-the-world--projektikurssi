@@ -23,9 +23,6 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
     });
   };
 
-  const str = 'asdasdasd';
-  console.log(str);
-
   // Handles countrycode for select-search
   const handleChange = e => setCoutrycode(e.value);
 

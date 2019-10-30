@@ -60,9 +60,9 @@ const SalaryPage = () => {
           <Col>
             <SalaryResults
               salaries={salaryData}
-              worldSalaryData={worldSalaryData}
-              setSalaryData={setSalaryData}
-              userSalary={userSalary}
+              avgSalary={userSalary}
+              countryAvgSalary={setSalaryData}
+              worldAvgSalary={worldSalaryData}
             />
           </Col>
         </Row>

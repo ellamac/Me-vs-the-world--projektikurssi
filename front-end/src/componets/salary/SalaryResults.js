@@ -1,101 +1,61 @@
 import React from 'react';
-
-import { VictoryChart, VictoryBar, VictoryAxis, VictoryTooltip } from 'victory';
-
-//Custom label
-class CustomLabel extends React.Component {
-  render() {
-    return (
-      <VictoryTooltip
-        {...this.props}
-        style={{ fill: 'black' }} //text color black
-        x={200} //placement in the page
-        y={300} //placement in the page
-        orientation="top" //where on the x,y -coordinate it will be rendered to
-        pointerLength={0} //no pointer
-        cornerRadius={0} //sharp corners
-        flyoutWidth={400} //rectangle width
-        flyoutHeight={50} //rectangle height
-        flyoutStyle={{ fill: 'white' }} //rectangle style
-      />
-    );
-  }
-}
-//Custom label works like a tooltip
-CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
+import Chart from 'react-google-charts';
 
 const SalaryResults = props => {
-  //the real data, now using testData
-  const salaries = props.salaries;
-  const worldSalaryData = props.worldSalaryData;
+  let countryAvgSalary;
   let countryName = '';
-  try {
-    if (salaries.salaryValue) countryName = salaries.salaryValue.country.value;
-  } catch (error) {
-    console.log(error);
-  }
+  let worldAvgSalary;
 
-  //Users salary
-  const salaryFromInput = props.userSalary;
-  //mockup data for the time being
-  let testData = [{ x: 'World', y: 0 }, { x: 'You', y: 0 }, { x: 'Yourcountry', y: 0 }];
-
-  if (salaries && worldSalaryData) {
-    if (!worldSalaryData.worldSalaryAvg.value) worldSalaryData.worldSalaryAvg.value = 0;
-    testData = [
-      { x: 'World', y: worldSalaryData.worldSalaryAvg.value },
-      { x: 'You', y: 0 },
-      { x: 'Your country', y: salaries.salaryValue.value }
-    ];
+  if (props.countryAvgSalary.salaryValue && props.worldAvgSalary) {
+    countryAvgSalary = props.countryAvgSalary.salaryValue.value;
+    countryName = props.countryAvgSalary.salaryValue.country.value;
+    worldAvgSalary = props.worldAvgSalary.worldSalaryAvg.value;
   }
-
-  //if user has inputet salary it will be used
-  if (salaryFromInput) {
-    testData[1].y = parseInt(salaryFromInput);
-  }
+  console.log(countryAvgSalary);
+  console.log(countryName);
+  console.log(worldAvgSalary);
 
   return (
-    <div>
-      <VictoryChart
-        padding={75}
-        /* bars wont overlap with axes */
-        domainPadding={50}
-        /* bars' animation */
-        animate={{ duration: 1000 }}
-      >
-        <VictoryBar
-          /* bar color black */
-          style={{ data: { fill: 'white' } }}
-          /* data used for bars */
-          data={testData}
-          /* bars labeled with y */
-          labels={({ datum }) => datum.y}
-          /* what the labels look like */
-          labelComponent={
-            /* see CustomLabel */
-            <CustomLabel
-              /* text customized for each bar */
-              text={({ datum }) =>
-                datum.x === 'World'
-                  ? `In the whole world the average yearly salary is ${Math.round(datum.y)}$`
-                  : datum.x === 'You'
-                  ? `Your yearly salary is ${Math.round(datum.y)}$`
-                  : `In ${countryName} the average yearly salary is ${Math.round(datum.y)}$`
-              }
-            />
-          }
-        />
+    <>
+      <style type="text/css">
+        {`
+  
+  rect:first-child{
+    fill: #000000;
+    opacity: 0;
+  }
 
-        <VictoryAxis
-          dependentAxis
-          /* y-axis' line is shown */
-        />
-        <VictoryAxis
-          /* x-axis' line not shown */
-          style={{ axis: { stroke: 'none' } }}
-        />
-      </VictoryChart>
-    </div>
+  #reactgooglegraph-1 {
+    width: 80%;
+    min-height: 400px;
+  }
+  `}
+      </style>
+      <Chart
+        chartType="Bar"
+        loader={<div>Loading Chart</div>}
+        data={[
+          ['Average salary', 'Salary'],
+          ['World', worldAvgSalary],
+          [countryName, countryAvgSalary],
+          ['Your salary', props.avgSalary]
+        ]}
+        options={{
+          backgroundColor: '#F5DEB3',
+          title: 'Average salaries',
+          colors: ['#004D1B', '#ADD8E6'],
+          hAxis: {
+            title: '',
+            minValue: 0
+          },
+          vAxis: {
+            title: 'Salaries',
+            minValue: 0
+          }
+        }}
+        legendToggle
+      />
+    </>
   );
 };
 
