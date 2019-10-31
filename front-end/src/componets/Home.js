@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../images/logo_white.png';
-import crowd from '../images/testikuva.png';
+import backg from '../images/home.jpg';
 import earthvideo from '../images/earth-video.mp4';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -22,31 +22,6 @@ const Home = () => {
     transform: 'translate(-50%, -50%)'
   };
 
-  const backGround = {
-    //backgroundImage: `url(${earth})`,
-    color: 'white'
-
-    //height: '100vh',
-    //maxWidth: '100%'
-  };
-
-  const videoStyle = {
-    /* Set rules to fill background */
-    minHeight: '100%',
-    minWidth: '1024px',
-
-    /* Set up proportionate scaling */
-    width: '100%',
-    height: 'auto',
-
-    /* Set up positioning */
-    position: 'fixed',
-    top: '0',
-    left: '0',
-
-    zIndex: '-100'
-  };
-
   const buttonStyle = {
     display: 'inline-block',
     color: 'white',
@@ -59,19 +34,22 @@ const Home = () => {
     textDecoration: 'none',
     margin: '4px'
   };
+
   return (
     <>
       <style type="text/css">
         {`
-  
-  Button:hover, button:focus{
-    color: #004D1B;
-  }
-  `}
+         .bg {
+          height: 100vh;
+          background-position: bottom center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-color: #00000;
+        }
+      `}
       </style>
-      <div className="text-center" style={backGround}>
-        <img style={videoStyle} src={crowd} alt="Crowd-of-people" />
-
+      <div className="text-center bg" style={{ backgroundImage: `url(${backg})` }}>
         <Col>
           <div style={centered}>
             <img style={imgStyle} src={logo} alt="Me-VS-World" padding="100px 0px 0px 0px" />

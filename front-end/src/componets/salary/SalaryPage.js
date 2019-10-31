@@ -5,7 +5,7 @@ import SalaryForm from './SalaryForm';
 import SalaryResults from './SalaryResults';
 import salaryService from '../../services/salary';
 import Container from 'react-bootstrap/Container';
-import crowd from '../../images/salary.png';
+import backg from '../../images/salary.jpg';
 
 const SalaryPage = () => {
   const [worldSalaryData, setWorldSalaryData] = useState('');
@@ -39,34 +39,45 @@ const SalaryPage = () => {
     <>
       <style>
         {`
-        
-        h1 {
-          color: #FEFEFE;
+        h1{
+          color: white;
         }
 
+        .bg {
+
+          height: 100vh;
+          background-position: bottom center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-color: #00000;
+
+          z-index:-100;
         `}
       </style>
-      <Container>
-        <img style={backImage} src={crowd} alt="worker" />
-        <h1 className="text-center p-5">Compare your salary to your country and the world!</h1>
-        <Row>
-          <Col xs lg="3">
-            <SalaryForm
-              userSalary={userSalary}
-              setUserSalary={setUserSalary}
-              setSalaryData={setSalaryData}
-            />
-          </Col>
-          <Col>
-            <SalaryResults
-              salaries={salaryData}
-              avgSalary={userSalary}
-              countryAvgSalary={setSalaryData}
-              worldAvgSalary={worldSalaryData}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
+        <Container>
+          <div />
+          <h1 className="text-center p-5">Compare your salary to your country and the world!</h1>
+          <Row>
+            <Col xs lg="3">
+              <SalaryForm
+                userSalary={userSalary}
+                setUserSalary={setUserSalary}
+                setSalaryData={setSalaryData}
+              />
+            </Col>
+            <Col>
+              <SalaryResults
+                salaries={salaryData}
+                avgSalary={userSalary}
+                countryAvgSalary={setSalaryData}
+                worldAvgSalary={worldSalaryData}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };
