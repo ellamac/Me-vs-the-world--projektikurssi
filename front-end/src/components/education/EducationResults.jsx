@@ -5,6 +5,7 @@ const EducationResults = props => {
   let countryEduYears;
   let countryName = '';
   let worldEduYears;
+  console.log(EducationResults.educationvalue);
 
   if (props.countryEduYears.educationvalue && props.worldEduYears) {
     countryEduYears = props.countryEduYears.educationvalue.value;
@@ -51,6 +52,7 @@ const EducationResults = props => {
         }}
         legendToggle
       />
+      <p></p>
     </>
   );
 };

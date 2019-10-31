@@ -1,15 +1,11 @@
 const express = require('express');
-const app = express();
 const request = require('request');
+
 const router = express.Router();
 const axios = require('axios');
 
 const address =
   'https://api.worldbank.org/v2/countries/wld/indicators/NY.ADJ.NNTY.PC.CD?format=json';
-
-// Info that must be given about World Bank's salary data:
-const salaryInfo =
-  'World Bank: Adjusted net national income per capita (current US$): api.worldbank.org/v2/countries/COUNTRYCODE/indicators/NY.ADJ.NNTY.PC.CD';
 
 // fetching of data info
 router.get('/salaryinfo', (req, res) => {
@@ -18,10 +14,10 @@ router.get('/salaryinfo', (req, res) => {
       return console.log(error);
     }
     // here data is parsed from extra information
-    let data = JSON.parse(body);
+    const data = JSON.parse(body);
     // prints all the data into console
-    data = data[1];
-    let resp = data;
+    const arrayData = data[1];
+    const resp = arrayData;
     res.json(resp[0].indicator);
   });
 });
@@ -47,7 +43,7 @@ router.get('/', (req, res) => {
       };
     });
     let worldSalaryAvg = {};
-    for (let arrayItem of resp) {
+    for (const arrayItem of resp) {
       if (arrayItem.value) {
         worldSalaryAvg = arrayItem;
         break;
@@ -63,12 +59,12 @@ router.get('/', (req, res) => {
 
 // Fetches data from WB api and parses it from extra information
 const getCountryData = async code => {
-  let address = `https://api.worldbank.org/v2/countries/${code}/indicators/NY.ADJ.NNTY.PC.CD?format=json`;
+  const address = `https://api.worldbank.org/v2/countries/${code}/indicators/NY.ADJ.NNTY.PC.CD?format=json&mrnev=1`;
   console.log('Adress: ', address);
   try {
-    let axiosdata = await axios.get(address);
-    axiosdata = axiosdata.data[1];
-    let salaryData = axiosdata.map(year => {
+    const axiosdata = await axios.get(address);
+    let salaryData = axiosdata.data[1];
+    salaryData = axiosdata.map(year => {
       return {
         country: year.country,
         year: year.date,
@@ -76,14 +72,15 @@ const getCountryData = async code => {
       };
     });
     let salaryValue = {};
-    for (let arrayItem of salaryData) {
+
+    for (const arrayItem of salaryData) {
       if (arrayItem.value) {
         salaryValue = arrayItem;
         break;
       }
     }
 
-    let resp = {
+    const resp = {
       salaryValue,
       info: `World Bank: ${axiosdata[0].indicator.value}: ${address}`
     };

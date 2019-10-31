@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import countrycodeService from '../../services/countrycodes';
-import educationService from '../../services/education';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import SelectCountry from '../SelectCountry';
+import salaryService from '../../services/salary';
 
-const EducationForm = ({ setEduYears, setCountryEduYears }) => {
+const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    educationService.getEducationLength(countrycode).then(data => {
-      setCountryEduYears(data);
-    });
+  // Handles changes in salary input
+  // Parses int out of the user input
+  const handleSalaryChange = e => {
+    const parsedInput = Number.parseInt(e.target.value, 10);
+    if (isNaN(parsedInput)) setUserSalary(0);
+    else setUserSalary(parsedInput);
   };
 
+  // Handles form submit
+  const handleSubmit = e => {
+    e.preventDefault();
+    salaryService.getCountrysSalary(countrycode).then(data => {
+      setSalaryData(data);
+    });
+    handleSalaryChange;
+  };
+
+  // Handles countrycode for select-search
   const handleChange = e => setCoutrycode(e.value);
-  const handleEduChange = e => setEduYears(e.target.value);
+
+  const colorWhite = {
+    backgroundColor: 'black',
+    color: 'white'
+  };
 
   const buttonStyle = {
     display: 'inline-block',
@@ -44,8 +57,8 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
         <Form.Group controlId="Salaryinput">
-          <Form.Label>Your education years</Form.Label>
-          <Form.Control onChange={handleEduChange} type="text" />
+          <Form.Label>Your salary</Form.Label>
+          <Form.Control onChange={handleSalaryChange} type="text" placeholder="Your salary" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">
           Submit
@@ -55,4 +68,4 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
   );
 };
 
-export default EducationForm;
+export default SalaryForm;

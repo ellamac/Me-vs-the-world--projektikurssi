@@ -1,11 +1,9 @@
 import React from 'react';
-import logo from '../images/logo_white.png';
-import crowd from '../images/testikuva.png';
-import earthvideo from '../images/earth-video.mp4';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom/';
-import Video from 'react-background-video-player';
+import crowd from '../images/testikuva.png';
+import logo from '../images/logo_white.png';
 
 const Home = () => {
   const imgStyle = {
@@ -23,11 +21,11 @@ const Home = () => {
   };
 
   const backGround = {
-    //backgroundImage: `url(${earth})`,
+    // backgroundImage: `url(${earth})`,
     color: 'white'
 
-    //height: '100vh',
-    //maxWidth: '100%'
+    // height: '100vh',
+    // maxWidth: '100%'
   };
 
   const videoStyle = {

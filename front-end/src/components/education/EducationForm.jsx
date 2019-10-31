@@ -1,35 +1,23 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types';
+import educationService from '../../services/education';
 import SelectCountry from '../SelectCountry';
-import salaryService from '../../services/salary';
 
-const SalaryForm = ({ setUserSalary, setSalaryData }) => {
+const EducationForm = ({ setEduYears, setCountryEduYears }) => {
   const [countrycode, setCoutrycode] = useState('');
 
-  // Handles changes in salary input
-  // Parses int out of the user input
-  const handleSalaryChange = e => {
-    const parsedInput = Number.parseInt(e.target.value, 10);
-    if (isNaN(parsedInput)) setUserSalary(0);
-    else setUserSalary(parsedInput);
-  };
-
-  // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-    salaryService.getCountrysSalary(countrycode).then(data => {
-      setSalaryData(data);
+
+    educationService.getEducationLength(countrycode).then(data => {
+      setCountryEduYears(data);
     });
   };
 
-  // Handles countrycode for select-search
   const handleChange = e => setCoutrycode(e.value);
-
-  const colorWhite = {
-    backgroundColor: 'black',
-    color: 'white'
-  };
+  const handleEduChange = e => setEduYears(e.target.value);
 
   const buttonStyle = {
     display: 'inline-block',
@@ -56,8 +44,8 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
         <Form.Group controlId="Salaryinput">
-          <Form.Label>Your salary</Form.Label>
-          <Form.Control onChange={handleSalaryChange} type="text" placeholder="Your salary" />
+          <Form.Label>Your education years</Form.Label>
+          <Form.Control onChange={handleEduChange} type="text" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">
           Submit
@@ -67,4 +55,9 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   );
 };
 
-export default SalaryForm;
+EducationForm.propTypes = {
+  setEduYears: PropTypes.func.isRequired,
+  setCountryEduYears: PropTypes.func.isRequired
+};
+
+export default EducationForm;
