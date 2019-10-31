@@ -26,11 +26,6 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   // Handles countrycode for select-search
   const handleChange = e => setCoutrycode(e.value);
 
-  const colorWhite = {
-    backgroundColor: 'black',
-    color: 'white'
-  };
-
   const buttonStyle = {
     display: 'inline-block',
     color: 'white',
