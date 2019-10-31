@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../images/logo_white.png';
-import backg from '../images/home.jpg';
-import earthvideo from '../images/earth-video.mp4';
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom/';
-import Video from 'react-background-video-player';
+import crowd from '../images/testikuva.png';
+import logo from '../images/logo_white.png';
 
 const Home = () => {
   const imgStyle = {

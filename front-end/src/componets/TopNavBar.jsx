@@ -5,10 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../images/logosvg.svg';
 
 const TopNavBar = () => {
-  const navStyle = {
-    backgroundColor: 'black'
-  };
-
   return (
     <>
       <style type="text/css">

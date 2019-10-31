@@ -6,11 +6,12 @@ const EducationResults = props => {
   let countryName = '';
   let worldEduYears;
 
-  if (props.countryEduYears.educationvalue && props.worldEduYears) {
-    countryEduYears = props.countryEduYears.educationvalue.value;
-    countryName = props.countryEduYears.educationvalue.country.value;
-    worldEduYears = props.worldEduYears.worldEduAvg.value;
+  if (props.countryEduYears.country && props.worldEduYears) {
+    countryEduYears = props.countryEduYears.value;
+    countryName = props.countryEduYears.country.value;
+    worldEduYears = props.worldEduYears.value;
   }
+
   return (
     <>
       <style type="text/css">
@@ -51,6 +52,7 @@ const EducationResults = props => {
         }}
         legendToggle
       />
+      <p></p>
     </>
   );
 };

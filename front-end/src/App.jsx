@@ -15,7 +15,7 @@ const App = () => (
         <Route path="/salary" render={() => <SalaryPage />} />
         <Route path="/education" render={() => <EducationPage />} />
       </div>
-      {/*<Footer id='footer' />*/}
+      {/* <Footer id='footer' /> */}
     </div>
   </Router>
 );
