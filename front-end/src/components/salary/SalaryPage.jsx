@@ -61,7 +61,7 @@ const SalaryPage = () => {
             <SalaryResults
               salaries={salaryData}
               avgSalary={userSalary}
-              countryAvgSalary={setSalaryData}
+              countryAvgSalary={salaryData}
               worldAvgSalary={worldSalaryData}
             />
           </Col>

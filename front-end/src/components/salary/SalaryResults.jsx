@@ -2,18 +2,15 @@ import React from 'react';
 import Chart from 'react-google-charts';
 
 const SalaryResults = props => {
-  let countryAvgSalary;
+  let countryAvgSalary = 0;
   let countryName = '';
-  let worldAvgSalary;
+  let worldAvgSalary = 0;
 
-  if (props.countryAvgSalary.salaryValue && props.worldAvgSalary) {
-    countryAvgSalary = props.countryAvgSalary.salaryValue.value;
-    countryName = props.countryAvgSalary.salaryValue.country.value;
-    worldAvgSalary = props.worldAvgSalary.worldSalaryAvg.value;
+  if (props.countryAvgSalary && props.worldAvgSalary) {
+    countryAvgSalary = props.countryAvgSalary.value;
+    countryName = props.countryAvgSalary.country.value;
+    worldAvgSalary = props.worldAvgSalary.value;
   }
-  console.log(countryAvgSalary);
-  console.log(countryName);
-  console.log(worldAvgSalary);
 
   return (
     <>
