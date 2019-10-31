@@ -2,7 +2,7 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom/';
-import crowd from '../images/testikuva.png';
+import backg from '../images/home.jpg';
 import logo from '../images/logo_white.png';
 
 const Home = () => {
