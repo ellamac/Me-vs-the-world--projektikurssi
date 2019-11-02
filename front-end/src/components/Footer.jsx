@@ -15,7 +15,7 @@ const footerStyle = {
   width: '100%',
   maxHeight: '150px',
   height: 'auto',
-  //alignSelf: 'flexEnd',
+  // alignSelf: 'flexEnd',
 
   color: '#ffff',
   backgroundColor: '#46445a',

@@ -1,5 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import PropTypes from 'prop-types';
 
 const EducationResults = props => {
   let countryEduYears;
@@ -52,9 +53,15 @@ const EducationResults = props => {
         }}
         legendToggle
       />
-      <p></p>
+      {/* <p></p> in comments for now because empty elements cause a warning */}
     </>
   );
+};
+
+EducationResults.propTypes = {
+  countryEduYears: PropTypes.func.isRequired,
+  worldEduYears: PropTypes.func.isRequired,
+  eduYears: PropTypes.func.isRequired
 };
 
 export default EducationResults;
