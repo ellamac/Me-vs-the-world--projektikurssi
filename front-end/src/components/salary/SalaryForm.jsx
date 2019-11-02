@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 import SelectCountry from '../SelectCountry';
 import salaryService from '../../services/salary';
 
@@ -11,7 +12,7 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   // Parses int out of the user input
   const handleSalaryChange = e => {
     const parsedInput = Number.parseInt(e.target.value, 10);
-    if (isNaN(parsedInput)) setUserSalary(0);
+    if (Number.isNaN(parsedInput)) setUserSalary(0);
     else setUserSalary(parsedInput);
   };
 
@@ -21,7 +22,6 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
     salaryService.getCountrysSalary(countrycode).then(data => {
       setSalaryData(data);
     });
-    handleSalaryChange;
   };
 
   // Handles countrycode for select-search
@@ -61,6 +61,11 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
       </Form>
     </>
   );
+};
+
+SalaryForm.propTypes = {
+  setUserSalary: PropTypes.func.isRequired,
+  setSalaryData: PropTypes.func.isRequired
 };
 
 export default SalaryForm;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import PropTypes from 'prop-types';
 
 const SalaryResults = props => {
   let countryAvgSalary = 0;
@@ -54,6 +55,12 @@ const SalaryResults = props => {
       />
     </>
   );
+};
+
+SalaryResults.propTypes = {
+  countryAvgSalary: PropTypes.func.isRequired,
+  worldAvgSalary: PropTypes.func.isRequired,
+  avgSalary: PropTypes.func.isRequired
 };
 
 export default SalaryResults;
