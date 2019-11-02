@@ -5,13 +5,13 @@ const EducationResults = props => {
   let countryEduYears;
   let countryName = '';
   let worldEduYears;
-  console.log(EducationResults.educationvalue);
 
-  if (props.countryEduYears.educationvalue && props.worldEduYears) {
-    countryEduYears = props.countryEduYears.educationvalue.value;
-    countryName = props.countryEduYears.educationvalue.country.value;
-    worldEduYears = props.worldEduYears.worldEduAvg.value;
+  if (props.countryEduYears.country && props.worldEduYears) {
+    countryEduYears = props.countryEduYears.value;
+    countryName = props.countryEduYears.country.value;
+    worldEduYears = props.worldEduYears.value;
   }
+
   return (
     <>
       <style type="text/css">
