@@ -7,7 +7,10 @@ const EducationResults = props => {
   let countryName = '';
   let worldEduYears;
 
-  if (props.countryEduYears.country && props.worldEduYears) {
+  // This was needed to shut up Eslint warnings'
+  const input = props;
+
+  if (input.countryEduYears.country && input.worldEduYears) {
     countryEduYears = props.countryEduYears.value;
     countryName = props.countryEduYears.country.value;
     worldEduYears = props.worldEduYears.value;
@@ -36,7 +39,7 @@ const EducationResults = props => {
           ['Education years', 'Education'],
           ['World', worldEduYears],
           [countryName, countryEduYears],
-          ['Your education years', props.eduYears]
+          ['Your education years', input.eduYears]
         ]}
         options={{
           backgroundColor: '#F5DEB3',
@@ -60,8 +63,8 @@ const EducationResults = props => {
 
 EducationResults.propTypes = {
   countryEduYears: PropTypes.func.isRequired,
-  worldEduYears: PropTypes.func.isRequired,
-  eduYears: PropTypes.func.isRequired
+  worldEduYears: PropTypes.func.isRequired
+  // eduYears: PropTypes.func.isRequired
 };
 
 export default EducationResults;
