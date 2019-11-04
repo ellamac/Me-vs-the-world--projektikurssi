@@ -10,9 +10,13 @@ const SalaryResults = props => {
   const input = props;
 
   if (input.countryAvgSalary && input.worldAvgSalary) {
-    countryAvgSalary = props.countryAvgSalary.value;
-    countryName = props.countryAvgSalary.country.value;
-    worldAvgSalary = props.worldAvgSalary.value;
+    try {
+      countryAvgSalary = props.countryAvgSalary.value;
+      countryName = props.countryAvgSalary.country.value;
+      worldAvgSalary = props.worldAvgSalary.value;
+    } catch (error) {
+      console.error(`Virhe maata haettaessa\n${error}`);
+    }
   }
 
   return (
@@ -60,7 +64,7 @@ const SalaryResults = props => {
 };
 
 SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.func.isRequired,
+  countryAvgSalary: PropTypes.node.isRequired,
   worldAvgSalary: PropTypes.func.isRequired
   // avgSalary: PropTypes.func.isRequired
 };

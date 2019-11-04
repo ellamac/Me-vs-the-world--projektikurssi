@@ -21,7 +21,7 @@ const EducationResults = props => {
       <style type="text/css">
         {`
   
-  rect:first-child{
+  react:first-child{
     fill: #000000;
     opacity: 0;
   }
