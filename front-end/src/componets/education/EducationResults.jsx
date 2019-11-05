@@ -34,7 +34,7 @@ const EducationResults = props => {
         data={[
           ['Education years', 'Education'],
           ['World', worldEduYears],
-          [countryName, countryEduYears],
+          [!countryName ? 'Country average' : countryName, countryEduYears],
           ['Your education years', props.eduYears]
         ]}
         options={{

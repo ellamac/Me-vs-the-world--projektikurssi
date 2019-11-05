@@ -34,11 +34,10 @@ const SalaryResults = props => {
         data={[
           ['Average salary', 'Salary'],
           ['World', worldAvgSalary],
-          [countryName, countryAvgSalary],
+          [!countryName ? 'Country average' : countryName, countryAvgSalary],
           ['Your salary', props.avgSalary]
         ]}
         options={{
-          backgroundColor: '#F5DEB3',
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
           hAxis: {

@@ -1,8 +1,7 @@
 import React from 'react';
-import Home from './componets/Home';
-import Footer from './componets/Footer';
-import TopNavBar from './componets/TopNavBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './componets/Home';
+import TopNavBar from './componets/TopNavBar';
 import SalaryPage from './componets/salary/SalaryPage';
 import EducationPage from './componets/education/EducationPage';
 
