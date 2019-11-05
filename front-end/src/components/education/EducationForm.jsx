@@ -14,10 +14,10 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     educationService.getEducationLength(countrycode).then(data => {
       setCountryEduYears(data);
     });
+    setEduYears(e.target[1].value);
   };
-
   const handleChange = e => setCoutrycode(e.value);
-  const handleEduChange = e => setEduYears(e.target.value);
+  // const handleEduChange = e => setEduYears(e.target.value);
 
   const buttonStyle = {
     display: 'inline-block',
@@ -38,7 +38,7 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
         <SelectCountry handleChange={handleChange} />
         <Form.Group controlId="Salaryinput">
           <Form.Label>Your education years</Form.Label>
-          <Form.Control onChange={handleEduChange} type="number" max="100" min="0" />
+          <Form.Control type="number" max="100" min="0" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">
           Submit

@@ -22,7 +22,7 @@ const SalaryResults = props => {
   
   react:first-child{
     fill: #000000;
-    opacity: 0;
+    opacity: 5;
   }
 
   #reactgooglegraph-1 {
