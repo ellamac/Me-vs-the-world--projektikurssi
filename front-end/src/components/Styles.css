@@ -16,12 +16,15 @@ h1 {
   color: white;
 }
 
-#reactgooglegraph-1 {
-  width: 80%;
-  min-height: 400px;
+.google-visualization-tooltip {
+  width: 175px;
+  border: 2px solid white !important;
+  background-color: black !important;
+  font-size: 10px !important;
+  color: white !important;
+  box-shadow: none !important;
 }
 
-rect:first-child {
-  fill: #000000;
-  opacity: 0;
+div.google-visualization-tooltip > ul > li > span {
+  color: white !important;
 }

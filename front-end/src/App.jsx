@@ -4,6 +4,7 @@ import Home from './components/Home';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
 import EducationPage from './components/education/EducationPage';
+import Chart from 'react-google-charts';
 
 const App = () => (
   <Router>
