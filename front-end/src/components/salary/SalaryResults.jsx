@@ -25,8 +25,8 @@ const SalaryResults = props => {
         data={[
           ['Average salary', 'Salary'],
           ['World', worldAvgSalary],
-          [countryName, countryAvgSalary],
-          ['Your salary', input.avgSalary]
+          [!countryName ? 'Country average' : countryName, countryAvgSalary],
+          ['Your salary', props.avgSalary]
         ]}
         options={{
           backgroundColor: { fill: 'transparent' },

@@ -26,8 +26,8 @@ const EducationResults = props => {
         data={[
           ['Education years', 'Education'],
           ['World', worldEduYears],
-          [countryName, countryEduYears],
-          ['Your education years', input.eduYears]
+          [!countryName ? 'Country average' : countryName, countryEduYears],
+          ['Your education years', props.eduYears]
         ]}
         options={{
           backgroundColor: { fill: 'transparent' },
