@@ -2,18 +2,15 @@ import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 
-const EducationResults = props => {
-  let countryEduYears;
+const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
+  let country;
   let countryName = '';
-  let worldEduYears;
+  let world;
 
-  // This was needed to shut up Eslint warnings'
-  const input = props;
-
-  if (input.countryEduYears.country && input.worldEduYears) {
-    countryEduYears = props.countryEduYears.value;
-    countryName = props.countryEduYears.country.value;
-    worldEduYears = props.worldEduYears.value;
+  if (countryEduYears.value && worldEduYears) {
+    country = countryEduYears.value;
+    countryName = countryEduYears.country.value;
+    world = worldEduYears.value;
   }
 
   return (
@@ -37,9 +34,9 @@ const EducationResults = props => {
         loader={<div>Loading Chart</div>}
         data={[
           ['Education years', 'Education'],
-          ['World', worldEduYears],
-          [countryName, countryEduYears],
-          ['Your education years', input.eduYears]
+          ['World', world],
+          [countryName, country],
+          ['Your education years', eduYears]
         ]}
         options={{
           backgroundColor: '#F5DEB3',
@@ -63,8 +60,8 @@ const EducationResults = props => {
 
 EducationResults.propTypes = {
   countryEduYears: PropTypes.func.isRequired,
-  worldEduYears: PropTypes.func.isRequired
-  // eduYears: PropTypes.func.isRequired
+  worldEduYears: PropTypes.func.isRequired,
+  eduYears: PropTypes.func.isRequired
 };
 
 export default EducationResults;

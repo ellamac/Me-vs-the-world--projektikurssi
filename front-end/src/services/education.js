@@ -10,10 +10,7 @@ const getWorldEducationYears = async () => {
 const getEducationLength = async code => {
   const postData = { code };
   console.log('Country code to inject', code);
-  const response = await axios.post(
-    'http://localhost:3001/educationlength',
-    postData
-  );
+  const response = await axios.post('http://localhost:3001/educationlength', postData);
   return response.data;
 };
 
