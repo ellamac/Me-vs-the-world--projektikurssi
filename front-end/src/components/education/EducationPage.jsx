@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import EducationResults from './EducationResults';
 import EducationForm from './EducationForm';
 import educationService from '../../services/education';
-import bgImg from '../../images/education.png';
+import backg from '../../images/education.jpg';
 
 const EducationPage = () => {
   const [eduYears, setEduYears] = useState(0);
@@ -37,33 +37,41 @@ const EducationPage = () => {
     <>
       <style>
         {`
-        
-        h1 {
-          color: #FEFEFE;
-        }
+          h1{
+            color: white;
+          }
 
+        .bg {
+          height: 100vh;
+          background-position: bottom center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-color: #00000;
+        }
         `}
       </style>
-      <Container>
-        <img style={backImage} src={bgImg} alt="student" />
-        <h1 className="text-center p-5">How long did you go to school?</h1>
-        <Row>
-          <Col xs lg="3">
-            <EducationForm
-              eduYears={eduYears}
-              setEduYears={setEduYears}
-              setCountryEduYears={setCountryEduYears}
-            />
-          </Col>
-          <Col>
-            <EducationResults
-              eduYears={eduYears}
-              countryEduYears={countryEduYears}
-              worldEduYears={worldEduYears}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
+        <Container>
+          <h1 className="text-center p-5">How long did you go to school?</h1>
+          <Row>
+            <Col xs lg="3">
+              <EducationForm
+                eduYears={eduYears}
+                setEduYears={setEduYears}
+                setCountryEduYears={setCountryEduYears}
+              />
+            </Col>
+            <Col>
+              <EducationResults
+                eduYears={eduYears}
+                countryEduYears={countryEduYears}
+                worldEduYears={worldEduYears}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

@@ -1,12 +1,16 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import PropTypes from 'prop-types';
 
 const EducationResults = props => {
   let countryEduYears;
   let countryName = '';
   let worldEduYears;
 
-  if (props.countryEduYears.country && props.worldEduYears) {
+  // This was needed to shut up Eslint warnings'
+  const input = props;
+
+  if (input.countryEduYears.country && input.worldEduYears) {
     countryEduYears = props.countryEduYears.value;
     countryName = props.countryEduYears.country.value;
     worldEduYears = props.worldEduYears.value;
@@ -52,9 +56,15 @@ const EducationResults = props => {
         }}
         legendToggle
       />
-      <p></p>
+      {/* <p></p> in comments for now because empty elements cause a warning */}
     </>
   );
+};
+
+EducationResults.propTypes = {
+  countryEduYears: PropTypes.func.isRequired,
+  worldEduYears: PropTypes.func.isRequired
+  // eduYears: PropTypes.func.isRequired
 };
 
 export default EducationResults;
