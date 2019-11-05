@@ -1,12 +1,15 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import PropTypes from 'prop-types';
 
 const SalaryResults = props => {
   let countryAvgSalary = 0;
   let countryName = '';
   let worldAvgSalary = 0;
 
-  if (props.countryAvgSalary && props.worldAvgSalary) {
+  const input = props;
+
+  if (input.countryAvgSalary && input.worldAvgSalary) {
     countryAvgSalary = props.countryAvgSalary.value;
     countryName = props.countryAvgSalary.country.value;
     worldAvgSalary = props.worldAvgSalary.value;
@@ -17,7 +20,7 @@ const SalaryResults = props => {
       <style type="text/css">
         {`
   
-  rect:first-child{
+  react:first-child{
     fill: #000000;
     opacity: 0;
   }
@@ -35,7 +38,7 @@ const SalaryResults = props => {
           ['Average salary', 'Salary'],
           ['World', worldAvgSalary],
           [countryName, countryAvgSalary],
-          ['Your salary', props.avgSalary]
+          ['Your salary', input.avgSalary]
         ]}
         options={{
           backgroundColor: '#F5DEB3',
@@ -54,6 +57,12 @@ const SalaryResults = props => {
       />
     </>
   );
+};
+
+SalaryResults.propTypes = {
+  countryAvgSalary: PropTypes.func.isRequired,
+  worldAvgSalary: PropTypes.func.isRequired
+  // avgSalary: PropTypes.func.isRequired
 };
 
 export default SalaryResults;
