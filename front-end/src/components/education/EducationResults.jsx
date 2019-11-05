@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import '../Styles.css';
 
 const EducationResults = props => {
   let countryEduYears;
@@ -18,20 +19,6 @@ const EducationResults = props => {
 
   return (
     <>
-      <style type="text/css">
-        {`
-  
-  rect:first-child{
-    fill: #000000;
-    opacity: 0;
-  }
-
-  #reactgooglegraph-1 {
-    width: 80%;
-    min-height: 400px;
-  }
-  `}
-      </style>
       <Chart
         chartType="Bar"
         loader={<div>Loading Chart</div>}
