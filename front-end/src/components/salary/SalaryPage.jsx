@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container';
 import SalaryForm from './SalaryForm';
 import SalaryResults from './SalaryResults';
 import salaryService from '../../services/salary';
-import Container from 'react-bootstrap/Container';
 import backg from '../../images/salary.jpg';
 
 const SalaryPage = () => {

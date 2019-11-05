@@ -24,7 +24,7 @@ const SalaryResults = props => {
       <style type="text/css">
         {`
   
-  react:first-child{
+  rect:first-child{
     fill: #000000;
     opacity: 0;
   }
@@ -65,7 +65,7 @@ const SalaryResults = props => {
 
 SalaryResults.propTypes = {
   countryAvgSalary: PropTypes.node.isRequired,
-  worldAvgSalary: PropTypes.func.isRequired
+  worldAvgSalary: PropTypes.number.isRequired
   // avgSalary: PropTypes.func.isRequired
 };
 
