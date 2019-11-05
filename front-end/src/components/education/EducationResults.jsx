@@ -20,7 +20,8 @@ const EducationResults = props => {
   return (
     <>
       <Chart
-        chartType="Bar"
+        height={'400px'}
+        chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
         data={[
           ['Education years', 'Education'],
@@ -29,16 +30,31 @@ const EducationResults = props => {
           ['Your education years', input.eduYears]
         ]}
         options={{
-          backgroundColor: '#F5DEB3',
-          title: 'Education averages',
+          backgroundColor: { fill: 'transparent' },
+          fontSize: '18',
+          textStyle: { color: 'white' },
+          title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
+          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
-            minValue: 0
+            titleTextStyle: { color: 'white' },
+            minValue: 0,
+            gridlines: { count: 0, color: 'transparent' },
+            textStyle: { color: 'white' },
+            baselineColor: 'white'
           },
           vAxis: {
-            title: 'Years',
-            minValue: 0
+            title: 'Salaries',
+            titleTextStyle: { color: 'white', italic: false },
+            minValue: 0,
+            gridlines: { count: 0, color: 'transparent' },
+            textStyle: { color: 'white' },
+            minValue: 0,
+            viewWindow: { min: 0 },
+            viewWindowMode: 'pretty',
+            baselineColor: 'white'
           }
         }}
         legendToggle
