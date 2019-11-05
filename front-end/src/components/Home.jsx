@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom/';
 import backg from '../images/home.jpg';
 import logo from '../images/logo_white.png';
+import './Styles.css';
 
 const Home = () => {
   const imgStyle = {
@@ -35,18 +36,6 @@ const Home = () => {
 
   return (
     <>
-      <style type="text/css">
-        {`
-         .bg {
-          height: 100vh;
-          background-position: bottom center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-          background-color: #00000;
-        }
-      `}
-      </style>
       <div className="text-center bg" style={{ backgroundImage: `url(${backg})` }}>
         <Col>
           <div style={centered}>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home';
-// import Footer from './components/Footer';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
 import EducationPage from './components/education/EducationPage';
+import Chart from 'react-google-charts';
 
 const App = () => (
   <Router>

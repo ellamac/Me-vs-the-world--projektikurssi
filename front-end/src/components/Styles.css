@@ -1,0 +1,30 @@
+body,
+html {
+  background-color: black;
+}
+
+.bg {
+  height: 100vh;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -100;
+}
+
+h1 {
+  color: white;
+}
+
+.google-visualization-tooltip {
+  width: 175px;
+  border: 2px solid white !important;
+  background-color: black !important;
+  font-size: 10px !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+div.google-visualization-tooltip > ul > li > span {
+  color: white !important;
+}

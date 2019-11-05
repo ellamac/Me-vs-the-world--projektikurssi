@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import '../Styles.css';
 
 const SalaryResults = props => {
   let countryAvgSalary = 0;
@@ -21,40 +22,41 @@ const SalaryResults = props => {
 
   return (
     <>
-      <style type="text/css">
-        {`
-  
-  rect:first-child{
-    fill: #000000;
-    opacity: 0;
-  }
-
-  #reactgooglegraph-1 {
-    width: 80%;
-    min-height: 400px;
-  }
-  `}
-      </style>
       <Chart
-        chartType="Bar"
+        height={'400px'}
+        chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
         data={[
           ['Average salary', 'Salary'],
           ['World', worldAvgSalary],
-          [countryName, countryAvgSalary],
-          ['Your salary', input.avgSalary]
+          [!countryName ? 'Country average' : countryName, countryAvgSalary],
+          ['Your salary', props.avgSalary]
         ]}
         options={{
-          backgroundColor: '#F5DEB3',
+          backgroundColor: { fill: 'transparent' },
+          fontSize: '18',
+          textStyle: { color: 'white' },
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
+          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
-            minValue: 0
+            titleTextStyle: { color: 'white' },
+            minValue: 0,
+            gridlines: { count: 0, color: 'transparent' },
+            textStyle: { color: 'white' },
+            baselineColor: 'white'
           },
           vAxis: {
             title: 'Salaries',
-            minValue: 0
+            titleTextStyle: { color: 'white', italic: false },
+            minValue: 0,
+            gridlines: { count: 0, color: 'transparent' },
+            textStyle: { color: 'white' },
+            viewWindow: { min: 0 },
+            viewWindowMode: 'pretty',
+            baselineColor: 'white'
           }
         }}
         legendToggle
