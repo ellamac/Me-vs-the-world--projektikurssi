@@ -28,8 +28,8 @@ const TopNavBar = () => {
     `}
       </style>
       <Navbar variant="black">
-        <Navbar.Brand href="#">
-          <img src={logo} className="navbar-img" width="30" height="30" alt="" />
+        <Navbar.Brand href="/">
+          <img src={logo} className="navbar-img" width="30" height="30" alt=""></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
