@@ -38,8 +38,8 @@ const TopNavBar = () => {
             <Nav.Link href="/salary">Salary</Nav.Link>
             <Nav.Link href="/education">Education</Nav.Link>
             <NavDropdown title="Compare" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Salary</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Education</NavDropdown.Item>
+              <NavDropdown.Item href="/salary">Salary</NavDropdown.Item>
+              <NavDropdown.Item href="/education">Education</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Enviorment</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Help</NavDropdown.Item>

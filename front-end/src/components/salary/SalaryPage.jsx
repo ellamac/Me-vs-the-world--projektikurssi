@@ -6,28 +6,12 @@ import SalaryForm from './SalaryForm';
 import SalaryResults from './SalaryResults';
 import salaryService from '../../services/salary';
 import backg from '../../images/salary.jpg';
+import '../Styles.css';
 
 const SalaryPage = () => {
   const [worldSalaryData, setWorldSalaryData] = useState('');
   const [salaryData, setSalaryData] = useState('');
   const [userSalary, setUserSalary] = useState(0);
-
-  const backImage = {
-    /* Set rules to fill background */
-    minHeight: '100%',
-    minWidth: '1024px',
-
-    /* Set up proportionate scaling */
-    width: '100%',
-    height: 'auto',
-
-    /* Set up positioning */
-    position: 'fixed',
-    top: '0',
-    left: '0',
-
-    zIndex: '-100'
-  };
 
   useEffect(() => {
     salaryService.getWorldSalary().then(data => {
@@ -37,24 +21,6 @@ const SalaryPage = () => {
 
   return (
     <>
-      <style>
-        {`
-        h1{
-          color: white;
-        }
-
-        .bg {
-
-          height: 100vh;
-          background-position: bottom center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-          background-color: #00000;
-
-          z-index:-100;
-        `}
-      </style>
       <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
         <Container>
           <div />

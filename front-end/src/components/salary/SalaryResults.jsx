@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import '../Styles.css';
 
 const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   let country = 0;
@@ -15,31 +16,16 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
 
   return (
     <>
-      <style type="text/css">
-        {`
-  
-  react:first-child{
-    fill: #000000;
-    opacity: 0;
-  }
-
-  #reactgooglegraph-1 {
-    width: 80%;
-    min-height: 400px;
-  }
-  `}
-      </style>
       <Chart
         chartType="Bar"
         loader={<div>Loading Chart</div>}
         data={[
           ['Average salary', 'Salary'],
           ['World', world],
-          [countryName, country],
+          [!countryName ? 'Country average' : countryName, country],
           ['Your salary', avgSalary]
         ]}
         options={{
-          backgroundColor: '#F5DEB3',
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
           hAxis: {

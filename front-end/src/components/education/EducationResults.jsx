@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import '../Styles.css';
 
 const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
   let country;
@@ -15,27 +16,13 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
 
   return (
     <>
-      <style type="text/css">
-        {`
-  
-  rect:first-child{
-    fill: #000000;
-    opacity: 0;
-  }
-
-  #reactgooglegraph-1 {
-    width: 80%;
-    min-height: 400px;
-  }
-  `}
-      </style>
       <Chart
         chartType="Bar"
         loader={<div>Loading Chart</div>}
         data={[
           ['Education years', 'Education'],
           ['World', world],
-          [countryName, country],
+          [!countryName ? 'Country average' : countryName, country],
           ['Your education years', eduYears]
         ]}
         options={{

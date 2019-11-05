@@ -1,0 +1,27 @@
+body,
+html {
+  background-color: black;
+}
+
+.bg {
+  height: 100vh;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -100;
+}
+
+h1 {
+  color: white;
+}
+
+#reactgooglegraph-1 {
+  width: 80%;
+  min-height: 400px;
+}
+
+rect:first-child {
+  fill: #000000;
+  opacity: 0;
+}
