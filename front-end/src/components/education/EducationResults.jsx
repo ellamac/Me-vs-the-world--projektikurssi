@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import '../Styles.css';
 
 const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
-  let country;
+  let country = 0;
   let countryName = '';
-  let world;
+  let world = 0;
 
   if (countryEduYears.value && worldEduYears) {
     country = countryEduYears.value;

@@ -33,10 +33,10 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
 
   return (
     <>
-      <Form style={{ color: '#fefefe' }} onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
         <Form.Group controlId="Salaryinput">
-          <Form.Label>Your education years</Form.Label>
+          <Form.Label style={{ color: '#fefefe' }}>Your education years</Form.Label>
           <Form.Control type="number" max="100" min="0" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">

@@ -16,7 +16,7 @@ const SelectCountry = ({ handleChange }) => {
   return (
     <>
       <Form.Group controlId="Countryinput">
-        <Form.Label>Your country</Form.Label>
+        <Form.Label style={{ color: '#fefefe' }}>Your country</Form.Label>
         <Select onChange={handleChange} options={countrycodes} />
       </Form.Group>
     </>
