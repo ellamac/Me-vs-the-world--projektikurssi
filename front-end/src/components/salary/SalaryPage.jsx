@@ -18,7 +18,6 @@ const SalaryPage = () => {
       setWorldSalaryData(data);
     });
   }, []);
-
   return (
     <>
       <div className="bg" style={{ backgroundImage: `url(${backg})` }}>

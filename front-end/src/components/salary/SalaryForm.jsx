@@ -12,8 +12,7 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const parsedInput = Number.parseInt(e.target[1].value, 10);
-    if (!Number.isNaN(parsedInput)) setUserSalary(0);
-    else setUserSalary(parsedInput);
+    setUserSalary(parsedInput);
     salaryService.getCountrysSalary(countrycode).then(data => {
       setSalaryData(data);
     });
@@ -48,7 +47,7 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
         <SelectCountry handleChange={handleChange} />
         <Form.Group controlId="Salaryinput">
           <Form.Label>Your salary</Form.Label>
-          <Form.Control type="text" placeholder="Your salary" />
+          <Form.Control type="number" placeholder="Your salary" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">
           Submit

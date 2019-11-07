@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 
     // here data is parsed from extra information
     let data = JSON.parse(body);
+    console.log(data);
 
     data = data.source[0].concept[0].variable;
 

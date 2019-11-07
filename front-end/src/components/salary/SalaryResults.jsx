@@ -13,7 +13,6 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
     countryName = countryAvgSalary.country.value;
     world = worldAvgSalary.value;
   }
-
   return (
     <>
       <Chart
@@ -61,8 +60,8 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
 
 SalaryResults.propTypes = {
   countryAvgSalary: PropTypes.string.isRequired,
-  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  avgSalary: PropTypes.number.isRequired
+  worldAvgSalary: PropTypes.string.isRequired,
+  avgSalary: PropTypes.string.isRequired
 };
 
 export default SalaryResults;
