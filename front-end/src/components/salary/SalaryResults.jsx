@@ -17,7 +17,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   return (
     <>
       <Chart
-        height={'400px'}
+        height="400px"
         chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
         data={[

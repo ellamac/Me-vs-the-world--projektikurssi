@@ -17,7 +17,6 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     setEduYears(e.target[1].value);
   };
   const handleChange = e => setCoutrycode(e.value);
-  // const handleEduChange = e => setEduYears(e.target.value);
 
   const buttonStyle = {
     display: 'inline-block',

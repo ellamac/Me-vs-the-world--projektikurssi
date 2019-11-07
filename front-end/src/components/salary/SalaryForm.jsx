@@ -8,14 +8,6 @@ import salaryService from '../../services/salary';
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');
 
-  // Handles changes in salary input
-  // Parses int out of the user input
-  /* const handleSalaryChange = e => {
-    const parsedInput = Number.parseInt(e.target.value, 10);
-    if (Number.isNaN(parsedInput)) setUserSalary(0);
-    else setUserSalary(parsedInput);
-  }; */
-
   // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
