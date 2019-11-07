@@ -3,21 +3,15 @@ import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 import '../Styles.css';
 
-const SalaryResults = props => {
-  let countryAvgSalary = 0;
+const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
+  let country = 0;
   let countryName = '';
-  let worldAvgSalary = 0;
+  let world = 0;
 
-  const input = props;
-
-  if (input.countryAvgSalary && input.worldAvgSalary) {
-    try {
-      countryAvgSalary = props.countryAvgSalary.value;
-      countryName = props.countryAvgSalary.country.value;
-      worldAvgSalary = props.worldAvgSalary.value;
-    } catch (error) {
-      console.error(`Virhe maata haettaessa\n${error}`);
-    }
+  if (countryAvgSalary.value && worldAvgSalary) {
+    country = countryAvgSalary.value;
+    countryName = countryAvgSalary.country.value;
+    world = worldAvgSalary.value;
   }
 
   return (
@@ -28,9 +22,9 @@ const SalaryResults = props => {
         loader={<div>Loading Chart</div>}
         data={[
           ['Average salary', 'Salary'],
-          ['World', worldAvgSalary],
-          [!countryName ? 'Country average' : countryName, countryAvgSalary],
-          ['Your salary', props.avgSalary]
+          ['World', world],
+          [!countryName ? 'Country average' : countryName, country],
+          ['Your salary', avgSalary]
         ]}
         options={{
           backgroundColor: { fill: 'transparent' },
@@ -66,9 +60,9 @@ const SalaryResults = props => {
 };
 
 SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.node.isRequired,
-  worldAvgSalary: PropTypes.number.isRequired
-  // avgSalary: PropTypes.func.isRequired
+  countryAvgSalary: PropTypes.func.isRequired,
+  worldAvgSalary: PropTypes.func.isRequired,
+  avgSalary: PropTypes.func.isRequired
 };
 
 export default SalaryResults;
