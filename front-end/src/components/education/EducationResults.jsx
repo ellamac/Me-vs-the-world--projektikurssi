@@ -62,9 +62,9 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
 };
 
 EducationResults.propTypes = {
-  countryEduYears: PropTypes.func.isRequired,
-  worldEduYears: PropTypes.func.isRequired,
-  eduYears: PropTypes.func.isRequired
+  countryEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  worldEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  eduYears: PropTypes.number.isRequired
 };
 
 export default EducationResults;

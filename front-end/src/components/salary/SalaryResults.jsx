@@ -60,9 +60,9 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
 };
 
 SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.func.isRequired,
-  worldAvgSalary: PropTypes.func.isRequired,
-  avgSalary: PropTypes.func.isRequired
+  countryAvgSalary: PropTypes.string.isRequired,
+  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  avgSalary: PropTypes.number.isRequired
 };
 
 export default SalaryResults;
