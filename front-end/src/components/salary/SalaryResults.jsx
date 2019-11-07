@@ -48,7 +48,6 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
             minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
-            minValue: 0,
             viewWindow: { min: 0 },
             viewWindowMode: 'pretty',
             baselineColor: 'white'
