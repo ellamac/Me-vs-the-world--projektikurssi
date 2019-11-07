@@ -17,7 +17,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
   return (
     <>
       <Chart
-        height={'400px'}
+        height="400px"
         chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
         data={[
@@ -48,7 +48,6 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
             minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
-            minValue: 0,
             viewWindow: { min: 0 },
             viewWindowMode: 'pretty',
             baselineColor: 'white'
