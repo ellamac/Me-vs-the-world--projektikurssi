@@ -3,12 +3,11 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-// api end point for fetching salary
-
+// api end point for fetching elecricity
 router.get('/', async (req, res) => {
   try {
     const address =
-      'https://api.worldbank.org/v2/countries/wld/indicators/NY.ADJ.NNTY.PC.CD?format=json&mrnev=1';
+      'https://api.worldbank.org/v2/countries/wld/indicators/EG.USE.ELEC.KH.PC?format=json&mrnev=1';
     const resp = await axios.get(address);
     const [data] = resp.data[1];
 
@@ -28,16 +27,15 @@ router.get('/', async (req, res) => {
 
 // Fetches data from WB api and parses it from extra information
 const getCountryData = async code => {
-  const countrySalaryAddres = `https://api.worldbank.org/v2/countries/${code}/indicators/NY.ADJ.NNTY.PC.CD?format=json&mrnev=1`;
+  const countryElectricityUse = `https://api.worldbank.org/v2/countries/${code}/indicators/EG.USE.ELEC.KH.PC?format=json&per_page=30000&mrnev=1`;
   try {
-    const resp = await axios.get(countrySalaryAddres);
+    const resp = await axios.get(countryElectricityUse);
     const [data] = resp.data[1];
-
     return {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${countrySalaryAddres}`
+      info: `World Bank: ${data.indicator.value}: ${countryElectricityUse}`
     };
   } catch (error) {
     // eslint-disable-next-line no-console

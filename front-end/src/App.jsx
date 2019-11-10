@@ -4,6 +4,7 @@ import Home from './components/Home';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
 import EducationPage from './components/education/EducationPage';
+import ElectricityPage from './components/electricity/ElectricityPage';
 
 const App = () => (
   <Router>
@@ -13,6 +14,7 @@ const App = () => (
         <Route exact path="/" render={() => <Home />} />
         <Route path="/salary" render={() => <SalaryPage />} />
         <Route path="/education" render={() => <EducationPage />} />
+        <Route path="/electricity" render={() => <ElectricityPage />} />
       </div>
       {/* <Footer id='footer' /> */}
     </div>
