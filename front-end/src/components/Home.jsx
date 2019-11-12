@@ -36,26 +36,34 @@ const Home = () => {
 
   return (
     <>
-      <div className="text-center bg" style={{ backgroundImage: `url(${backg})` }}>
+      <div
+        className='text-center bg'
+        style={{ backgroundImage: `url(${backg})` }}
+      >
         <Col>
           <div style={centered}>
-            <img style={imgStyle} src={logo} alt="Me-VS-World" padding="100px 0px 0px 0px" />
+            <img
+              style={imgStyle}
+              src={logo}
+              alt='Me-VS-World'
+              padding='100px 0px 0px 0px'
+            />
             <h3 style={{ fontWeight: '700', color: 'white' }}>
-              Click to compare your self to the worlds data on finance, education and other
-              subjects!
+              Click to compare your self to the worlds data on finance,
+              education and other subjects!
             </h3>
-            <div className="pl-5">
-              <Link to="/salary">
-                <Button className="m-4" style={buttonStyle}>
+            <div className='pl-5'>
+              <Link to='/salary'>
+                <Button className='m-4' style={buttonStyle}>
                   Salary
                 </Button>
               </Link>
-              <Link to="/education">
-                <Button className="m-4" style={buttonStyle}>
+              <Link to='/education'>
+                <Button className='m-4' style={buttonStyle}>
                   Education
                 </Button>
               </Link>
-              <Button className="m-4" style={buttonStyle}>
+              <Button className='m-4' style={buttonStyle}>
                 Other
               </Button>
             </div>
