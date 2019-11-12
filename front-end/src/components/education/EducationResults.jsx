@@ -14,16 +14,24 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
     world = worldEduYears.value;
   }
 
+  const yearInfoWorld = `World, ${worldEduYears.date}`;
+  const yearInfoCountry = countryEduYears.date;
+
   return (
     <>
       <Chart
-        height="400px"
-        chartType="ColumnChart"
+        height='400px'
+        chartType='ColumnChart'
         loader={<div>Loading Chart</div>}
         data={[
           ['Education years', 'Education'],
-          ['World', world],
-          [!countryName ? 'Country average' : countryName, country],
+          [yearInfoWorld, world],
+          [
+            !countryName
+              ? 'Country average'
+              : `${countryName}, ${yearInfoCountry}`,
+            country
+          ],
           ['Your education years', eduYears]
         ]}
         options={{
@@ -33,7 +41,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
           legend: { textStyle: { color: 'white', fontSize: 18 } },
-          tooltip: { isHtml: true, trigger: 'visible' },
+          tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {
             title: '',
             titleTextStyle: { color: 'white' },
@@ -63,7 +71,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
 EducationResults.propTypes = {
   countryEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
   worldEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  eduYears: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+  eduYears: PropTypes.oneOfType([PropTypes.object]).isRequired
 };
 
 export default EducationResults;

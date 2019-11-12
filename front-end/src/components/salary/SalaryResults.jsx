@@ -13,19 +13,24 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
     countryName = countryAvgSalary.country.value;
     world = worldAvgSalary.value;
   }
-  console.log(avgSalary);
-  console.log(worldAvgSalary);
-  console.log(world);
+  const yearInfoWorld = `World, ${worldAvgSalary.date}`;
+  const yearInfoCountry = countryAvgSalary.date;
+
   return (
     <>
       <Chart
-        height="400px"
-        chartType="ColumnChart"
+        height='400px'
+        chartType='ColumnChart'
         loader={<div>Loading Chart</div>}
         data={[
           ['Average salary', 'Salary'],
-          ['World', world],
-          [!countryName ? 'Country average' : countryName, country],
+          [yearInfoWorld, world],
+          [
+            !countryName
+              ? 'Country average'
+              : `${countryName}, ${yearInfoCountry}`,
+            country
+          ],
           ['Your salary', avgSalary]
         ]}
         options={{
@@ -62,8 +67,10 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
 };
 
 SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  countryAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   avgSalary: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 

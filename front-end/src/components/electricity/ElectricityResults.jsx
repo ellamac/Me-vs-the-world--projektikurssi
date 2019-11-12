@@ -3,7 +3,11 @@ import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 import '../Styles.css';
 
-const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgElectricity }) => {
+const ElectricityResults = ({
+  avgElectricity,
+  countryAvgElectricity,
+  worldAvgElectricity
+}) => {
   let country = 0;
   let countryName = '';
   let world = 0;
@@ -17,8 +21,8 @@ const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgEle
   return (
     <>
       <Chart
-        height="400px"
-        chartType="ColumnChart"
+        height='400px'
+        chartType='ColumnChart'
         loader={<div>Loading Chart</div>}
         data={[
           ['Average Electricity', 'Electricity'],
@@ -60,8 +64,12 @@ const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgEle
 };
 
 ElectricityResults.propTypes = {
-  countryAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  countryAvgElectricity: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
+  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   avgElectricity: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 

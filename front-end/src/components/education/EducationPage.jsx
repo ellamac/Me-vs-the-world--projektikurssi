@@ -14,16 +14,18 @@ const EducationPage = () => {
   const [worldEduYears, setWorldEduYears] = useState({});
 
   useEffect(() => {
-    educationService.getWorldEducationYears().then(data => setWorldEduYears(data));
+    educationService
+      .getWorldEducationYears()
+      .then(data => setWorldEduYears(data));
   }, []);
 
   return (
     <>
-      <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
+      <div className='bg' style={{ backgroundImage: `url(${backg})` }}>
         <Container>
-          <h1 className="text-center p-5">How long did you go to school?</h1>
+          <h1 className='text-center p-5'>How long did you go to school?</h1>
           <Row>
-            <Col xs lg="3">
+            <Col xs lg='3'>
               <EducationForm
                 eduYears={eduYears}
                 setEduYears={setEduYears}
