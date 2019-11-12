@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
-import educationService from '../../services/education';
 import SelectCountry from '../SelectCountry';
+import electricityService from '../../services/electricity';
 
-const EducationForm = ({ setEduYears, setCountryEduYears }) => {
+const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
   const [countrycode, setCoutrycode] = useState('');
 
+  // Handles form submit
   const handleSubmit = e => {
     e.preventDefault();
-
-    educationService.getEducationLength(countrycode).then(data => {
-      setCountryEduYears(data);
+    const parsedInput = Number.parseInt(e.target[1].value, 10);
+    setUserElectricity(parsedInput);
+    electricityService.getCountrysElectricity(countrycode).then(data => {
+      setElectricityData(data);
     });
-    setEduYears(e.target[1].value);
   };
+
+  // Handles countrycode for select-search
   const handleChange = e => setCoutrycode(e.value);
 
   const buttonStyle = {
@@ -33,11 +36,18 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
 
   return (
     <>
+      <style>
+        {`
+      label {
+        color: #fefefe;
+      }
+     `}
+      </style>
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
-        <Form.Group controlId="Salaryinput">
-          <Form.Label style={{ color: '#fefefe' }}>Your education years</Form.Label>
-          <Form.Control type="number" max="100" min="0" />
+        <Form.Group controlId="ElectricityInput">
+          <Form.Label>Your electricity consumption in kwh</Form.Label>
+          <Form.Control type="number" placeholder="kwh" />
         </Form.Group>
         <Button style={buttonStyle} variant="primary" type="submit">
           Submit
@@ -47,9 +57,9 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
   );
 };
 
-EducationForm.propTypes = {
-  setEduYears: PropTypes.func.isRequired,
-  setCountryEduYears: PropTypes.func.isRequired
+ElectricityForm.propTypes = {
+  setUserElectricity: PropTypes.func.isRequired,
+  setElectricityData: PropTypes.func.isRequired
 };
 
-export default EducationForm;
+export default ElectricityForm;

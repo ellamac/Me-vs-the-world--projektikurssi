@@ -3,15 +3,15 @@ import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 import '../Styles.css';
 
-const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
+const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgElectricity }) => {
   let country = 0;
   let countryName = '';
   let world = 0;
 
-  if (countryEduYears.value && worldEduYears) {
-    country = countryEduYears.value;
-    countryName = countryEduYears.country.value;
-    world = worldEduYears.value;
+  if (countryAvgElectricity.value && worldAvgElectricity) {
+    country = countryAvgElectricity.value;
+    countryName = countryAvgElectricity.country.value;
+    world = worldAvgElectricity.value;
   }
 
   return (
@@ -21,10 +21,10 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
         chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
         data={[
-          ['Education years', 'Education'],
+          ['Average Electricity', 'Electricity'],
           ['World', world],
           [!countryName ? 'Country average' : countryName, country],
-          ['Your education years', eduYears]
+          ['Your Electricity consumption', avgElectricity]
         ]}
         options={{
           backgroundColor: { fill: 'transparent' },
@@ -55,15 +55,14 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
         }}
         legendToggle
       />
-      {/* <p></p> in comments for now because empty elements cause a warning */}
     </>
   );
 };
 
-EducationResults.propTypes = {
-  countryEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  worldEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  eduYears: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+ElectricityResults.propTypes = {
+  countryAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  avgElectricity: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 
-export default EducationResults;
+export default ElectricityResults;

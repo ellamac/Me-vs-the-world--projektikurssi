@@ -29,7 +29,7 @@ const TopNavBar = () => {
       </style>
       <Navbar variant="black">
         <Navbar.Brand href="/">
-          <img src={logo} className="navbar-img" width="30" height="30" alt=""></img>
+          <img src={logo} className="navbar-img" width="30" height="30" alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -37,6 +37,7 @@ const TopNavBar = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/salary">Salary</Nav.Link>
             <Nav.Link href="/education">Education</Nav.Link>
+            <Nav.Link href="/electricity">Electricity</Nav.Link>
             <NavDropdown title="Compare" id="basic-nav-dropdown">
               <NavDropdown.Item href="/salary">Salary</NavDropdown.Item>
               <NavDropdown.Item href="/education">Education</NavDropdown.Item>

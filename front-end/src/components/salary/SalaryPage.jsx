@@ -10,7 +10,7 @@ import '../Styles.css';
 
 const SalaryPage = () => {
   const [worldSalaryData, setWorldSalaryData] = useState('');
-  const [salaryData, setSalaryData] = useState('');
+  const [salaryData, setSalaryData] = useState([]);
   const [userSalary, setUserSalary] = useState(0);
 
   useEffect(() => {
@@ -18,7 +18,6 @@ const SalaryPage = () => {
       setWorldSalaryData(data);
     });
   }, []);
-
   return (
     <>
       <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
