@@ -18,6 +18,9 @@ const ElectricityResults = ({
     world = worldAvgElectricity.value;
   }
 
+  const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
+  const yearInfoCountry = countryAvgElectricity.date;
+
   return (
     <>
       <Chart
@@ -26,8 +29,13 @@ const ElectricityResults = ({
         loader={<div>Loading Chart</div>}
         data={[
           ['Average Electricity', 'Electricity'],
-          ['World', world],
-          [!countryName ? 'Country average' : countryName, country],
+          [yearInfoWorld, world],
+          [
+            !countryName
+              ? 'Country average'
+              : `${countryName}, ${yearInfoCountry}`,
+            country
+          ],
           ['Your Electricity consumption', avgElectricity]
         ]}
         options={{
