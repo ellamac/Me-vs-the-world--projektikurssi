@@ -1,12 +1,15 @@
+require('dotenv').config();
+
 const express = require('express');
 
 const cors = require('cors');
 
+const bodyParser = require('body-parser');
+
 const app = express();
 app.use(cors());
 
-const bodyParser = require('body-parser');
-
+app.use(express.static('build'));
 app.use(bodyParser.json());
 
 app.use('/salary', require('./routes/salary'));
@@ -19,7 +22,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>');
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
