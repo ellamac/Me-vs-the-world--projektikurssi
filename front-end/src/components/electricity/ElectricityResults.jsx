@@ -42,7 +42,7 @@ const ElectricityResults = ({
           backgroundColor: { fill: 'transparent' },
           fontSize: '18',
           textStyle: { color: 'white' },
-          title: 'Average salaries',
+          title: 'Average power consumption',
           colors: ['#004D1B', '#ADD8E6'],
           legend: { textStyle: { color: 'white', fontSize: 18 } },
           tooltip: { isHtml: true, trigger: 'visible' },
@@ -55,7 +55,7 @@ const ElectricityResults = ({
             baselineColor: 'white'
           },
           vAxis: {
-            title: 'Salaries',
+            title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
             minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
