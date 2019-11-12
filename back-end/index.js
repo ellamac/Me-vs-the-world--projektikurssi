@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use('/salary', require('./routes/salary'));
 app.use('/countrycodes', require('./routes/countrycodes'));
 app.use('/educationlength', require('./routes/educationlength'));
+app.use('/electricity', require('./routes/electricity'));
 
 // data in root
 app.get('/', (req, res) => {

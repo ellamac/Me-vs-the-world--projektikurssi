@@ -37,6 +37,7 @@ const TopNavBar = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/salary">Salary</Nav.Link>
             <Nav.Link href="/education">Education</Nav.Link>
+            <Nav.Link href="/electricity">Electricity</Nav.Link>
             <NavDropdown title="Compare" id="basic-nav-dropdown">
               <NavDropdown.Item href="/salary">Salary</NavDropdown.Item>
               <NavDropdown.Item href="/education">Education</NavDropdown.Item>
