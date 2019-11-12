@@ -5,7 +5,7 @@ html {
 
 .bg {
   height: 100vh;
-  background-position: bottom center;
+  background-position: bottom right;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -27,4 +27,52 @@ h1 {
 
 div.google-visualization-tooltip > ul > li > span {
   color: white !important;
+}
+
+.btn.btn-primary {
+  background-color: #004d1b;
+}
+
+.btn.btn-primary:active,
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background-color: #004d1b !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.navbar-black {
+  background-color: black;
+  color: white;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-expand .navbar-nav .nav-link:hover {
+  background-color: #004d1b !important;
+  color: white !important;
+}
+img.navbar-img:hover {
+  fill: #004d1b;
+}
+
+.dropdown-menu.show {
+  background-color: black;
+  border: 2px solid white;
+}
+
+.dropdown-menu.show .dropdown-item {
+  color: white !important;
+}
+
+.dropdown-menu.show .dropdown-item:hover {
+  background-color: #004d1b !important;
+  color: white !important;
+}
+
+.navbar-img:hover {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(42%) saturate(2261%)
+    hue-rotate(115deg) brightness(89%) contrast(101%);
 }

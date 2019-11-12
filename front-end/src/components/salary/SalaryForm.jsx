@@ -45,11 +45,11 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
       </style>
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
-        <Form.Group controlId="Salaryinput">
+        <Form.Group controlId='Salaryinput'>
           <Form.Label>Your salary</Form.Label>
-          <Form.Control type="number" placeholder="Your salary" />
+          <Form.Control type='number' placeholder='Your salary' />
         </Form.Group>
-        <Button style={buttonStyle} variant="primary" type="submit">
+        <Button style={buttonStyle} variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

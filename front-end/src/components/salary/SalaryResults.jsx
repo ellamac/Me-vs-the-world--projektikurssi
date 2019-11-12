@@ -39,7 +39,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           textStyle: { color: 'white' },
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
@@ -60,7 +60,6 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
     </>
   );

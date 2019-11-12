@@ -44,7 +44,7 @@ const ElectricityResults = ({
           textStyle: { color: 'white' },
           title: 'Average power consumption',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
@@ -65,7 +65,6 @@ const ElectricityResults = ({
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
     </>
   );

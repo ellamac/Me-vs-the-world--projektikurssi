@@ -40,7 +40,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           textStyle: { color: 'white' },
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {
             title: '',
@@ -61,7 +61,6 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
       {/* <p></p> in comments for now because empty elements cause a warning */}
     </>

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import ElectricityForm from './ElectricityForm';
 import ElectricityResults from './ElectricityResults';
 import electrisityService from '../../services/electricity';
-import backg from '../../images/salary.jpg';
+import backg from '../../images/electricity.jpg';
 import '../Styles.css';
 
 const ElectricityPage = () => {
