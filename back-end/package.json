@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon index.js",
     "build:ui": "rm -rf build && cd ../front-end && npm run build --prod && cp -r build ../back-end/",
-    "deploy": "git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy"
+    "deploy": "npm run build:ui && cd ../../deploy && sh deploy.sh"
   },
   "author": "",
   "license": "ISC",

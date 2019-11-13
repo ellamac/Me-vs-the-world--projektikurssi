@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap';
 import logo from '../images/logosvg.svg';
 
 const TopNavBar = () => {
@@ -19,10 +20,18 @@ const TopNavBar = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
-            <Nav.Link href='/'>Home</Nav.Link>
-            <Nav.Link href='/salary'>Salary</Nav.Link>
-            <Nav.Link href='/education'>Education</Nav.Link>
-            <Nav.Link href='/electricity'>Electricity</Nav.Link>
+            <LinkContainer to='/'>
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/salary'>
+              <Nav.Link>Salary</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/education'>
+              <Nav.Link>Education</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/electricity'>
+              <Nav.Link>Electricity</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

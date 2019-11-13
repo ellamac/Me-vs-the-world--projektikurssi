@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
@@ -12,11 +12,22 @@ const App = () => (
     <div className='d-flex flex-column justify-content-between'>
       {/* Testi pwa lataukselle */}
       <link rel='manifest' href='%PUBLIC_URL%/manifest.json' />
+
       <div id='pages'>
-        <Route exact path='/' render={() => <Home />} />
-        <Route path='/salary' render={() => <SalaryPage />} />
-        <Route path='/education' render={() => <EducationPage />} />
-        <Route path='/electricity' render={() => <ElectricityPage />} />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/salary'>
+            <SalaryPage />
+          </Route>
+          <Route path='/education'>
+            <EducationPage />
+          </Route>
+          <Route path='/electricity'>
+            <ElectricityPage />
+          </Route>
+        </Switch>
       </div>
       {/* <Footer id='footer' /> */}
     </div>
