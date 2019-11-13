@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
@@ -15,18 +15,10 @@ const App = () => (
 
       <div id='pages'>
         <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/salary'>
-            <SalaryPage />
-          </Route>
-          <Route path='/education'>
-            <EducationPage />
-          </Route>
-          <Route path='/electricity'>
-            <ElectricityPage />
-          </Route>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/salary' component={SalaryPage} />
+          <Route exact path='/education' component={EducationPage} />
+          <Route exact path='/electricity' component={ElectricityPage} />
         </Switch>
       </div>
       {/* <Footer id='footer' /> */}

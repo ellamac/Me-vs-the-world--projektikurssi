@@ -12,15 +12,14 @@ app.use(cors());
 app.use(express.static('build'));
 app.use(bodyParser.json());
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'index.html'));
+});
+
 app.use('/api/salary', require('./routes/salary'));
 app.use('/api/countrycodes', require('./routes/countrycodes'));
 app.use('/api/educationlength', require('./routes/educationlength'));
 app.use('/api/electricity', require('./routes/electricity'));
-
-// data in root
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>');
-});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
