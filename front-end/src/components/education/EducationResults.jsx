@@ -53,7 +53,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           vAxis: {
             title: 'Years',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 0,
+            minValue: 20,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             viewWindow: { min: 0 },

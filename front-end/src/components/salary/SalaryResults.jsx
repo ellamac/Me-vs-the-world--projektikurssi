@@ -52,7 +52,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           vAxis: {
             title: 'Salaries',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 0,
+            minValue: 50000,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             viewWindow: { min: 0 },
