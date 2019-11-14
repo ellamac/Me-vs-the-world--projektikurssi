@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${address}`
+      info: `World Bank: ${data.indicator.value}`
     });
     return res;
   } catch (error) {
@@ -35,7 +35,7 @@ const getCountryData = async code => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${countryElectricityUse}`
+      info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
     // eslint-disable-next-line no-console

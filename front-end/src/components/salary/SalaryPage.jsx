@@ -12,6 +12,7 @@ const SalaryPage = () => {
   const [worldSalaryData, setWorldSalaryData] = useState('');
   const [salaryData, setSalaryData] = useState([]);
   const [userSalary, setUserSalary] = useState(0);
+  console.log(salaryData);
 
   useEffect(() => {
     salaryService.getWorldSalary().then(data => {
@@ -20,12 +21,14 @@ const SalaryPage = () => {
   }, []);
   return (
     <>
-      <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
+      <div className='bg' style={{ backgroundImage: `url(${backg})` }}>
         <Container>
           <div />
-          <h1 className="text-center p-5">Compare your salary to your country and the world!</h1>
+          <h1 className='text-center p-5'>
+            Compare your salary to your country and the world!
+          </h1>
           <Row>
-            <Col xs lg="3">
+            <Col xs lg='3'>
               <SalaryForm
                 userSalary={userSalary}
                 setUserSalary={setUserSalary}

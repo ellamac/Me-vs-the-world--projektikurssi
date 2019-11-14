@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import Info from '../Info';
 import '../Styles.css';
 
 const ElectricityResults = ({
@@ -11,6 +12,7 @@ const ElectricityResults = ({
   let country = 0;
   let countryName = '';
   let world = 0;
+  let info = '';
 
   if (countryAvgElectricity.value && worldAvgElectricity) {
     country = countryAvgElectricity.value;
@@ -18,6 +20,7 @@ const ElectricityResults = ({
     world = worldAvgElectricity.value;
   }
 
+  info = countryAvgElectricity.info;
   const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
   const yearInfoCountry = countryAvgElectricity.date;
 
@@ -66,6 +69,7 @@ const ElectricityResults = ({
           }
         }}
       />
+      <Info dataInfo={info} />
     </>
   );
 };

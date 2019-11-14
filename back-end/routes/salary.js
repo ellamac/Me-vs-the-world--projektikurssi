@@ -37,7 +37,7 @@ const getCountryData = async code => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${countrySalaryAddres}`
+      info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
     // eslint-disable-next-line no-console
