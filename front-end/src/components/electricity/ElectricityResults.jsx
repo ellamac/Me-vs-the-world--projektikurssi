@@ -3,7 +3,11 @@ import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 import '../Styles.css';
 
-const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgElectricity }) => {
+const ElectricityResults = ({
+  avgElectricity,
+  countryAvgElectricity,
+  worldAvgElectricity
+}) => {
   let country = 0;
   let countryName = '';
   let world = 0;
@@ -14,25 +18,33 @@ const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgEle
     world = worldAvgElectricity.value;
   }
 
+  const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
+  const yearInfoCountry = countryAvgElectricity.date;
+
   return (
     <>
       <Chart
-        height="400px"
-        chartType="ColumnChart"
+        height='400px'
+        chartType='ColumnChart'
         loader={<div>Loading Chart</div>}
         data={[
           ['Average Electricity', 'Electricity'],
-          ['World', world],
-          [!countryName ? 'Country average' : countryName, country],
+          [yearInfoWorld, world],
+          [
+            !countryName
+              ? 'Country average'
+              : `${countryName}, ${yearInfoCountry}`,
+            country
+          ],
           ['Your Electricity consumption', avgElectricity]
         ]}
         options={{
           backgroundColor: { fill: 'transparent' },
           fontSize: '18',
           textStyle: { color: 'white' },
-          title: 'Average salaries',
+          title: 'Average power consumption',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
@@ -43,7 +55,7 @@ const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgEle
             baselineColor: 'white'
           },
           vAxis: {
-            title: 'Salaries',
+            title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
             minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
@@ -53,15 +65,18 @@ const ElectricityResults = ({ avgElectricity, countryAvgElectricity, worldAvgEle
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
     </>
   );
 };
 
 ElectricityResults.propTypes = {
-  countryAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  countryAvgElectricity: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
+  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   avgElectricity: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 

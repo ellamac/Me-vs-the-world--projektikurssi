@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import ElectricityForm from './ElectricityForm';
 import ElectricityResults from './ElectricityResults';
 import electrisityService from '../../services/electricity';
-import backg from '../../images/salary.jpg';
+import backg from '../../images/electricity.jpg';
 import '../Styles.css';
 
 const ElectricityPage = () => {
@@ -20,14 +20,14 @@ const ElectricityPage = () => {
   }, []);
   return (
     <>
-      <div className="bg" style={{ backgroundImage: `url(${backg})` }}>
+      <div className='bg' style={{ backgroundImage: `url(${backg})` }}>
         <Container>
           <div />
-          <h1 className="text-center p-5">
+          <h1 className='text-center p-5'>
             Compare your power consumption to your country and the world!
           </h1>
           <Row>
-            <Col xs lg="3">
+            <Col xs lg='3'>
               <ElectricityForm
                 userElectricity={userElectricity}
                 setUserElectricity={setUserElectricity}

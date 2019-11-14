@@ -45,11 +45,11 @@ const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
       </style>
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
-        <Form.Group controlId="ElectricityInput">
+        <Form.Group controlId='ElectricityInput'>
           <Form.Label>Your electricity consumption in kwh</Form.Label>
-          <Form.Control type="number" placeholder="kwh" />
+          <Form.Control type='number' placeholder='kwh' />
         </Form.Group>
-        <Button style={buttonStyle} variant="primary" type="submit">
+        <Button style={buttonStyle} variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

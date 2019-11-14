@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Mapped countrycodedata for select-search
 const getCountrycodes = async () => {
-  let data = await axios.get('http://localhost:3001/countrycodes');
+  let data = await axios.get('/api/countrycodes');
   data = data.data.map(s => ({ value: s.id, label: s.value }));
   return data;
 };

@@ -13,17 +13,27 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
     countryName = countryAvgSalary.country.value;
     // world = worldAvgSalary.value;
   }
+<<<<<<< HEAD
+=======
+  const yearInfoWorld = `World, ${worldAvgSalary.date}`;
+  const yearInfoCountry = countryAvgSalary.date;
+>>>>>>> 16dbeefc904e7f619d3b935853e36e8a8ded6619
 
   return (
     <>
       <Chart
-        height="400px"
-        chartType="ColumnChart"
+        height='400px'
+        chartType='ColumnChart'
         loader={<div>Loading Chart</div>}
         data={[
           ['Average salary', 'Salary'],
-          ['World', world],
-          [!countryName ? 'Country average' : countryName, country],
+          [yearInfoWorld, world],
+          [
+            !countryName
+              ? 'Country average'
+              : `${countryName}, ${yearInfoCountry}`,
+            country
+          ],
           ['Your salary', avgSalary]
         ]}
         options={{
@@ -32,7 +42,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           textStyle: { color: 'white' },
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
@@ -53,18 +63,25 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
     </>
   );
 };
 
 SalaryResults.propTypes = {
+<<<<<<< HEAD
   countryAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
     .isRequired,
   worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
     .isRequired,
   avgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+=======
+  countryAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  avgSalary: PropTypes.oneOfType([PropTypes.string]).isRequired
+>>>>>>> 16dbeefc904e7f619d3b935853e36e8a8ded6619
 };
 
 export default SalaryResults;

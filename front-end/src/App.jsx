@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
@@ -9,12 +9,17 @@ import ElectricityPage from './components/electricity/ElectricityPage';
 const App = () => (
   <Router>
     <TopNavBar />
-    <div className="d-flex flex-column justify-content-between">
-      <div id="pages">
-        <Route exact path="/" render={() => <Home />} />
-        <Route path="/salary" render={() => <SalaryPage />} />
-        <Route path="/education" render={() => <EducationPage />} />
-        <Route path="/electricity" render={() => <ElectricityPage />} />
+    <div className='d-flex flex-column justify-content-between'>
+      {/* Testi pwa lataukselle */}
+      <link rel='manifest' href='%PUBLIC_URL%/manifest.json' />
+
+      <div id='pages'>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/salary' component={SalaryPage} />
+          <Route exact path='/education' component={EducationPage} />
+          <Route exact path='/electricity' component={ElectricityPage} />
+        </Switch>
       </div>
       {/* <Footer id='footer' /> */}
     </div>
