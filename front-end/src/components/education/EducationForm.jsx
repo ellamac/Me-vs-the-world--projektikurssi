@@ -16,7 +16,9 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     });
     setEduYears(e.target[1].value);
   };
-  const handleChange = e => setCoutrycode(e.value);
+  const handleChange = e => {
+    setCoutrycode(e.value);
+  };
 
   const buttonStyle = {
     display: 'inline-block',
@@ -35,11 +37,13 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     <>
       <Form onSubmit={handleSubmit}>
         <SelectCountry handleChange={handleChange} />
-        <Form.Group controlId="Salaryinput">
-          <Form.Label style={{ color: '#fefefe' }}>Your education years</Form.Label>
-          <Form.Control type="number" max="100" min="0" />
+        <Form.Group controlId='Salaryinput'>
+          <Form.Label style={{ color: '#fefefe' }}>
+            Your education years
+          </Form.Label>
+          <Form.Control type='number' max='100' min='0' />
         </Form.Group>
-        <Button style={buttonStyle} variant="primary" type="submit">
+        <Button style={buttonStyle} variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

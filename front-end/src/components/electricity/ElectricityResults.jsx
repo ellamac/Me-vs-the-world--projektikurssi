@@ -52,18 +52,19 @@ const ElectricityResults = ({
           hAxis: {
             title: '',
             titleTextStyle: { color: 'white' },
-            minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             baselineColor: 'white'
           },
           vAxis: {
+            minValue: 20000,
+
             title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 0,
+
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
-            viewWindow: { min: 0 },
+
             viewWindowMode: 'pretty',
             baselineColor: 'white'
           }

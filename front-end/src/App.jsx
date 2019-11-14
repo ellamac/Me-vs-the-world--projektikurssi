@@ -10,9 +10,6 @@ const App = () => (
   <Router>
     <TopNavBar />
     <div className='d-flex flex-column justify-content-between'>
-      {/* Testi pwa lataukselle */}
-      <link rel='manifest' href='%PUBLIC_URL%/manifest.json' />
-
       <div id='pages'>
         <Switch>
           <Route exact path='/' component={Home} />
