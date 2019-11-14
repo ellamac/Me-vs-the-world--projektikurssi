@@ -1,12 +1,14 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import Info from '../Info';
 import '../Styles.css';
 
 const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   let country = 0;
   let countryName = '';
   let world = 0;
+  let info = '';
 
   if (countryAvgSalary.value && worldAvgSalary) {
     country = countryAvgSalary.value;
@@ -15,6 +17,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   }
   const yearInfoWorld = `World, ${worldAvgSalary.date}`;
   const yearInfoCountry = countryAvgSalary.date;
+  info = countryAvgSalary.info;
 
   return (
     <>
@@ -61,6 +64,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           }
         }}
       />
+      <Info dataInfo={info} />
     </>
   );
 };

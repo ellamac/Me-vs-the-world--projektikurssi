@@ -1,12 +1,14 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import Info from '../Info';
 import '../Styles.css';
 
 const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
   let country = 0;
   let countryName = '';
   let world = 0;
+  let info = '';
 
   if (countryEduYears.value && worldEduYears) {
     country = countryEduYears.value;
@@ -14,6 +16,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
     world = worldEduYears.value;
   }
 
+  info = countryEduYears.info;
   const yearInfoWorld = `World, ${worldEduYears.date}`;
   const yearInfoCountry = countryEduYears.date;
 
@@ -40,7 +43,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           textStyle: { color: 'white' },
           title: 'Average salaries',
           colors: ['#004D1B', '#ADD8E6'],
-          legend: { position: 'none' },
+          legend: { textStyle: { color: 'white', fontSize: 18 } },
           tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {
             title: '',
@@ -61,8 +64,9 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
             baselineColor: 'white'
           }
         }}
+        legendToggle
       />
-      {/* <p></p> in comments for now because empty elements cause a warning */}
+      <Info dataInfo={info} />
     </>
   );
 };
