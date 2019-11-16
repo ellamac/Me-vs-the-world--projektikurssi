@@ -5,22 +5,25 @@ import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
 import EducationPage from './components/education/EducationPage';
 import ElectricityPage from './components/electricity/ElectricityPage';
+import LoadingIndicator from './components/LoadingIndicator';
 
-const App = () => (
-  <Router>
-    <TopNavBar />
-    <div className='d-flex flex-column justify-content-between'>
-      <div id='pages'>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/salary' component={SalaryPage} />
-          <Route exact path='/education' component={EducationPage} />
-          <Route exact path='/electricity' component={ElectricityPage} />
-        </Switch>
+const App = () => {
+  return (
+    <Router>
+      <TopNavBar />
+      <div className='d-flex flex-column justify-content-between'>
+        <div id='pages'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/salary' component={SalaryPage} />
+            <Route exact path='/education' component={EducationPage} />
+            <Route exact path='/electricity' component={ElectricityPage} />
+          </Switch>
+        </div>
+        {/* <Footer id='footer' /> */}
       </div>
-      {/* <Footer id='footer' /> */}
-    </div>
-  </Router>
-);
+    </Router>
+  );
+};
 
 export default App;

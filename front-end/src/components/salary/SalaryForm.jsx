@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import SelectCountry from '../SelectCountry';
 import salaryService from '../../services/salary';
+import { trackPromise } from 'react-promise-tracker';
 
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');
