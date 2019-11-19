@@ -41,6 +41,10 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           fontSize: '18',
           textStyle: { color: 'white' },
           title: 'Average salaries',
+          titleTextStyle: {
+            color: '#FFF',
+            bold: false
+          },
           colors: ['#004D1B', '#ADD8E6'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },

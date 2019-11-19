@@ -41,9 +41,13 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           backgroundColor: { fill: 'transparent' },
           fontSize: '18',
           textStyle: { color: 'white' },
-          title: 'Average salaries',
-          colors: ['#004D1B', '#ADD8E6'],
-          legend: { textStyle: { color: 'white', fontSize: 18 } },
+          title: 'Average education years',
+          titleTextStyle: {
+            color: '#FFF',
+            bold: false
+          },
+          colors: ['#004D1B'],
+          legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {
             title: '',
@@ -64,7 +68,6 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
             baselineColor: 'white'
           }
         }}
-        legendToggle
       />
       <Info dataInfo={info} />
     </>

@@ -46,6 +46,10 @@ const ElectricityResults = ({
           fontSize: '18',
           textStyle: { color: 'white' },
           title: 'Average power consumption',
+          titleTextStyle: {
+            color: '#FFF',
+            bold: false
+          },
           colors: ['#004D1B', '#ADD8E6'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
