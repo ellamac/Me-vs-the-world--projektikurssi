@@ -13,7 +13,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   if (countryAvgSalary.value && worldAvgSalary) {
     country = countryAvgSalary.value;
     countryName = countryAvgSalary.country.value;
-    world = worldAvgSalary.value;
+    // world = worldAvgSalary.value;
   }
   const yearInfoWorld = `World, ${worldAvgSalary.date}`;
   const yearInfoCountry = countryAvgSalary.date;
@@ -74,11 +74,21 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
 };
 
 SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
-  worldAvgSalary: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
-  avgSalary: PropTypes.oneOfType([PropTypes.string]).isRequired
+  countryAvgSalary: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object
+  ]).isRequired,
+  worldAvgSalary: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object
+  ]).isRequired,
+  avgSalary: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object
+  ]).isRequired
 };
 
 export default SalaryResults;
