@@ -49,6 +49,7 @@ div.google-visualization-tooltip > ul > li > span {
 .navbar-black {
   background-color: black;
   color: white;
+  position: absolute;
 }
 
 .navbar-expand .navbar-nav .nav-link {
