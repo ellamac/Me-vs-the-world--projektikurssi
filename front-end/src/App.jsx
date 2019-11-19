@@ -5,6 +5,7 @@ import TopNavBar from './components/TopNavBar';
 import SalaryPage from './components/salary/SalaryPage';
 import EducationPage from './components/education/EducationPage';
 import ElectricityPage from './components/electricity/ElectricityPage';
+import LoadingIndicator from './components/LoadingIndicator';
 
 const App = () => {
   return (
