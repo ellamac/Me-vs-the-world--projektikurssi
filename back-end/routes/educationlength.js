@@ -14,7 +14,7 @@ const getEducationData = async code => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${address}`
+      info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
     console.log(error);
@@ -33,13 +33,13 @@ router.get('/', async (req, res) => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${address}`
+      info: `World Bank: ${data.indicator.value}`
     });
     return {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${address}`
+      info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
     console.log(error);

@@ -1,12 +1,14 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import Info from '../Info';
 import '../Styles.css';
 
 const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
   let country = 0;
   let countryName = '';
   let world = 0;
+  let info = '';
 
   if (countryEduYears.value && worldEduYears) {
     country = countryEduYears.value;
@@ -14,6 +16,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
     world = worldEduYears.value;
   }
 
+  info = countryEduYears.info;
   const yearInfoWorld = `World, ${worldEduYears.date}`;
   const yearInfoCountry = countryEduYears.date;
 
@@ -38,8 +41,12 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           backgroundColor: { fill: 'transparent' },
           fontSize: '18',
           textStyle: { color: 'white' },
-          title: 'Average salaries',
-          colors: ['#004D1B', '#ADD8E6'],
+          title: 'Average education years',
+          titleTextStyle: {
+            color: '#FFF',
+            bold: false
+          },
+          colors: ['#004D1B'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {
@@ -53,7 +60,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           vAxis: {
             title: 'Years',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 0,
+            minValue: 20,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             viewWindow: { min: 0 },
@@ -62,7 +69,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           }
         }}
       />
-      {/* <p></p> in comments for now because empty elements cause a warning */}
+      <Info dataInfo={info} />
     </>
   );
 };

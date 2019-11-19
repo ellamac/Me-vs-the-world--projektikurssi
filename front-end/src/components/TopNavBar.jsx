@@ -3,6 +3,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from '../images/logosvg.svg';
+import Button from 'react-bootstrap/Button';
+
+const buttonStyle = {
+  padding: '0',
+  border: 'none',
+  background: 'none',
+  borderRadius: '0px',
+  color: 'white'
+};
 
 const TopNavBar = () => {
   return (
@@ -32,6 +41,11 @@ const TopNavBar = () => {
             <LinkContainer to='/electricity'>
               <Nav.Link>Electricity</Nav.Link>
             </LinkContainer>
+            <Nav.Link>
+              <button value='accepted' style={buttonStyle} id='ad2hs-prompt'>
+                Add to Home Screen
+              </button>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

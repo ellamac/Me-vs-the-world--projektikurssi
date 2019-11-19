@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
+import Info from '../Info';
 import '../Styles.css';
 
 const ElectricityResults = ({
@@ -11,6 +12,7 @@ const ElectricityResults = ({
   let country = 0;
   let countryName = '';
   let world = 0;
+  let info = '';
 
   if (countryAvgElectricity.value && worldAvgElectricity) {
     country = countryAvgElectricity.value;
@@ -18,6 +20,7 @@ const ElectricityResults = ({
     world = worldAvgElectricity.value;
   }
 
+  info = countryAvgElectricity.info;
   const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
   const yearInfoCountry = countryAvgElectricity.date;
 
@@ -43,29 +46,35 @@ const ElectricityResults = ({
           fontSize: '18',
           textStyle: { color: 'white' },
           title: 'Average power consumption',
+          titleTextStyle: {
+            color: '#FFF',
+            bold: false
+          },
           colors: ['#004D1B', '#ADD8E6'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {
             title: '',
             titleTextStyle: { color: 'white' },
-            minValue: 0,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             baselineColor: 'white'
           },
           vAxis: {
+            minValue: 20000,
+
             title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 0,
+
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
-            viewWindow: { min: 0 },
+
             viewWindowMode: 'pretty',
             baselineColor: 'white'
           }
         }}
       />
+      <Info dataInfo={info} />
     </>
   );
 };

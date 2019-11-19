@@ -9,12 +9,12 @@ const address = 'https://api.worldbank.org/v2/sources/2/country/data?format=json
 router.get('/', (req, res) => {
   request.get(address, (error, response, body) => {
     if (error) {
+      // eslint-disable-next-line no-console
       return console.log(error);
     }
 
     // here data is parsed from extra information
     let data = JSON.parse(body);
-    console.log(data);
 
     data = data.source[0].concept[0].variable;
 

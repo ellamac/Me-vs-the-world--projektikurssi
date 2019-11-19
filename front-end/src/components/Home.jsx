@@ -63,9 +63,11 @@ const Home = () => {
                   Education
                 </Button>
               </Link>
-              <Button className='m-4' style={buttonStyle}>
-                Other
-              </Button>
+              <Link to='/electricity'>
+                <Button className='m-4' style={buttonStyle}>
+                  Electricity
+                </Button>
+              </Link>
             </div>
           </div>
         </Col>
