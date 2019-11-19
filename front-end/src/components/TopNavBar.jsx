@@ -2,8 +2,8 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
-import logo from '../images/logosvg.svg';
 import Button from 'react-bootstrap/Button';
+import logo from '../images/logosvg.svg';
 
 const buttonStyle = {
   padding: '0',

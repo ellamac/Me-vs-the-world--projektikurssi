@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import { trackPromise } from 'react-promise-tracker';
 import SelectCountry from '../SelectCountry';
 import salaryService from '../../services/salary';
-import { trackPromise } from 'react-promise-tracker';
 
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');
