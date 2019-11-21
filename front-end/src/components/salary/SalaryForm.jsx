@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import salaryService from '../../services/salary';
 import ResponsiveForm from '../ResponsiveForm';
+import salaryService from '../../services/salary';
 
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   const [countrycode, setCoutrycode] = useState('');

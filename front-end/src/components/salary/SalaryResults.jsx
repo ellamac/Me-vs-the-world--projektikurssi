@@ -13,7 +13,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   if (countryAvgSalary.value && worldAvgSalary) {
     country = countryAvgSalary.value;
     countryName = countryAvgSalary.country.value;
-    // world = worldAvgSalary.value;
+    world = worldAvgSalary.value;
   }
   const yearInfoWorld = `World, ${worldAvgSalary.date}`;
   const yearInfoCountry = countryAvgSalary.date;
