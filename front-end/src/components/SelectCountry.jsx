@@ -3,6 +3,9 @@ import Select from 'react-select';
 import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types';
 import countrycodeService from '../services/countrycodes';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import './Styles.css';
 
 const SelectCountry = ({ handleChange }) => {
   const [countrycodes, setCoutrycodes] = useState([]);
@@ -16,9 +19,23 @@ const SelectCountry = ({ handleChange }) => {
   return (
     <>
       <Form.Group controlId='Countryinput'>
-        <Form.Label style={{ color: '#fefefe' }}>Your country</Form.Label>
+        <Row className='row align-items-end'>
+          <Form.Label
+            column
+            xs={5}
+            sm={12}
+            md={12}
+            lg={6}
+            xl={5}
+            className='text-sm-left text-lg-right'
+          >
+            Your country
+          </Form.Label>
 
-        <Select required onChange={handleChange} options={countrycodes} />
+          <Col>
+            <Select required onChange={handleChange} options={countrycodes} />
+          </Col>
+        </Row>
       </Form.Group>
     </>
   );
