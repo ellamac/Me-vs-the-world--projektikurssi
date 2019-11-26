@@ -2,7 +2,7 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import logo from '../images/logo.png';
+import logo from '../images/loading';
 
 const imgStyle = {
   maxHeight: '100px'

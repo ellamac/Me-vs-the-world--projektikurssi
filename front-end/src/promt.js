@@ -6,12 +6,17 @@ const prompt = () => {
   window.addEventListener('beforeinstallprompt', e => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
+
+    const isChrome =
+      !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+    const isBlink = isChrome && !!window.CSS;
+    if (!isChrome || !isBlink) return;
     // Stash the event so it can be triggered later.
     deferredPrompt = e;
     // Update UI to notify the user they can add to home screen
     addBtn.style.display = 'block';
 
-    addBtn.addEventListener('click', event => {
+    addBtn.addEventListener('click', () => {
       // hide our user interface that shows our A2HS button
       addBtn.style.display = 'none';
       // Show the prompt

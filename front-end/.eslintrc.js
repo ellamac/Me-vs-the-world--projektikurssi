@@ -3,7 +3,13 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb/hooks', 'airbnb', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'airbnb/hooks',
+    'airbnb',
+    'prettier'
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -21,6 +27,7 @@ module.exports = {
     'prettier/prettier': ['error'],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    'react/prop-types': 0
   }
 };

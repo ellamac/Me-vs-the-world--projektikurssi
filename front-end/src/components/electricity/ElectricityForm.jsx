@@ -23,8 +23,8 @@ const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
     <ResponsiveForm
       handleSubmit={handleSubmit}
       handleChange={handleChange}
-      controlId={'ElectricityInput'}
-      inputLabel={'Your electricity consumption in kwh'}
+      controlId='ElectricityInput'
+      inputLabel='Your electricity consumption in kwh'
     />
   );
 };

@@ -22,8 +22,8 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     <ResponsiveForm
       handleSubmit={handleSubmit}
       handleChange={handleChange}
-      controlId={'Salaryinput'}
-      inputLabel={'Your education years'}
+      controlId='Salaryinput'
+      inputLabel='Your education years'
       max={100}
       min={0}
     />
