@@ -46,7 +46,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
             color: '#FFF',
             bold: false
           },
-          colors: ['#004D1B'],
+          colors: ['#1B7742'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible', value: 'testi' },
           hAxis: {

@@ -3,6 +3,7 @@ import Chart from 'react-google-charts';
 import PropTypes from 'prop-types';
 import Info from '../Info';
 import '../Styles.css';
+import LoadingIndicator from '../LoadingIndicator';
 
 const ElectricityResults = ({
   avgElectricity,
@@ -50,7 +51,7 @@ const ElectricityResults = ({
             color: '#FFF',
             bold: false
           },
-          colors: ['#004D1B', '#ADD8E6'],
+          colors: ['#1B7742', '#ADD8E6'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {

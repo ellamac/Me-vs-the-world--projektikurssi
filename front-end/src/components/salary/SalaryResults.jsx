@@ -45,7 +45,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
             color: '#FFF',
             bold: false
           },
-          colors: ['#004D1B', '#ADD8E6'],
+          colors: ['#1B7742', '#ADD8E6'],
           legend: { position: 'none' },
           tooltip: { isHtml: true, trigger: 'visible' },
           hAxis: {

@@ -6,7 +6,6 @@ import LoadingIndicator from './components/LoadingIndicator';
 
 ReactDOM.render(
   <div>
-    <LoadingIndicator />
     <App />
   </div>,
   document.getElementById('root')

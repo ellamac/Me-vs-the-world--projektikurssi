@@ -5,6 +5,7 @@ import EducationForm from './EducationForm';
 import educationService from '../../services/education';
 import backg from '../../images/education.jpg';
 import '../Styles.css';
+import LoadingIndicator from '../LoadingIndicator';
 
 const EducationPage = () => {
   const [eduYears, setEduYears] = useState(0);
@@ -26,11 +27,14 @@ const EducationPage = () => {
           setEduYears={setEduYears}
           setCountryEduYears={setCountryEduYears}
         />
-        <EducationResults
-          eduYears={eduYears}
-          countryEduYears={countryEduYears}
-          worldEduYears={worldEduYears}
-        />
+        <div className='loading-container'>
+          <LoadingIndicator />
+          <EducationResults
+            eduYears={eduYears}
+            countryEduYears={countryEduYears}
+            worldEduYears={worldEduYears}
+          />
+        </div>
       </Container>
     </div>
   );

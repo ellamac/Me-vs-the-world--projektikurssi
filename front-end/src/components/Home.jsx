@@ -21,19 +21,6 @@ const Home = () => {
     transform: 'translate(-50%, -50%)'
   };
 
-  const buttonStyle = {
-    display: 'inline-block',
-    color: 'white',
-    background: 'rgba(255, 255, 255, 0)',
-    border: '2px solid #fff',
-    fontWeight: 'bold',
-    borderRadius: '0px',
-    textAlign: 'center',
-    outline: 'none',
-    textDecoration: 'none',
-    margin: '4px'
-  };
-
   return (
     <>
       <div
@@ -54,19 +41,13 @@ const Home = () => {
             </h3>
             <div className='pl-5'>
               <Link to='/salary'>
-                <Button className='m-4' style={buttonStyle}>
-                  Salary
-                </Button>
+                <Button className='m-4 home-btn'>Salary</Button>
               </Link>
               <Link to='/education'>
-                <Button className='m-4' style={buttonStyle}>
-                  Education
-                </Button>
+                <Button className='m-4 home-btn'>Education</Button>
               </Link>
               <Link to='/electricity'>
-                <Button className='m-4' style={buttonStyle}>
-                  Electricity
-                </Button>
+                <Button className='m-4 home-btn'>Electricity</Button>
               </Link>
             </div>
           </div>

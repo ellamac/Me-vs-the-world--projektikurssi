@@ -5,6 +5,7 @@ import ElectricityResults from './ElectricityResults';
 import electrisityService from '../../services/electricity';
 import backg from '../../images/electricity.jpg';
 import '../Styles.css';
+import LoadingIndicator from '../LoadingIndicator';
 
 const ElectricityPage = () => {
   const [worldElectricityData, setWorldElectricityData] = useState('');
@@ -21,7 +22,7 @@ const ElectricityPage = () => {
       <div className='bg' style={{ backgroundImage: `url(${backg})` }}>
         <Container>
           <div />
-          <h1 className='text-center p-5'>
+          <h1 className='text-center py-4'>
             Compare your power consumption to your country and the world!
           </h1>
 
@@ -30,13 +31,16 @@ const ElectricityPage = () => {
             setUserElectricity={setUserElectricity}
             setElectricityData={setElectricityData}
           />
-
-          <ElectricityResults
-            electricity={electricityData}
-            avgElectricity={userElectricity}
-            countryAvgElectricity={electricityData}
-            worldAvgElectricity={worldElectricityData}
-          />
+          <div className='loading-container'>
+            <LoadingIndicator />
+            <ElectricityResults
+              className='loading-base'
+              electricity={electricityData}
+              avgElectricity={userElectricity}
+              countryAvgElectricity={electricityData}
+              worldAvgElectricity={worldElectricityData}
+            />
+          </div>
         </Container>
       </div>
     </>

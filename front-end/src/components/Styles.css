@@ -27,6 +27,7 @@ h1,
 }
 
 /*------------ BUTTONS ------------*/
+
 .btn.btn-primary {
   display: inline-block !important;
   color: white !important;
@@ -37,13 +38,17 @@ h1,
   text-align: center !important;
   outline: none !important;
   text-decoration: none !important;
-  margin: 4px 4px 0 4px !important;
+  margin: 4px 4px 0 4px;
   box-shadow: none !important;
 }
 
 .btn.btn-primary:active,
 .btn.btn-primary:hover {
-  background-color: #004d1b !important;
+  background-color: #1b7742 !important;
+}
+
+.home-btn {
+  margin: 40px 40px 0 40px !important;
 }
 
 /*------------ GOOGLE CHARTS ------------*/
@@ -66,7 +71,7 @@ div.google-visualization-tooltip > ul > li > span {
 .navbar-black {
   background-color: black;
   color: white;
-  position: absolute;
+  position: absolute !important;
 }
 
 .navbar-expand .navbar-nav .nav-link {
@@ -74,55 +79,60 @@ div.google-visualization-tooltip > ul > li > span {
 }
 
 .navbar-expand .navbar-nav .nav-link:hover {
-  background-color: #004d1b !important;
+  background-color: #1b7742 !important;
   color: white !important;
 }
 
 .navbar-img:hover {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(42%) saturate(2261%)
-    hue-rotate(115deg) brightness(89%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(34%) sepia(42%) saturate(798%)
+    hue-rotate(93deg) brightness(96%) contrast(87%);
 }
 
 /*------------ LOADING INDICATOR ------------*/
 
-#overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: block; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  z-index: 100; /* Specify a stack order in case you're using a different order for other elements */
-}
-
-#overlay-text {
+.loading-content {
   width: 200px;
   height: 200px;
   margin: 20px;
   display: inline-block;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   font-size: 50px;
   color: white;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.loading-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.loading-base {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 svg > path {
-  fill: #004d1b;
+  fill: #1b7742;
 }
 
-.loading2_svg__st1 {
+.loading2_svg__st1,
+.prefix__st1 {
   animation: bounce 1.2s infinite;
 }
-.loading2_svg__st2 {
+.loading2_svg__st2,
+.prefix__st2 {
   animation: bounce 1.2s 0.1s infinite;
 }
-.loading2_svg__st3 {
+.loading2_svg__st3,
+.prefix__st3 {
   animation: bounce 1.2s 0.2s infinite;
 }
 
