@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+
 import electricityService from '../../services/electricity';
 import ResponsiveForm from '../ResponsiveForm';
 
 const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
-  const [countrycode, setCoutrycode] = useState('');
+  const [countrycode, setCoutrycode] = useState('fin');
 
   // Handles form submit
   const handleSubmit = e => {
@@ -27,11 +27,6 @@ const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
       inputLabel='Your electricity consumption in kwh'
     />
   );
-};
-
-ElectricityForm.propTypes = {
-  setUserElectricity: PropTypes.func.isRequired,
-  setElectricityData: PropTypes.func.isRequired
 };
 
 export default ElectricityForm;

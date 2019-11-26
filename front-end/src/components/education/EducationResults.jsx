@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 
@@ -10,13 +10,14 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
   let world = 0;
   let info = '';
 
-  if (countryEduYears.value && worldEduYears) {
+  if (countryEduYears.value) {
     country = countryEduYears.value;
     countryName = countryEduYears.country.value;
-    world = worldEduYears.value;
   }
 
-  info = countryEduYears.info;
+  if (worldEduYears) world = worldEduYears.value;
+
+  info = worldEduYears.info;
   const yearInfoWorld = `World, ${worldEduYears.date}`;
   const yearInfoCountry = countryEduYears.date;
 
@@ -72,12 +73,6 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
       <Info dataInfo={info} />
     </>
   );
-};
-
-EducationResults.propTypes = {
-  countryEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  worldEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  eduYears: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 };
 
 export default EducationResults;

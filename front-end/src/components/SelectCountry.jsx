@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types';
-import countrycodeService from '../services/countrycodes';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import countrycodeService from '../services/countrycodes';
 import './Styles.css';
 
 const SelectCountry = ({ handleChange }) => {
@@ -33,7 +33,11 @@ const SelectCountry = ({ handleChange }) => {
           </Form.Label>
 
           <Col>
-            <Select required onChange={handleChange} options={countrycodes} />
+            <Select
+              setValue='fin'
+              onChange={handleChange}
+              options={countrycodes}
+            />
           </Col>
         </Row>
       </Form.Group>

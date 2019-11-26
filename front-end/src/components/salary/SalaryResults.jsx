@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 
@@ -10,14 +10,14 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
   let world = 0;
   let info = '';
 
-  if (countryAvgSalary.value && worldAvgSalary) {
+  if (countryAvgSalary.value) {
     country = countryAvgSalary.value;
     countryName = countryAvgSalary.country.value;
-    world = worldAvgSalary.value;
   }
+  if (worldAvgSalary) world = worldAvgSalary.value;
   const yearInfoWorld = `World, ${worldAvgSalary.date}`;
   const yearInfoCountry = countryAvgSalary.date;
-  info = countryAvgSalary.info;
+  info = worldAvgSalary.info;
 
   return (
     <>
@@ -59,7 +59,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           vAxis: {
             title: 'Salaries',
             titleTextStyle: { color: 'white', italic: false },
-            minValue: 50000,
+            minValue: 20000,
             gridlines: { count: 0, color: 'transparent' },
             textStyle: { color: 'white' },
             viewWindow: { min: 0 },
@@ -71,24 +71,6 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
       <Info dataInfo={info} />
     </>
   );
-};
-
-SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
-  worldAvgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
-  avgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired
 };
 
 export default SalaryResults;

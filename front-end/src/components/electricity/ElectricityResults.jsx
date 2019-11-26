@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 import LoadingIndicator from '../LoadingIndicator';
@@ -15,13 +15,14 @@ const ElectricityResults = ({
   let world = 0;
   let info = '';
 
-  if (countryAvgElectricity.value && worldAvgElectricity) {
+  if (countryAvgElectricity.value) {
     country = countryAvgElectricity.value;
     countryName = countryAvgElectricity.country.value;
-    world = worldAvgElectricity.value;
   }
 
-  info = countryAvgElectricity.info;
+  if (worldAvgElectricity) world = worldAvgElectricity.value;
+
+  info = worldAvgElectricity.info;
   const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
   const yearInfoCountry = countryAvgElectricity.date;
 
@@ -62,7 +63,7 @@ const ElectricityResults = ({
             baselineColor: 'white'
           },
           vAxis: {
-            minValue: 20000,
+            minValue: 10000,
 
             title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
@@ -78,16 +79,6 @@ const ElectricityResults = ({
       <Info dataInfo={info} />
     </>
   );
-};
-
-ElectricityResults.propTypes = {
-  countryAvgElectricity: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]).isRequired,
-  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
-  avgElectricity: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 
 export default ElectricityResults;

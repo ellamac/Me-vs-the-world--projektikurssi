@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+
 import salaryService from '../../services/salary';
 import ResponsiveForm from '../ResponsiveForm';
 
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
-  const [countrycode, setCoutrycode] = useState('');
+  const [countrycode, setCoutrycode] = useState('fin');
 
   // Handles form submit
   const handleSubmit = e => {
@@ -27,11 +27,6 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
       inputLabel='Your salary'
     />
   );
-};
-
-SalaryForm.propTypes = {
-  setUserSalary: PropTypes.func.isRequired,
-  setSalaryData: PropTypes.func.isRequired
 };
 
 export default SalaryForm;

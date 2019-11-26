@@ -6,7 +6,7 @@ const axios = require('axios');
 // Fetches data from WB api and parses it from extra information
 const getEducationData = async code => {
   const address = `https://api.worldbank.org/v2/countries/${code}/indicators/SE.SCH.LIFE?format=json&mrnev=1`;
-  console.log('Adress: ', address);
+
   try {
     const axiosdata = await axios.get(address);
     const [data] = axiosdata.data[1];
@@ -17,6 +17,7 @@ const getEducationData = async code => {
       info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return error;
   }
@@ -42,6 +43,7 @@ router.get('/', async (req, res) => {
       info: `World Bank: ${data.indicator.value}`
     };
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return error;
   }
