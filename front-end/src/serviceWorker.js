@@ -26,6 +26,7 @@ export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     // ________________________________
+    /*
     let deferredPrompt;
     function showAddToHomeScreen() {
       const a2hsBtn = document.querySelector('#ad2hs-prompt');
@@ -56,6 +57,7 @@ export function register(config) {
         deferredPrompt = null;
       });
     }
+    */
 
     // ________________________________
 

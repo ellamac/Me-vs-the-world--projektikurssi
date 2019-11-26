@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from '../images/logosvg.svg';
 import Button from 'react-bootstrap/Button';
+import prompt from './../promt';
 
 const buttonStyle = {
   padding: '0',
@@ -14,6 +15,10 @@ const buttonStyle = {
 };
 
 const TopNavBar = () => {
+  useEffect(() => {
+    prompt.prompt();
+  }, []);
+
   return (
     <>
       <Navbar variant='black'>
@@ -42,7 +47,12 @@ const TopNavBar = () => {
               <Nav.Link>Electricity</Nav.Link>
             </LinkContainer>
             <Nav.Link>
-              <button value='accepted' style={buttonStyle} id='ad2hs-prompt'>
+              <button
+                type='submit'
+                value='accepted'
+                style={buttonStyle}
+                id='add-button'
+              >
                 Add to Home Screen
               </button>
             </Nav.Link>

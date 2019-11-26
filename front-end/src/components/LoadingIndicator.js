@@ -2,7 +2,7 @@ import React from 'react';
 import { usePromiseTracker } from 'react-promise-tracker';
 import Logo from '../images/loading.js';
 
-const LoadingIndicator = props => {
+const LoadingIndicator = () => {
   const { promiseInProgress } = usePromiseTracker();
   return (
     promiseInProgress && (
