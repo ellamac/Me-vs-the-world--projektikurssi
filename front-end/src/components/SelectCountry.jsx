@@ -33,7 +33,11 @@ const SelectCountry = ({ handleChange }) => {
           </Form.Label>
 
           <Col>
-            <Select required onChange={handleChange} options={countrycodes} />
+            <Select
+              setValue='fin'
+              onChange={handleChange}
+              options={countrycodes}
+            />
           </Col>
         </Row>
       </Form.Group>

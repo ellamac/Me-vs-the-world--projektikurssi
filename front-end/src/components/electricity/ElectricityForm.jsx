@@ -4,7 +4,7 @@ import electricityService from '../../services/electricity';
 import ResponsiveForm from '../ResponsiveForm';
 
 const ElectricityForm = ({ setUserElectricity, setElectricityData }) => {
-  const [countrycode, setCoutrycode] = useState('');
+  const [countrycode, setCoutrycode] = useState('fin');
 
   // Handles form submit
   const handleSubmit = e => {
