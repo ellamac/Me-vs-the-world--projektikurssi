@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types';
 import educationService from '../../services/education';
-import SelectCountry from '../SelectCountry';
+import ResponsiveForm from '../ResponsiveForm';
 
 const EducationForm = ({ setEduYears, setCountryEduYears }) => {
   const [countrycode, setCoutrycode] = useState('');
@@ -20,34 +18,15 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
     setCoutrycode(e.value);
   };
 
-  const buttonStyle = {
-    display: 'inline-block',
-    color: 'white',
-    background: 'rgba(255, 255, 255, 0)',
-    border: '2px solid #fff',
-    fontWeight: 'bold',
-    borderRadius: '0px',
-    textAlign: 'center',
-    outline: 'none',
-    textDecoration: 'none',
-    margin: '4px'
-  };
-
   return (
-    <>
-      <Form onSubmit={handleSubmit}>
-        <SelectCountry handleChange={handleChange} />
-        <Form.Group controlId='Salaryinput'>
-          <Form.Label style={{ color: '#fefefe' }}>
-            Your education years
-          </Form.Label>
-          <Form.Control type='number' max='100' min='0' />
-        </Form.Group>
-        <Button style={buttonStyle} variant='primary' type='submit'>
-          Submit
-        </Button>
-      </Form>
-    </>
+    <ResponsiveForm
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      controlId={'Salaryinput'}
+      inputLabel={'Your education years'}
+      max={100}
+      min={0}
+    />
   );
 };
 

@@ -1,7 +1,21 @@
+/*------------ BASICS ------------*/
+
 body,
 html {
   background-color: black;
 }
+
+h1,
+.text-white {
+  color: white;
+  padding: 25px 0 0 0;
+}
+
+.container {
+  padding: 5%;
+}
+
+/*------------ BACKGROUND ------------*/
 
 .bg {
   height: 100vh;
@@ -12,10 +26,27 @@ html {
   z-index: -100;
 }
 
-h1,
-.text-white {
-  color: white;
+/*------------ BUTTONS ------------*/
+.btn.btn-primary {
+  display: inline-block !important;
+  color: white !important;
+  background-color: black !important;
+  border: 2px solid #fff !important;
+  font-weight: bold !important;
+  border-radius: 0px !important;
+  text-align: center !important;
+  outline: none !important;
+  text-decoration: none !important;
+  margin: 4px 4px 0 4px !important;
+  box-shadow: none !important;
 }
+
+.btn.btn-primary:active,
+.btn.btn-primary:hover {
+  background-color: #004d1b !important;
+}
+
+/*------------ GOOGLE CHARTS ------------*/
 
 .google-visualization-tooltip {
   width: 175px;
@@ -30,21 +61,7 @@ div.google-visualization-tooltip > ul > li > span {
   color: white !important;
 }
 
-.btn.btn-primary {
-  background-color: #004d1b;
-}
-
-.btn.btn-primary:active,
-.btn.btn-primary:hover {
-  background-color: #004d1b !important;
-  color: white !important;
-  box-shadow: none !important;
-}
-.btn.btn-primary:focus {
-  background-color: black !important;
-  color: white !important;
-  box-shadow: none !important;
-}
+/*------------ NAVBAR ------------*/
 
 .navbar-black {
   background-color: black;
@@ -60,28 +77,13 @@ div.google-visualization-tooltip > ul > li > span {
   background-color: #004d1b !important;
   color: white !important;
 }
-img.navbar-img:hover {
-  fill: #004d1b;
-}
-
-.dropdown-menu.show {
-  background-color: black;
-  border: 2px solid white;
-}
-
-.dropdown-menu.show .dropdown-item {
-  color: white !important;
-}
-
-.dropdown-menu.show .dropdown-item:hover {
-  background-color: #004d1b !important;
-  color: white !important;
-}
 
 .navbar-img:hover {
   filter: brightness(0) saturate(100%) invert(20%) sepia(42%) saturate(2261%)
     hue-rotate(115deg) brightness(89%) contrast(101%);
 }
+
+/*------------ LOADING INDICATOR ------------*/
 
 #overlay {
   position: fixed; /* Sit on top of the page content */
@@ -108,4 +110,41 @@ img.navbar-img:hover {
   color: white;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+svg > path {
+  fill: #004d1b;
+}
+
+.loading2_svg__st1 {
+  animation: bounce 1.2s infinite;
+}
+.loading2_svg__st2 {
+  animation: bounce 1.2s 0.1s infinite;
+}
+.loading2_svg__st3 {
+  animation: bounce 1.2s 0.2s infinite;
+}
+
+/* Animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(50%);
+  }
+  60% {
+    transform: translateY(-50%);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+/*------------ FORMS ------------*/
+label {
+  color: white;
+  text-align: right;
+  padding-bottom: 0 !important;
 }

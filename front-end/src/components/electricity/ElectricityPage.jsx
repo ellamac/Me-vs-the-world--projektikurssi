@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ElectricityForm from './ElectricityForm';
 import ElectricityResults from './ElectricityResults';
@@ -26,23 +24,19 @@ const ElectricityPage = () => {
           <h1 className='text-center p-5'>
             Compare your power consumption to your country and the world!
           </h1>
-          <Row>
-            <Col xs lg='3'>
-              <ElectricityForm
-                userElectricity={userElectricity}
-                setUserElectricity={setUserElectricity}
-                setElectricityData={setElectricityData}
-              />
-            </Col>
-            <Col>
-              <ElectricityResults
-                electricity={electricityData}
-                avgElectricity={userElectricity}
-                countryAvgElectricity={electricityData}
-                worldAvgElectricity={worldElectricityData}
-              />
-            </Col>
-          </Row>
+
+          <ElectricityForm
+            userElectricity={userElectricity}
+            setUserElectricity={setUserElectricity}
+            setElectricityData={setElectricityData}
+          />
+
+          <ElectricityResults
+            electricity={electricityData}
+            avgElectricity={userElectricity}
+            countryAvgElectricity={electricityData}
+            worldAvgElectricity={worldElectricityData}
+          />
         </Container>
       </div>
     </>

@@ -30,7 +30,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col>
-            <img style={imgStyle} src={logo} alt="Me-VS-World" />
+            <img style={imgStyle} src={logo} alt='Me-VS-World' />
           </Col>
           <Col>
             <h4>Tietoja sovelluksesta ja mahdollisesti sen toteuttajista. </h4>
