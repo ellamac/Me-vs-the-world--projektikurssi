@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 
@@ -72,12 +72,6 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
       <Info dataInfo={info} />
     </>
   );
-};
-
-EducationResults.propTypes = {
-  countryEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  worldEduYears: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  eduYears: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 };
 
 export default EducationResults;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 
@@ -77,16 +77,6 @@ const ElectricityResults = ({
       <Info dataInfo={info} />
     </>
   );
-};
-
-ElectricityResults.propTypes = {
-  countryAvgElectricity: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]).isRequired,
-  worldAvgElectricity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired,
-  avgElectricity: PropTypes.oneOfType([PropTypes.string]).isRequired
 };
 
 export default ElectricityResults;

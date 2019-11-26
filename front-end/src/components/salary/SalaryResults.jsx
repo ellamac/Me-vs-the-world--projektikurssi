@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import PropTypes from 'prop-types';
+
 import Info from '../Info';
 import '../Styles.css';
 
@@ -71,24 +71,6 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
       <Info dataInfo={info} />
     </>
   );
-};
-
-SalaryResults.propTypes = {
-  countryAvgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
-  worldAvgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
-  avgSalary: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired
 };
 
 export default SalaryResults;

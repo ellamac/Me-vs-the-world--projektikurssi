@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+
 import educationService from '../../services/education';
 import ResponsiveForm from '../ResponsiveForm';
 
@@ -28,11 +28,6 @@ const EducationForm = ({ setEduYears, setCountryEduYears }) => {
       min={0}
     />
   );
-};
-
-EducationForm.propTypes = {
-  setEduYears: PropTypes.func.isRequired,
-  setCountryEduYears: PropTypes.func.isRequired
 };
 
 export default EducationForm;
