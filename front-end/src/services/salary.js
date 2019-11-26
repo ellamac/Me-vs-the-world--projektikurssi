@@ -10,6 +10,7 @@ const getWorldSalary = async () => {
 const getCountrysSalary = async code => {
   const postData = { code };
   const response = await trackPromise(axios.post('/api/salary', postData));
+  console.log(response);
   return response.data;
 };
 

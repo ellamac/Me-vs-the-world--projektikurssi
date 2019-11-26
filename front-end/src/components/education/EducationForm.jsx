@@ -4,7 +4,7 @@ import educationService from '../../services/education';
 import ResponsiveForm from '../ResponsiveForm';
 
 const EducationForm = ({ setEduYears, setCountryEduYears }) => {
-  const [countrycode, setCoutrycode] = useState('');
+  const [countrycode, setCoutrycode] = useState('fin');
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -4,7 +4,7 @@ import salaryService from '../../services/salary';
 import ResponsiveForm from '../ResponsiveForm';
 
 const SalaryForm = ({ setUserSalary, setSalaryData }) => {
-  const [countrycode, setCoutrycode] = useState('');
+  const [countrycode, setCoutrycode] = useState('fin');
 
   // Handles form submit
   const handleSubmit = e => {

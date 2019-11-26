@@ -3,8 +3,6 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-// api end point for fetching salary
-
 router.get('/', async (req, res) => {
   try {
     const address =
@@ -16,7 +14,7 @@ router.get('/', async (req, res) => {
       country: data.country,
       date: data.date,
       value: data.value,
-      info: `World Bank: ${data.indicator.value}: ${address}`
+      info: `World Bank: ${data.indicator.value}`
     });
     return res;
   } catch (error) {

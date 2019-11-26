@@ -14,13 +14,14 @@ const ElectricityResults = ({
   let world = 0;
   let info = '';
 
-  if (countryAvgElectricity.value && worldAvgElectricity) {
+  if (countryAvgElectricity.value) {
     country = countryAvgElectricity.value;
     countryName = countryAvgElectricity.country.value;
-    world = worldAvgElectricity.value;
   }
 
-  info = countryAvgElectricity.info;
+  if (worldAvgElectricity) world = worldAvgElectricity.value;
+
+  info = worldAvgElectricity.info;
   const yearInfoWorld = `World, ${worldAvgElectricity.date}`;
   const yearInfoCountry = countryAvgElectricity.date;
 
@@ -61,7 +62,7 @@ const ElectricityResults = ({
             baselineColor: 'white'
           },
           vAxis: {
-            minValue: 20000,
+            minValue: 10000,
 
             title: 'Power consumption',
             titleTextStyle: { color: 'white', italic: false },
