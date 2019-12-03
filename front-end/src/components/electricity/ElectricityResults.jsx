@@ -3,7 +3,6 @@ import Chart from 'react-google-charts';
 
 import Info from '../Info';
 import '../Styles.css';
-import LoadingIndicator from '../LoadingIndicator';
 
 const ElectricityResults = ({
   avgElectricity,

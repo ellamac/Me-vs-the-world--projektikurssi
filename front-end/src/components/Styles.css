@@ -38,7 +38,7 @@ h1,
   text-align: center !important;
   outline: none !important;
   text-decoration: none !important;
-  margin: 4px 4px 0 4px;
+  margin: 4px 2px 0 2px;
   box-shadow: none !important;
 }
 
@@ -48,7 +48,7 @@ h1,
 }
 
 .home-btn {
-  margin: 40px 40px 0 40px !important;
+  margin: 40px 20px 0 20px !important;
 }
 
 /*------------ GOOGLE CHARTS ------------*/

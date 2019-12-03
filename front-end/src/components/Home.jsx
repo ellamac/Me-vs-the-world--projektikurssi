@@ -39,15 +39,15 @@ const Home = () => {
               Click to compare your self to the worlds data on finance,
               education and other subjects!
             </h3>
-            <div className='pl-5'>
+            <div className=''>
               <Link to='/salary'>
-                <Button className='m-4 home-btn'>Salary</Button>
+                <Button className='home-btn'>Salary</Button>
               </Link>
               <Link to='/education'>
-                <Button className='m-4 home-btn'>Education</Button>
+                <Button className='home-btn'>Education</Button>
               </Link>
               <Link to='/electricity'>
-                <Button className='m-4 home-btn'>Electricity</Button>
+                <Button className='home-btn'>Electricity</Button>
               </Link>
             </div>
           </div>
