@@ -22,7 +22,7 @@ const ElectricityPage = () => {
       <div className='bg' style={{ backgroundImage: `url(${backg})` }}>
         <Container>
           <div />
-          <h1 className='text-center py-4'>
+          <h1 className='text-center py-4 mt-5'>
             Compare your power consumption to your country and the world!
           </h1>
 

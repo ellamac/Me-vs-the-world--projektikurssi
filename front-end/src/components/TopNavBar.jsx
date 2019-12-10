@@ -37,9 +37,7 @@ const TopNavBar = () => {
             <LinkContainer to='/'>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/about'>
-              <Nav.Link>About</Nav.Link>
-            </LinkContainer>
+
             <LinkContainer to='/salary'>
               <Nav.Link>Salary</Nav.Link>
             </LinkContainer>
@@ -48,6 +46,9 @@ const TopNavBar = () => {
             </LinkContainer>
             <LinkContainer to='/electricity'>
               <Nav.Link>Electricity</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/about'>
+              <Nav.Link>About</Nav.Link>
             </LinkContainer>
             <Nav.Link>
               <button
