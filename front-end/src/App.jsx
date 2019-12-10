@@ -11,12 +11,13 @@ const App = () => {
   return (
     <Router>
       <TopNavBar />
+
       <div className='d-flex flex-column justify-content-between'>
         <div id='pages'>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
-            <Route exact path='/salary' component={SalaryPage} />
+            <Route exact path='/salary' component={() => <SalaryPage />} />
             <Route exact path='/education' component={EducationPage} />
             <Route exact path='/electricity' component={ElectricityPage} />
           </Switch>

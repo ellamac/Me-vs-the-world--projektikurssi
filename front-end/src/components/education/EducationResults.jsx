@@ -32,7 +32,7 @@ const EducationResults = ({ countryEduYears, worldEduYears, eduYears }) => {
           [yearInfoWorld, world],
           [
             !countryName
-              ? 'Country average'
+              ? 'No Country Data'
               : `${countryName}, ${yearInfoCountry}`,
             country
           ],

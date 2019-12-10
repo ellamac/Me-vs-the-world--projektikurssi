@@ -24,6 +24,7 @@ const SalaryPage = () => {
         <h1 className='text-center py-5'>
           Compare your salary to your country and the world!
         </h1>
+
         <SalaryForm
           userSalary={userSalary}
           setUserSalary={setUserSalary}

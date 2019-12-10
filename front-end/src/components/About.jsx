@@ -1,7 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+<<<<<<< HEAD
 import ListGroup from 'react-bootstrap/ListGroup';
 import logo from '../images/logosvg.svg';
+=======
+//import logo from '../images/logosvg.svg';
+>>>>>>> 2bc6ca9f46885a9c9fce587e8b638068e0d1ded5
 import fullLogo from '../images/logo_white.png';
 
 const About = () => {
