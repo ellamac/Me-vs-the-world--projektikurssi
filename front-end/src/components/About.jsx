@@ -1,11 +1,7 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-<<<<<<< HEAD
 import ListGroup from 'react-bootstrap/ListGroup';
-import logo from '../images/logosvg.svg';
-=======
-//import logo from '../images/logosvg.svg';
->>>>>>> 2bc6ca9f46885a9c9fce587e8b638068e0d1ded5
+import Container from 'react-bootstrap/Container';
+// import logo from '../images/logosvg.svg';
 import fullLogo from '../images/logo_white.png';
 
 const About = () => {
@@ -38,7 +34,7 @@ const About = () => {
         </h5>
         <h5 style={{ color: 'white' }}>Authors:</h5>
 
-        <ListGroup variant='flush'>
+        <ListGroup>
           <ListGroup.Item className='authorlist'>Lassi Mustonen</ListGroup.Item>
           <ListGroup.Item className='authorlist'>Ella Mäkelä </ListGroup.Item>
           <ListGroup.Item className='authorlist'>Joni Pitkänen</ListGroup.Item>
