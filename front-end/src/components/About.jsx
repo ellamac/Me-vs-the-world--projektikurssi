@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import logo from '../images/logosvg.svg';
+//import logo from '../images/logosvg.svg';
 import fullLogo from '../images/logo_white.png';
 
 const About = () => {
