@@ -30,7 +30,7 @@ const SalaryResults = ({ avgSalary, countryAvgSalary, worldAvgSalary }) => {
           [yearInfoWorld, world],
           [
             !countryName
-              ? 'Country average'
+              ? 'No Country Data'
               : `${countryName}, ${yearInfoCountry}`,
             country
           ],
