@@ -158,3 +158,8 @@ label {
   text-align: right;
   padding-bottom: 0 !important;
 }
+
+.authorlist {
+  color: white;
+  background-color: black;
+}
