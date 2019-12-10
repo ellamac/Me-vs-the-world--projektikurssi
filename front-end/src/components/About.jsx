@@ -37,7 +37,7 @@ const About = () => {
         <ListGroup>
           <ListGroup.Item className='authorlist'>Lassi Mustonen</ListGroup.Item>
           <ListGroup.Item className='authorlist'>Ella Mäkelä </ListGroup.Item>
-          <ListGroup.Item className='authorlist'>Joni Pitkänen</ListGroup.Item>
+          <ListGroup.Item className='authorlist'>Joni Kiviluoto</ListGroup.Item>
           <ListGroup.Item className='authorlist'>Lasse Kukkonen</ListGroup.Item>
         </ListGroup>
       </div>
