@@ -34,10 +34,6 @@ const TopNavBar = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
-            <LinkContainer to='/'>
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-
             <LinkContainer to='/salary'>
               <Nav.Link>Salary</Nav.Link>
             </LinkContainer>

@@ -1,6 +1,7 @@
 import React from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
-//import logo from '../images/logosvg.svg';
+// import logo from '../images/logosvg.svg';
 import fullLogo from '../images/logo_white.png';
 
 const About = () => {
@@ -31,6 +32,14 @@ const About = () => {
           University of Jyväskylä, Open Data Student Project, Fall 2019,
           (TIEA207)
         </h5>
+        <h5 style={{ color: 'white' }}>Authors:</h5>
+
+        <ListGroup>
+          <ListGroup.Item className='authorlist'>Lassi Mustonen</ListGroup.Item>
+          <ListGroup.Item className='authorlist'>Ella Mäkelä </ListGroup.Item>
+          <ListGroup.Item className='authorlist'>Joni Kiviluoto</ListGroup.Item>
+          <ListGroup.Item className='authorlist'>Lasse Kukkonen</ListGroup.Item>
+        </ListGroup>
       </div>
     </Container>
   );

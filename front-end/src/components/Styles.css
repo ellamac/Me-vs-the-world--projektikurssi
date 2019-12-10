@@ -162,3 +162,7 @@ label {
 html {
   overflow-x: hidden;
 }
+.authorlist {
+  color: white;
+  background-color: black;
+}
