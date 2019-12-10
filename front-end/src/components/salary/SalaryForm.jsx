@@ -17,7 +17,9 @@ const SalaryForm = ({ setUserSalary, setSalaryData }) => {
   };
 
   // Handles countrycode for select-search
-  const handleChange = e => setCoutrycode(e.value);
+  const handleChange = e => {
+    setCoutrycode(e.value);
+  };
 
   return (
     <ResponsiveForm

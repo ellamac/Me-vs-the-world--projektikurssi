@@ -7,11 +7,6 @@ const prompt = () => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
 
-    const isChrome =
-      !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-    const isBlink = isChrome && !!window.CSS;
-    if (!isChrome || !isBlink) return;
-    // Stash the event so it can be triggered later.
     deferredPrompt = e;
     // Update UI to notify the user they can add to home screen
     addBtn.style.display = 'block';
