@@ -1,4 +1,23 @@
 # ME VS THE WORLD
-TIEA207 projektikurssilla toteutettu open data -sovellus.
 
-https://me-vs-world.herokuapp.com/
+Open data app created on TIEA207 project course
+
+## How to run
+
+Install dependencies
+
+```
+npm install
+```
+
+Start front-end
+
+```
+npm start
+```
+
+Start back-end
+
+```
+npm run watch
+```
